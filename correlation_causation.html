@@ -2657,7 +2657,7 @@ Table&nbsp;29.12: Results of one random trial of the beer poll problem
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_trials):</span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Shuffle the drink labels..</span></span>
 <span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    random_drink <span class="op">=</span> rnd.permuted(drink)</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Note: random_drink is now an array like</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Note — random_drink is now an array like this:</span></span>
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># [1, 0, 1, 1, 1, 0, 0, 1 ...]</span></span>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Subtract the favor/don't favor set from the drink/don't drink set.</span></span>
@@ -2670,7 +2670,7 @@ Table&nbsp;29.12: Results of one random trial of the beer poll problem
 <span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>    consistent <span class="op">=</span> np.<span class="bu">sum</span>(diffs <span class="op">==</span> <span class="dv">0</span>)</span>
 <span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the "inconsistent" responses (those not equal to 0).</span></span>
 <span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>    inconsistent <span class="op">=</span> np.<span class="bu">sum</span>(diffs <span class="op">!=</span> <span class="dv">0</span>)</span>
-<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find the difference</span></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find the difference.</span></span>
 <span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>    diff_diff <span class="op">=</span> consistent <span class="op">-</span> inconsistent</span>
 <span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Keep track of the results of each trial.</span></span>
 <span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>    results[i] <span class="op">=</span> diff_diff</span>
