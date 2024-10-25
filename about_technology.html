@@ -390,6 +390,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Code topics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contributors_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Contributors guide</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -450,16 +456,16 @@ Using Python on the web and on your computer
 <p>Either now, or later, you should also consider running the code on your own computer — see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.9</span></a>.</p>
 </div>
 </div>
-<p>The chapter introduces <span class="python">Python and its libraries</span>, and then gives an example to introduce Python and the Jupyter Notebook. If you have not used Python before, the example notebook will get you started. The example also shows how we will be using notebooks through the rest of the book.</p>
+<p>The chapter introduces <span class="python">Python and its packages</span>, and then gives an example to introduce Python and the Jupyter Notebook. If you have not used Python before, the example notebook will get you started. The example also shows how we will be using notebooks through the rest of the book.</p>
 <section id="python-and-its-packages" class="level2 python" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="python-and-its-packages"><span class="header-section-number">4.1</span> Python and its packages</h2>
-<p>This version of the book uses the <em>Python</em> [^python-lang] programming language to implement resampling algorithms.</p>
-<p>Python is a programming language that can be used for many tasks. It is a popular language for teaching, but is also used widely in industry and academia. It is one of the most widely used programming languages in the world, and the most popular language for data science.</p>
-<p>For many of the initial examples, we will also be using the <em>NumPy</em> [^numpy] package for Python. A <em>package</em> is a library of Python code and data. NumPy is a package that makes it easier to work with sequences of data values, such as sequences of numbers. These are typical in probability and statistics.</p>
-<p>Later, we be using the <em>Matplotlib</em> [^matplotlib] package. This is the main Python package with code for producing plots, such as bar charts, histograms, and scatter plots. See the rest of the book for more details on these plots.</p>
-<p>Still further on in the book, we will use more specialized libraries for data manipulation and analysis. <em>Pandas</em> [^pandas] is the standard Python package for loading data files and working with data tables. <em>SciPy</em> [^scipy] is a package that houses a wide range of numerical routines, including some simple statistical methods. The <em>Statsmodels</em> [^statsmodels] package has code for many more statistical procedures. We will often find ourselves comparing the results of our own resampling algorithms to those in SciPy and Statsmodels.</p>
+<p>This version of the book uses the <em>Python</em>[^python-lang] programming language to implement resampling algorithms.</p>
+<p>Python is a programming language that can be used for many tasks. It is a popular language for teaching, but has also become standard in industry and academia. It is one of the most widely used programming languages in the world, and the most popular language for data science.</p>
+<p>For many of the initial examples, we will also be using the <em>NumPy</em>[^numpy] package for Python. A Python <em>package</em> is a library of Python code and data. NumPy is a package that makes it easier to work with sequences of data values, such as sequences of numbers. These are typical in probability and statistics.</p>
+<p>Later, we be using the <em>Matplotlib</em>[^matplotlib] package. This is the main Python package with code for producing plots, such as bar charts, histograms, and scatter plots. See the rest of the book for more details on these plots.</p>
+<p>Still further on in the book, we will use more specialized libraries for data manipulation and analysis. <em>Pandas</em>[^pandas] is the standard Python package for loading data files and working with data tables. <em>SciPy</em>[^scipy] is a package that houses a wide range of numerical routines, including some simple statistical methods. The <em>Statsmodels</em>[^statsmodels] package has code for many more statistical procedures. We will find ourselves comparing the results of our own resampling algorithms to those in SciPy and Statsmodels.</p>
 </section>
-<p>It is very important that Python is a <em>programming language</em> and not a set of canned routines for “doing statistics”. It means that we can explore the <em>ideas</em> of probability and statistics using the <em>language</em> of Python to express those ideas. It also means that you, and we, and anyone else in the world, can write new code to share with others, so they can benefit from our work, understand it, and improve it. This book is one example; we have written the Python code in this book as clearly as we can to make it easy to follow, and to explain the underlying ideas. We hope you will help us by testing what we have done and sending us suggestions for ways we could improve. Please see the preface for more information about how to do that.</p>
+<p>It is very important that Python is a <em>programming language</em> and not a set of canned routines for “doing statistics”. It means that we can explore the <em>ideas</em> of probability and statistics using the <em>language</em> of Python to express those ideas. It also means that you, and we, and anyone else in the world, can write new code to share with others, so they can benefit from our work, understand it, and improve it. This book is one example; we have written the Python code in this book as clearly as we can to make it easy to follow, and to explain the underlying ideas. We hope you will help us by testing what we have done and sending us suggestions for ways we could improve. Please see <a href="preface_third.html#sec-book-as-public" class="quarto-xref"><span>Section 6</span></a> for more information about how to do that.</p>
 <section id="the-environment" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="the-environment"><span class="header-section-number">4.2</span> The environment</h2>
 <p>Many of the chapters have sections with code for you to run, and experiment with. These sections contain <em>Jupyter notebooks</em> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>]. Jupyter notebooks are interactive web pages that allow you to read, write and run Python code. We mark the start of each notebook in the text with a note and link heading like the one you see below. In the web edition of this book, you can click on the <em>Download</em> link in this header to download the section as a notebook. You can also click on the <em>Interact</em> link in this header to open the notebook on a cloud computer. This allows you to interact with the notebook on the cloud computer. You can run the code, and experiment by making changes.</p>
@@ -697,7 +703,7 @@ Note&nbsp;4.2: Download links and data files
 <li>Statsmodels - for traditional statistical analysis.</li>
 <li>Jupyter - to run the Jupyter Notebook on your own computer.</li>
 </ul>
-<p>One way to install Python and the packages you need, is to install Python from the Python website [^python-lang]. Then use the <em>Pip</em> [^pip] installer to install the packages you need.</p>
+<p>One way to install Python and the packages you need, is to install Python from the Python website[^python-lang]. Then use the <em>Pip</em>[^pip] installer to install the packages you need.</p>
 <p>To install the Python packages, first start a terminal application on your computer. To do this, you can use the Start key, “cmd” in Windows, or the Command key and space then “Terminal” on Mac. At the terminal prompt, type the following command:</p>
 <p>Now you should be able to start the Jupyter notebook application. See the <a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#starting-the-notebook-server">Jupyter documentation for how to start Jupyter</a>. Open the notebook you downloaded for the chapter; you will now be able to run the code on your own computer, and experiment by making changes.</p>
 </div>
