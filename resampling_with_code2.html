@@ -440,13 +440,12 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#more-on-s" id="toc-more-on-s" class="nav-link" data-scroll-target="#more-on-s"><span class="header-section-number">6.4.1</span> More on arrays</a></li>
   </ul></li>
-  <li><a href="#sec-array-length" id="toc-sec-array-length" class="nav-link" data-scroll-target="#sec-array-length"><span class="header-section-number">6.5</span> <span class="python">Array</span> length</a></li>
+  <li><a href="#sec-array-length" id="toc-sec-array-length" class="nav-link" data-scroll-target="#sec-array-length"><span class="header-section-number">6.5</span> length</a></li>
   <li><a href="#sec-array-indexing" id="toc-sec-array-indexing" class="nav-link" data-scroll-target="#sec-array-indexing"><span class="header-section-number">6.6</span> Indexing into arrays with integers</a>
   <ul class="collapse">
   <li><a href="#repeating-trials" id="toc-repeating-trials" class="nav-link" data-scroll-target="#repeating-trials"><span class="header-section-number">6.6.1</span> Repeating trials</a></li>
   <li><a href="#sec-for-loops" id="toc-sec-for-loops" class="nav-link" data-scroll-target="#sec-for-loops"><span class="header-section-number">6.6.2</span> For-loops in Python</a></li>
-  <li><a href="#sec-for-range" id="toc-sec-for-range" class="nav-link" data-scroll-target="#sec-for-range"><span class="header-section-number">6.6.3</span> <code>range</code> in Python <code>for</code> loops</a></li>
-  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">6.6.4</span> Putting it all together</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">6.6.3</span> Putting it all together</a></li>
   </ul></li>
   <li><a href="#many-many-trials" id="toc-many-many-trials" class="nav-link" data-scroll-target="#many-many-trials"><span class="header-section-number">6.7</span> Many many trials</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6.8</span> Conclusion</a></li>
@@ -525,7 +524,7 @@ div.csl-indent {
 </section>
 <section id="sec-random-zero-through-ninety-nine" class="level3" data-number="6.3.3">
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="sec-random-zero-through-ninety-nine"><span class="header-section-number">6.3.3</span> Random numbers from 0 through 99</h3>
-<p>We can now use NumPy and <span class="python">the random number functions</span> from the last chapter to get 12 random numbers from 0 through 99.</p>
+<p>We can now use NumPy and from the last chapter to get 12 random numbers from 0 through 99.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the Numpy library, rename as "np"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -547,7 +546,7 @@ div.csl-indent {
 </div>
 <section id="counting-the-jurors" class="level4" data-number="6.3.3.1">
 <h4 data-number="6.3.3.1" class="anchored" data-anchor-id="counting-the-jurors"><span class="header-section-number">6.3.3.1</span> Counting the jurors</h4>
-<p>We use <em>comparison</em> and <span class="python"><code>np.sum</code></span> to count how many numbers are greater than 74, and therefore, in the range from 75 through 99:</p>
+<p>We use <em>comparison</em> and to count how many numbers are greater than 74, and therefore, in the range from 75 through 99:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How many numbers are greater than 74?</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">&gt;</span> <span class="dv">74</span>)</span>
@@ -593,7 +592,7 @@ div.csl-indent {
 <section id="more-on-s" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="more-on-s"><span class="header-section-number">6.4.1</span> More on arrays</h3>
 <p>Since we will be working with arrays a lot, it is worth knowing more about them.</p>
-<p>A <span class="python">NumPy array</span> is a <em>container</em> that stores many elements of the same type. You have already seen, in <a href="resampling_method.html" class="quarto-xref"><span>Chapter 2</span></a>, how we can create an array from a sequence of numbers using the <span class="python"><code>np.array</code></span> function.</p>
+<p>A is a <em>container</em> that stores many elements of the same type. You have already seen, in <a href="resampling_method.html" class="quarto-xref"><span>Chapter 2</span></a>, how we can create an array from a sequence of numbers using the function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make an array of numbers, store with the name "some_numbers".</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>some_numbers <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>])</span>
@@ -603,7 +602,7 @@ div.csl-indent {
 <pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
 </div>
 </div>
-<p>Another way that we can create arrays is to use the <span class="python"><code>np.zeros</code></span> function to make a new array where all the elements are 0.</p>
+<p>Another way that we can create arrays is to use the function to make a new array where all the elements are 0.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a new array containing 5 zeros.</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># store with the name "z".</span></span>
@@ -614,12 +613,12 @@ div.csl-indent {
 <pre><code>array([0., 0., 0., 0., 0.])</code></pre>
 </div>
 </div>
-<p>Notice the argument <code>5</code> to the <span class="python"><code>np.zeros</code></span> function. This tells the function how many zeros we want in the array that the function will return.</p>
+<p>Notice the argument <code>5</code> to the function. This tells the function how many zeros we want in the array that the function will return.</p>
 </section>
 </section>
 <section id="sec-array-length" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="sec-array-length"><span class="header-section-number">6.5</span> <span class="python">Array</span> length</h2>
-<p>The are various useful things we can do with this array container. One is to ask how many elements there are in the array container. We can use the <span class="python"><code>len</code></span> function to calculate the number of elements in an array:</p>
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-array-length"><span class="header-section-number">6.5</span> length</h2>
+<p>The are various useful things we can do with this array container. One is to ask how many elements there are in the array container. We can use the function to calculate the number of elements in an array:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the number of elements in "z"</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -640,10 +639,7 @@ div.csl-indent {
 <pre><code>array([99.,  0.,  0.,  0.,  0.])</code></pre>
 </div>
 </div>
-<p>Read the first line of code as “the element at position <span class="python">0</span> gets a value of 99”.</p>
-<div class="python">
-<p>Notice that the position number of the first element in the array is 0, and the position number of the second element is 1. Think of the position as an <em>offset</em> from the beginning of the array. The first element is at the beginning of the array, and so it is at offset (position) 0. This can be a little difficult to get used to at first, but you will find that thinking of the positions of offsets in this way soon starts to come naturally, and later you will also find that it helps you to avoid some common mistakes when using positions for getting and setting values.</p>
-</div>
+<p>Read the first line of code as “the element at position gets a value of 99”.</p>
 <p>For practice, let us also set the value of the third element in the array:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the value of the *third* element in the array.</span></span>
@@ -654,7 +650,7 @@ div.csl-indent {
 <pre><code>array([99.,  0., 99.,  0.,  0.])</code></pre>
 </div>
 </div>
-<p>Read the first code line above as as “set the value at position <span class="python">2</span> in the array to have the value 99”.</p>
+<p>Read the first code line above as as “set the value at position in the array to have the value 99”.</p>
 <p>We can also <em>get</em> the value of the element at a given position, using the same square-bracket notation:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the value of the *first* element in the array.</span></span>
@@ -666,7 +662,7 @@ div.csl-indent {
 <pre><code>np.float64(99.0)</code></pre>
 </div>
 </div>
-<p>Read the first code line here as “v gets the value at position <span class="python">0</span> in the array”.</p>
+<p>Read the first code line here as “v gets the value at position in the array”.</p>
 <p>Using square brackets to get and set element values is called <em>indexing</em> into the array.</p>
 <section id="repeating-trials" class="level3" data-number="6.6.1">
 <h3 data-number="6.6.1" class="anchored" data-anchor-id="repeating-trials"><span class="header-section-number">6.6.1</span> Repeating trials</h3>
@@ -809,40 +805,35 @@ Author birth year is 1980</code></pre>
 </div>
 </div>
 <p>The <code>for</code> loop starts with a line where we tell it what items we want to repeat the procedure for:</p>
-<div class="python">
-<pre><code>for birth_year in author_birth_years:</code></pre>
-<p>This <em>initial line</em> of the <code>for</code> loop ends with a colon.</p>
-<p>The next thing in the <code>for</code> loop is the procedure Python should follow for each item. Python knows that the following lines are the procedure it should repeat, because the lines are <em>indented</em>. The <em>indented</em> lines are the <em>body of the for loop</em>.</p>
-</div>
 <p>The initial line of the <code>for</code> loop above tells Python that it should take <em>each item</em> in <code>author_birth_years</code>, one by one — first 1932, then 1964, then 1980. For each of these numbers it will:</p>
 <ul>
 <li>Put the number into the variable <code>birth_year</code>, then</li>
-<li>Run the <span class="python">indented</span> code .</li>
+<li>Run the code .</li>
 </ul>
 <p>Just as the person at the supermarket checkout takes each item in turn, for each iteration (repeat) of the <code>for</code> loop, <code>birth_year</code> gets a new value from the sequence in <code>author_birth_years</code>. <code>birth_year</code> is called the <em>loop variable</em>, because it is the variable that gets a new value each time we begin a new iteration of the <code>for</code> loop procedure. As for any variable in Python, we can call our loop variable anything we like. We used <code>birth_year</code> here, but we could have used <code>y</code> or <code>year</code> or some other name.</p>
 <p>Now you know what the <code>for</code> loop is doing, you can see that the <code>for</code> loop above is equivalent to the following code:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>birth_year <span class="op">=</span> <span class="dv">1932</span>  <span class="co"># Set the loop variable to contain the first value.</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Author birth year is'</span>, birth_year)  <span class="co"># Use it.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>birth_year <span class="op">=</span> <span class="dv">1932</span>  <span class="co"># Set the loop variable to contain the first value.</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Author birth year is'</span>, birth_year)  <span class="co"># Use it.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Author birth year is 1932</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>birth_year <span class="op">=</span> <span class="dv">1964</span>  <span class="co"># Set the loop variable to contain the next value.</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Author birth year is'</span>, birth_year)  <span class="co"># Use the second value.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>birth_year <span class="op">=</span> <span class="dv">1964</span>  <span class="co"># Set the loop variable to contain the next value.</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Author birth year is'</span>, birth_year)  <span class="co"># Use the second value.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Author birth year is 1964</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>birth_year <span class="op">=</span> <span class="dv">1980</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Author birth year is'</span>, birth_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>birth_year <span class="op">=</span> <span class="dv">1980</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Author birth year is'</span>, birth_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Author birth year is 1980</code></pre>
 </div>
 </div>
 <p>Writing the steps in the <code>for</code> loop out like this is called <em>unrolling</em> the loop. It can be a useful exercise to do this when you come across a <code>for</code> loop, in order to work through the logic of the loop. For example, you may want to write out the unrolled equivalent of the first couple of iterations, to see what the loop variable will be, and what will happen in the body of the loop.</p>
-<p>We often use <code>for</code> loops with ranges (see <a href="resampling_with_code.html#sec-ranges" class="quarto-xref"><span>Section 5.9</span></a>). Here we use a loop to print out the numbers <span class="python">0 through 3</span>:</p>
+<p>We often use <code>for</code> loops with ranges (see <a href="resampling_with_code.html#sec-ranges" class="quarto-xref"><span>Section 5.9</span></a>). Here we use a loop to print out the numbers :</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(<span class="dv">4</span>):</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The loop variable n is'</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(<span class="dv">4</span>):</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The loop variable n is'</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The loop variable n is 0
 The loop variable n is 1
@@ -850,101 +841,68 @@ The loop variable n is 2
 The loop variable n is 3</code></pre>
 </div>
 </div>
-<p>Notice that the range ended at <span class="python">(the number before)</span> 4, and that means we repeat the loop body 4 times. We can also use the loop variable value from the range as an <em>index</em>, to get or set the first, second, etc values from an array.</p>
+<p>Notice that the range ended at 4, and that means we repeat the loop body 4 times. We can also use the loop variable value from the range as an <em>index</em>, to get or set the first, second, etc values from an array.</p>
 <p>For example, maybe we would like to show the author position <em>and</em> the author year of birth.</p>
 <p>Remember our author birth years:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>author_birth_years</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>author_birth_years</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([1932, 1964, 1980])</code></pre>
 </div>
 </div>
 <p>We can get (for example) the second author birth year with:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>author_birth_years[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>author_birth_years[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(1964)</code></pre>
 </div>
 </div>
-<div class="python">
-<p>Remember, for Python, the first element is position 0, so the second element is position 1.</p>
-</div>
 <p>Using the combination of looping over a range, and array indexing, we can print out the author position <em>and</em> the author birth year:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(<span class="dv">3</span>):</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    year <span class="op">=</span> author_birth_years[n]</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(<span class="dv">3</span>):</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    year <span class="op">=</span> author_birth_years[n]</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Birth year of author position 0 is 1932
 Birth year of author position 1 is 1964
 Birth year of author position 2 is 1980</code></pre>
 </div>
 </div>
-<div class="python">
-<p>Again, remember Python considers 0 as the first position.</p>
-</div>
 <p>Just for practice, let us unroll the three iterations through this <code>for</code> loop, to remind ourselves what the code is doing:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unrolling the for loop.</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> author_birth_years[n]  <span class="co"># Will be 1932</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unrolling the for loop.</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> author_birth_years[n]  <span class="co"># Will be 1932</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Birth year of author position 0 is 1932</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> author_birth_years[n]  <span class="co"># Will be 1964</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> author_birth_years[n]  <span class="co"># Will be 1964</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Birth year of author position 1 is 1964</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> author_birth_years[n]  <span class="co"># Will be 1980</span></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> author_birth_years[n]  <span class="co"># Will be 1980</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Birth year of author position 2 is 1980</code></pre>
 </div>
 </div>
 </section>
-<section id="sec-for-range" class="level3 python" data-number="6.6.3">
-<h3 data-number="6.6.3" class="anchored" data-anchor-id="sec-for-range"><span class="header-section-number">6.6.3</span> <code>range</code> in Python <code>for</code> loops</h3>
-<p>So far we have used <code>np.arange</code> to give us the sequence of integers that we feed into the <code>for</code> loop. But — as you saw in <a href="resampling_with_code.html#sec-python-range" class="quarto-xref"><span>Section 5.10</span></a> — we can also get a range of numbers from Python’s <code>range</code> function. <code>range</code> is a common and useful alternative way to provide a range of numbers to a <code>for</code> loop.</p>
-<p>You have just seen how we would use <code>np.arange</code> to send the numbers 0, 1, 2, and 3 to a <code>for</code> loop, in the example above, repeated here:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(<span class="dv">3</span>):</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    year <span class="op">=</span> author_birth_years[n]</span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Birth year of author position 0 is 1932
-Birth year of author position 1 is 1964
-Birth year of author position 2 is 1980</code></pre>
-</div>
-</div>
-<p>We could also use <code>range</code> instead of <code>np.arange</code> to do the same task:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    year <span class="op">=</span> author_birth_years[n]</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Birth year of author position'</span>, n, <span class="st">'is'</span>, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Birth year of author position 0 is 1932
-Birth year of author position 1 is 1964
-Birth year of author position 2 is 1980</code></pre>
-</div>
-</div>
-<p>In fact, you will see this pattern throughout the book, where we use <code>for</code> statements like <code>for value in range(10000):</code> to ask Python to put each number in the range 0 up to (not including) 10000 into the variable <code>value</code>, and then do something in the body of the loop. Just to be clear, we could always, and almost as easily, write <code>for value in np.arange(10000):</code> to do the same task. However, we generally prefer <code>range</code> in our Python <code>for</code> loops, because it is just a little less typing (without the <code>np.a</code> of <code>np.arange</code>), and because it is a more common pattern in standard Python code.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-</section>
-<section id="putting-it-all-together" class="level3" data-number="6.6.4">
-<h3 data-number="6.6.4" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">6.6.4</span> Putting it all together</h3>
+<section id="putting-it-all-together" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">6.6.3</span> Putting it all together</h3>
 <p>Here is the code we worked out above, to implement a single trial:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>zero_thru_99 <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get 12 random numbers from 0 through 99</span></span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> rnd.choice(zero_thru_99, size<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="co"># How many numbers are greater than 74?</span></span>
-<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">&gt;</span> <span class="dv">74</span>)</span>
-<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
-<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>zero_thru_99 <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get 12 random numbers from 0 through 99</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> rnd.choice(zero_thru_99, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co"># How many numbers are greater than 74?</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">&gt;</span> <span class="dv">74</span>)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(4)</code></pre>
 </div>
@@ -952,28 +910,28 @@ Birth year of author position 2 is 1980</code></pre>
 <p>We found that we could use arrays to store the results of these trials, and that we could use <code>for</code> loops to repeat the same procedure many times.</p>
 <p>Now we can put these parts together to do 50 simulated trials:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Procedure for 50 simulated trials.</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The Numpy random number generator.</span></span>
-<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
-<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="co"># All the numbers from 0 through 99.</span></span>
-<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>zero_through_99 <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
-<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="co"># An array to store the counts for each trial.</span></span>
-<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">50</span>)</span>
-<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat the trial procedure 50 times.</span></span>
-<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">50</span>):</span>
-<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get 12 random numbers from 0 through 99</span></span>
-<span id="cb61-15"><a href="#cb61-15" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> rnd.choice(zero_through_99, size<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb61-16"><a href="#cb61-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># How many numbers are greater than 74?</span></span>
-<span id="cb61-17"><a href="#cb61-17" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">&gt;</span> <span class="dv">74</span>)</span>
-<span id="cb61-18"><a href="#cb61-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the result at the next position in the "z" array.</span></span>
-<span id="cb61-19"><a href="#cb61-19" aria-hidden="true" tabindex="-1"></a>    z[i] <span class="op">=</span> b</span>
-<span id="cb61-20"><a href="#cb61-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Now go back and do the next trial until finished.</span></span>
-<span id="cb61-21"><a href="#cb61-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result of all 50 trials.</span></span>
-<span id="cb61-22"><a href="#cb61-22" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Procedure for 50 simulated trials.</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The Numpy random number generator.</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="co"># All the numbers from 0 through 99.</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>zero_through_99 <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="co"># An array to store the counts for each trial.</span></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">50</span>)</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat the trial procedure 50 times.</span></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">50</span>):</span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get 12 random numbers from 0 through 99</span></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> rnd.choice(zero_through_99, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># How many numbers are greater than 74?</span></span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">&gt;</span> <span class="dv">74</span>)</span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the result at the next position in the "z" array.</span></span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>    z[i] <span class="op">=</span> b</span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Now go back and do the next trial until finished.</span></span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result of all 50 trials.</span></span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([4., 2., 3., 3., 4., 1., 4., 2., 7., 2., 3., 1., 6., 2., 5., 5., 3.,
        1., 3., 4., 2., 2., 2., 4., 3., 4., 4., 2., 3., 3., 3., 1., 3., 1.,
@@ -983,20 +941,20 @@ Birth year of author position 2 is 1980</code></pre>
 <p>Finally, we need to count how many of the trials in <code>z</code> ended up with all-white juries. These are the trials with a <code>z</code> (count) value of 0.</p>
 <p>To do this, we can ask an array which elements match a certain condition. E.g.:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">0</span>])</span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">&lt;</span> <span class="dv">2</span></span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">0</span>])</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">&lt;</span> <span class="dv">2</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([False,  True, False,  True])</code></pre>
 </div>
 </div>
 <p>We now use that same technique to ask, of <em>each of the 50 counts</em>, whether the array <code>z</code> is equal to 0, like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the value of z equal to 0?</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>all_white <span class="op">=</span> z <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result of the comparison.</span></span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>all_white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the value of z equal to 0?</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>all_white <span class="op">=</span> z <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result of the comparison.</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>all_white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([False, False, False, False, False, False, False, False, False,
        False, False, False, False, False, False, False, False, False,
@@ -1008,21 +966,21 @@ Birth year of author position 2 is 1980</code></pre>
 </div>
 <p>We need to get the number of <code>True</code> values in <code>all_white</code>, to find how many simulated trials gave all-white juries.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of True values in "all_white"</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the same as the number of values in "z" that are equal to 0.</span></span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>n_all_white <span class="op">=</span> np.<span class="bu">sum</span>(all_white)</span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result of the comparison.</span></span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>n_all_white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of True values in "all_white"</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the same as the number of values in "z" that are equal to 0.</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>n_all_white <span class="op">=</span> np.<span class="bu">sum</span>(all_white)</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result of the comparison.</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>n_all_white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(0)</code></pre>
 </div>
 </div>
 <p><code>n_all_white</code> is the number of simulated trials for which all the jury members were white. It only remains to get the proportion of trials for which this was true, and to do this, we divide by the number of trials.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of trials where all jury members were white.</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> n_all_white <span class="op">/</span> <span class="dv">50</span></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of trials where all jury members were white.</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> n_all_white <span class="op">/</span> <span class="dv">50</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.0)</code></pre>
 </div>
@@ -1036,19 +994,19 @@ Birth year of author position 2 is 1980</code></pre>
 <p>It is no extra trouble for us to tell the computer to do a very large number of trials. For example, we might want to run 10,000 trials instead of 50. All we have to do is to run the loop 10,000 times instead of 50 times. The computer has to do more work, but it is more than up to the job.</p>
 <p>Here is exactly the same code we ran above, but collected into one cell, and using 10,000 trials instead of 50. We have left out the comments, to make the code more compact.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Full simulation procedure, with 10,000 trials.</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>zero_through_99 <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
-<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 10,000 trials.</span></span>
-<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">10000</span>)</span>
-<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">10000</span>):</span>
-<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> rnd.choice(zero_through_99, size<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">&gt;</span> <span class="dv">74</span>)</span>
-<span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a>    z[i] <span class="op">=</span> b</span>
-<span id="cb71-10"><a href="#cb71-10" aria-hidden="true" tabindex="-1"></a>all_white <span class="op">=</span> z <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb71-11"><a href="#cb71-11" aria-hidden="true" tabindex="-1"></a>n_all_white <span class="op">=</span> <span class="bu">sum</span>(all_white)</span>
-<span id="cb71-12"><a href="#cb71-12" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> n_all_white <span class="op">/</span> <span class="dv">10000</span></span>
-<span id="cb71-13"><a href="#cb71-13" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Full simulation procedure, with 10,000 trials.</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>zero_through_99 <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 10,000 trials.</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">10000</span>)</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">10000</span>):</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> rnd.choice(zero_through_99, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">&gt;</span> <span class="dv">74</span>)</span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>    z[i] <span class="op">=</span> b</span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>all_white <span class="op">=</span> z <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>n_all_white <span class="op">=</span> <span class="bu">sum</span>(all_white)</span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> n_all_white <span class="op">/</span> <span class="dv">10000</span></span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.0305)</code></pre>
 </div>
@@ -1068,12 +1026,6 @@ Birth year of author position 2 is 1980</code></pre>
 Ani Adhikari, John DeNero, and David Wagner. 2021. <em>Computational and Inferential Thinking: The Foundations of Data Science</em>. <a href="https://inferentialthinking.com" class="uri">https://inferentialthinking.com</a>. <a href="https://inferentialthinking.com">https://inferentialthinking.com</a>.
 </div>
 </div>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Actually, there is a reason why many Python programmers prefer <code>range</code> to <code>np.arange</code> in the headers for their <code>for</code> loops. <code>range</code> is a very efficient container, in that it doesn’t need to take up all the memory required to create the full array, it just needs to keep track of the number to give you next. For example, consider <code>for i in    np.arange(10000000):</code> — in this case Python has to make an array with 10,000,000 elements, and then, from that array, it passes each value one by one to the <code>for</code> loop. On the other hand, <code>for i in range(10000000):</code> will do the job just as well, passing the same sequence of 0 through 9,999,999 to <code>i</code>, one by one, but <code>range(10000000)</code> never has to make the whole 10,000,000 element array — it just needs to keep track of which number to give up next. Therefore <code>range</code> is very quick, and very efficient in memory. This doesn’t have any great practical impact for the arrays we are using here, typically of 10,0000 elements or so, but it can be important for larger arrays.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->

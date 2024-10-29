@@ -462,10 +462,8 @@ window.Quarto = {
   <li><a href="#household-income-and-congressional-districts" id="toc-household-income-and-congressional-districts" class="nav-link active" data-scroll-target="#household-income-and-congressional-districts"><span class="header-section-number">16.1</span> Household income and congressional districts</a>
   <ul class="collapse">
   <li><a href="#sec-csv-format" id="toc-sec-csv-format" class="nav-link" data-scroll-target="#sec-csv-format"><span class="header-section-number">16.1.1</span> Comma-separated-values (CSV) format</a></li>
-  <li><a href="#sec-pandas-intro" id="toc-sec-pandas-intro" class="nav-link" data-scroll-target="#sec-pandas-intro"><span class="header-section-number">16.1.2</span> Introducing the Pandas library</a></li>
-  <li><a href="#incomes-and-ranks" id="toc-incomes-and-ranks" class="nav-link" data-scroll-target="#incomes-and-ranks"><span class="header-section-number">16.1.3</span> Incomes and Ranks</a></li>
-  <li><a href="#introducing-scipy" id="toc-introducing-scipy" class="nav-link" data-scroll-target="#introducing-scipy"><span class="header-section-number">16.1.4</span> Introducing Scipy</a></li>
-  <li><a href="#calculating-ranks" id="toc-calculating-ranks" class="nav-link" data-scroll-target="#calculating-ranks"><span class="header-section-number">16.1.5</span> Calculating ranks</a></li>
+  <li><a href="#incomes-and-ranks" id="toc-incomes-and-ranks" class="nav-link" data-scroll-target="#incomes-and-ranks"><span class="header-section-number">16.1.2</span> Incomes and Ranks</a></li>
+  <li><a href="#calculating-ranks" id="toc-calculating-ranks" class="nav-link" data-scroll-target="#calculating-ranks"><span class="header-section-number">16.1.3</span> Calculating ranks</a></li>
   </ul></li>
   <li><a href="#comparing-two-values-in-the-district-income-data" id="toc-comparing-two-values-in-the-district-income-data" class="nav-link" data-scroll-target="#comparing-two-values-in-the-district-income-data"><span class="header-section-number">16.2</span> Comparing two values in the district income data</a></li>
   <li><a href="#comparing-values-with-ranks-and-quantile-positions" id="toc-comparing-values-with-ranks-and-quantile-positions" class="nav-link" data-scroll-target="#comparing-values-with-ranks-and-quantile-positions"><span class="header-section-number">16.3</span> Comparing values with ranks and quantile positions</a></li>
@@ -768,181 +766,57 @@ Note&nbsp;16.1: Download links with data files
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Up till now, the Download links for notebook files point to a single file — the <em>notebook</em>. The <span class="python">Jupyter notebook file has extension <code>.ipynb</code></span> .</p>
-<p>From now on, some examples involve reading a data file. In order to run the notebook, you need the notebook file (with extension<span class="python"><code>.ipynb</code></span>) as well as the data file. For those cases, the download link points to a <code>.zip</code> file containing the notebook file and the data file. To run the example on your computer, download the <code>.zip</code> file, extract the contents, and then open the notebook file using Jupyter.</p>
+<p>Up till now, the Download links for notebook files point to a single file — the <em>notebook</em>. The .</p>
+<p>From now on, some examples involve reading a data file. In order to run the notebook, you need the notebook file (with extension) as well as the data file. For those cases, the download link points to a <code>.zip</code> file containing the notebook file and the data file. To run the example on your computer, download the <code>.zip</code> file, extract the contents, and then open the notebook file using Jupyter.</p>
 </div>
 </div>
-</section>
-<section id="sec-pandas-intro" class="level3 python" data-number="16.1.2">
-<h3 data-number="16.1.2" class="anchored" data-anchor-id="sec-pandas-intro"><span class="header-section-number">16.1.2</span> Introducing the Pandas library</h3>
-<div class="notebook" name="starting_pandas" title="Starting with Pandas">
-<p>Start of <code>starting_pandas</code> notebook</p>
-<div class="nb-links">
-<a class="notebook-link" href="notebooks/starting_pandas.zip">Download zip with notebook + data file</a>
-<a class="interact-button" href="./interact/lab/index.html?path=starting_pandas.ipynb">Interact</a>
-</div>
-
-<p>Here we use the Pandas library to load table data into Python.</p>
-<p>Thus far we have used the Numpy library to work with data in arrays. As always with Python, when we want to use a library — like Numpy, or Pandas — we have to <code>import</code> it first.</p>
-<p>We have used the term <em>library</em> here, but Python uses the term <em>module</em> to refer to libraries of code and data that you <code>import</code>. We will use the terms “library” and “module” to mean the same thing — a Python module.</p>
-<p>When using Numpy, we write:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the Numpy library (module), name it "np".</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we will use the Pandas library (module).</p>
-<p>We can import Pandas like this:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the Pandas library (module)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>As Numpy has a standard abbreviation <code>np</code>, that almost everyone writing Python code will recognize and use, so Pandas has the standard abbreviation <code>pd</code>:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the Pandas library (module), name it "pd".</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Pandas is the standard data science library for Python. It is particularly good at loading data files, and presenting them to us as a useful table-like structure, called a <em>data frame</em>.</p>
-<p>We start by using Pandas to load our data file:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>district_income <span class="op">=</span> pd.read_csv(<span class="st">'data/congress_2023.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We have thus far done many operations that returned Numpy <em>arrays</em>. <code>pd.read_csv</code> returns a Pandas <em>data frame</em>:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(district_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;</code></pre>
-</div>
-</div>
-<p>A data frame is Pandas’ own way of representing a table, with columns and rows. You can think of it as Python’s version of a spreadsheet. As strings or Numpy arrays have <em>methods</em> (functions attached to the array), so Pandas data frames have methods. These methods do things with the data frame to which they are attached. For example, the <code>head</code> method of the data frame shows (by default) the first five rows in the table:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five rows in the data frame</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>district_income.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Ascending_Rank     District  Median_Income     Representative       Party
-0               1  PR-At Large          22237  J. González-Colón  Republican
-1               2  AS-At Large          28352         A. Coleman  Republican
-2               3  MP-At Large          31362          G. Sablan    Democrat
-3               4         KY-5          37910          H. Rogers  Republican
-4               5         MS-2          37933     B. G. Thompson    Democrat</code></pre>
-</div>
-</div>
-<p>The data are in income order, from lowest to highest, so the first five districts are those with the lowest household income.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Sorting
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If the data were not already in income order, we could have sorted them with NumPy’s <code>sort</code> function.</p>
-</div>
-</div>
-<p>We are particularly interested in the column named <code>Median_Income</code>.</p>
-<p>You may remember the idea of <em>indexing</em>, introduced in <a href="resampling_with_code2.html#sec-array-indexing" class="quarto-xref"><span>Section 6.6</span></a>. Indexing occurs when we fetch data from within a container, such as a string or an array. We do this by putting square brackets <code>[]</code> after the value we want to index into, and put something inside the brackets to say what we want.</p>
-<p>For example, to get the <em>first</em> element of the <code>priv</code> array above, we use indexing:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch the first element of the priv array with indexing.</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the element at position 0.</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>priv[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>np.float64(4.82)</code></pre>
-</div>
-</div>
-<p>As you can index into strings and Numpy arrays, by using square brackets, so you can index into Pandas data frames. Instead of putting the <em>position</em> between the square brackets, we can put the <em>column name</em>. This fetches the data from that column, returning a new type of value called a Pandas <em>Series</em>.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Index into Pandas data frame to get one column of data.</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice we use a string between the square brackets, giving the column name.</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>income_col <span class="op">=</span> district_income[<span class="st">'Median_Income'</span>]</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The value that comes back is of type Series.  A Series represents the</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data from a single column.</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(income_col)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.series.Series'&gt;</code></pre>
-</div>
-</div>
-<p>We want to go straight to our familiar Numpy arrays, so we convert the column of data into a Numpy array, using the <code>np.array</code> function you have already seen:</p>
-<!---
-Need to introduce indexing with slices.
--->
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert column data into a Numpy array.</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>incomes <span class="op">=</span> np.array(income_col)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five values, by indexing with a slice.</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>incomes[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>array([22237, 28352, 31362, 37910, 37933])</code></pre>
-</div>
-</div>
-<p>End of <code>starting_pandas</code> notebook</p>
-</div>
-<!---
-End of notebook.
--->
-</section>
 <!---
 End of python block
 -->
 <!---
 End of R block
 -->
-<section id="incomes-and-ranks" class="level3" data-number="16.1.3">
-<h3 data-number="16.1.3" class="anchored" data-anchor-id="incomes-and-ranks"><span class="header-section-number">16.1.3</span> Incomes and Ranks</h3>
+</section>
+<section id="incomes-and-ranks" class="level3" data-number="16.1.2">
+<h3 data-number="16.1.2" class="anchored" data-anchor-id="incomes-and-ranks"><span class="header-section-number">16.1.2</span> Incomes and Ranks</h3>
 <p>We now have the <code>incomes</code> values as an array.</p>
 <p>There are 441 values in the whole vector, one of each congressional district:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>441</code></pre>
 </div>
 </div>
 <p>While we are at it, let us also get the values from the “Ascending_Rank” column, with the same procedure. These are ranks from low to high, meaning 1 is the lowest median income, and 441 is the highest median income.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lo_to_hi_ranks <span class="op">=</span> np.array(district_income[<span class="st">'Ascending_Rank'</span>])</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five values, by indexing with a slice.</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>lo_to_hi_ranks[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lo_to_hi_ranks <span class="op">=</span> np.array(district_income[<span class="st">'Ascending_Rank'</span>])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five values, by indexing with a slice.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>lo_to_hi_ranks[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([1, 2, 3, 4, 5])</code></pre>
 </div>
 </div>
-<p>In our case, the <span class="python">DataFrame</span> has the <code>Ascending_Rank</code> column with the ranks we need, but if we need the ranks and we don’t have them, we can calculate them using the <span class="python"><code>rankdata</code> function from the Scipy <code>stats</code> package</span>.</p>
+<p>In our case, the has the <code>Ascending_Rank</code> column with the ranks we need, but if we need the ranks and we don’t have them, we can calculate them using the .</p>
 </section>
-<section id="introducing-scipy" class="level3 python" data-number="16.1.4">
-<h3 data-number="16.1.4" class="anchored" data-anchor-id="introducing-scipy"><span class="header-section-number">16.1.4</span> Introducing Scipy</h3>
-<p>Earlier in this chapter we introduced the Pandas module. We used Pandas to load the CSV data into Python.</p>
-<p>Now we introduce another fundamental Python library for working with data called Scipy. The name Scipy comes from the compression of SCIentific PYthon, and the library is nearly as broad as the name suggests — it is a huge collection of functions and data that implement a wide range of scientific algorithms. Scipy is an umbrella package, in that it contains sub-packages, each covering a particular field of scientific computing. One of those sub-packages is called <code>stats</code>, and, yes, it covers statistics.</p>
-<p>We can get the Scipy <code>stats</code> sub-package with:</p>
+<section id="calculating-ranks" class="level3" data-number="16.1.3">
+<h3 data-number="16.1.3" class="anchored" data-anchor-id="calculating-ranks"><span class="header-section-number">16.1.3</span> Calculating ranks</h3>
+<p>As you might expect accepts an array as an input argument. Let’s say that there are values in the array that we pass to . The function returns an array, length <span class="math inline">\(n\)</span>, where the elements are the ranks of each corresponding element in the input <code>data</code> array. A rank value of 1 corresponds the lowest value in <code>data</code> (closest to negative infinity), and a rank of <span class="math inline">\(n\)</span> corresponds to the highest value (closest to positive infinity).</p>
+<p>Here’s an example <code>data</code> array to show how works.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>but, as for Numpy and Pandas, we often <code>import</code> the package with an abbreviation, such as:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the scipy.stats package with the name "sps".</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> sps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>One of the many functions in <code>scipy.stats</code> is the <code>rankdata</code> function.</p>
-</section>
-<section id="calculating-ranks" class="level3" data-number="16.1.5">
-<h3 data-number="16.1.5" class="anchored" data-anchor-id="calculating-ranks"><span class="header-section-number">16.1.5</span> Calculating ranks</h3>
-<p>As you might expect <span class="python"><code>sps.rankdata</code></span> accepts an array as an input argument. Let’s say that there are <span class="python"><code>n = len(data)</code></span> values in the array that we pass to <span class="python"><code>sps.rankdata</code></span>. The function returns an array, length <span class="math inline">\(n\)</span>, where the elements are the ranks of each corresponding element in the input <code>data</code> array. A rank value of 1 corresponds the lowest value in <code>data</code> (closest to negative infinity), and a rank of <span class="math inline">\(n\)</span> corresponds to the highest value (closest to positive infinity).</p>
-<p>Here’s an example <code>data</code> array to show how <span class="python"><code>sps.rankdata</code></span> works.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The data.</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="op">-</span><span class="dv">2</span>])</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Corresponding ranks for the data.</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sps.rankdata(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The data.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="op">-</span><span class="dv">2</span>])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Corresponding ranks for the data.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sps.rankdata(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([3., 2., 4., 1.])</code></pre>
 </div>
 </div>
-<p>We can use <span class="python"><code>sps.rankdata</code></span> to recalculate the ranks for the congressional median household income values.</p>
+<p>We can use to recalculate the ranks for the congressional median household income values.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recalculate the ranks.</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>recalculated_ranks <span class="op">=</span> sps.rankdata(incomes)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first 5 ranks.</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>recalculated_ranks[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recalculate the ranks.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>recalculated_ranks <span class="op">=</span> sps.rankdata(incomes)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first 5 ranks.</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>recalculated_ranks[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([1., 2., 3., 4., 5.])</code></pre>
 </div>
@@ -952,7 +826,7 @@ End of R block
 <section id="comparing-two-values-in-the-district-income-data" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="comparing-two-values-in-the-district-income-data"><span class="header-section-number">16.2</span> Comparing two values in the district income data</h2>
 <p>Let us say that we have taken an interest in two particular members of Congress: the Speaker of the House of Representatives, Republican <a href="https://en.wikipedia.org/wiki/Kevin_McCarthy">Kevin McCarthy</a>, and the progressive activist and Democrat <a href="https://en.wikipedia.org/wiki/Alexandria_Ocasio-Cortez">Alexandria Ocasio-Cortez</a>. We will refer to both using their initials: KM for Kevin Owen McCarthy and AOC for Alexandra Ocasio-Cortez.</p>
-<p>By scrolling through the CSV file, or (in our case) using some simple <span class="python">Pandas</span> code that we won’t cover now, we find the rows corresponding to McCarthy (KM) and Ocasio-Cortez (AOC) — <a href="#tbl-rows-of-interest" class="quarto-xref">Table&nbsp;<span>16.3</span></a>.</p>
+<p>By scrolling through the CSV file, or (in our case) using some simple code that we won’t cover now, we find the rows corresponding to McCarthy (KM) and Ocasio-Cortez (AOC) — <a href="#tbl-rows-of-interest" class="quarto-xref">Table&nbsp;<span>16.3</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="tbl-rows-of-interest" class="lightable-paper lightable-striped lightable-hover quarto-float quarto-figure quarto-figure-center anchored" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
@@ -995,33 +869,33 @@ Table&nbsp;16.3: Rows for Kevin McCarthy and Alexandra Ocasio-Cortez
 
 </div>
 </div>
-<p>The rows show the <em>rank</em> of each congressional district in terms of median household income. The districts are ordered by this rank, so we can get their respective <em>indices</em> (positions) in the <code>incomes</code> array from their rank. <span class="python">Remember, Python’s indices start at 0, whereas the ranks start at 1, so we need to subtract 1 from the rank to get the index</span></p>
+<p>The rows show the <em>rank</em> of each congressional district in terms of median household income. The districts are ordered by this rank, so we can get their respective <em>indices</em> (positions) in the <code>incomes</code> array from their rank. </p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rank of McCarthy's district in terms of median household income.</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>km_rank <span class="op">=</span> <span class="dv">295</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Index (position) of McCarthy's value in the "incomes" array.</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Subtract one from rank, because Python starts indices at 0 rather than 1.</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>km_index <span class="op">=</span> km_rank <span class="op">-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rank of McCarthy's district in terms of median household income.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>km_rank <span class="op">=</span> <span class="dv">295</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Index (position) of McCarthy's value in the "incomes" array.</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Subtract one from rank, because Python starts indices at 0 rather than 1.</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>km_index <span class="op">=</span> km_rank <span class="op">-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we have the index (position) of KM’s value, we can find the household income for his district from the <code>incomes</code> array:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the median household income from McCarthy's district</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># by indexing into the "incomes" array:</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>km_income <span class="op">=</span> incomes[km_index]</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>km_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the median household income from McCarthy's district</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># by indexing into the "incomes" array:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>km_income <span class="op">=</span> incomes[km_index]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>km_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(77205)</code></pre>
 </div>
 </div>
 <p>Here is the corresponding index and <code>incomes</code> value for AOC:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Index (position) of AOC's value in the "incomes" array.</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>aoc_rank <span class="op">=</span> <span class="dv">81</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>aoc_index <span class="op">=</span> aoc_rank <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the median household income from AOC's district</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># by indexing into the "incomes" array:</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>aoc_income <span class="op">=</span> incomes[aoc_index]</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>aoc_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Index (position) of AOC's value in the "incomes" array.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>aoc_rank <span class="op">=</span> <span class="dv">81</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>aoc_index <span class="op">=</span> aoc_rank <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the median household income from AOC's district</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># by indexing into the "incomes" array:</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>aoc_income <span class="op">=</span> incomes[aoc_index]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>aoc_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(56129)</code></pre>
 </div>
@@ -1042,14 +916,14 @@ Table&nbsp;16.3: Rows for Kevin McCarthy and Alexandra Ocasio-Cortez
 <p>Now consider the rank of <span class="math inline">\(100\)</span>. It has got <span class="math inline">\(\frac{(100 - 1)}{440}\)</span> of the way along the line, and the QP position is 0.22.</p>
 <p>More generally, we can translate the high-to-low ranks to QPs with:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Length of the line defining quantile positions.</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Start of line is rank 1 (quantile position 0).</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># End of line is rank 441 (quantile position 1).</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> <span class="bu">len</span>(lo_to_hi_ranks) <span class="op">-</span> <span class="dv">1</span>  <span class="co"># 440 in our case.</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># What proportion along the line does each value get to?</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>quantile_positions <span class="op">=</span> (lo_to_hi_ranks <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> distance</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five.</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>quantile_positions[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Length of the line defining quantile positions.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Start of line is rank 1 (quantile position 0).</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># End of line is rank 441 (quantile position 1).</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> <span class="bu">len</span>(lo_to_hi_ranks) <span class="op">-</span> <span class="dv">1</span>  <span class="co"># 440 in our case.</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># What proportion along the line does each value get to?</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>quantile_positions <span class="op">=</span> (lo_to_hi_ranks <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> distance</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five.</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>quantile_positions[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([0.        , 0.00227273, 0.00454545, 0.00681818, 0.00909091])</code></pre>
 </div>
@@ -1066,54 +940,54 @@ Table&nbsp;16.3: Rows for Kevin McCarthy and Alexandra Ocasio-Cortez
 </div>
 <p>The QPs for KM and AOC tell us where their districts’ incomes are in the ranks, on a 0 to 1 scale:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>km_quantile_position <span class="op">=</span> quantile_positions[km_index]</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>km_quantile_position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>km_quantile_position <span class="op">=</span> quantile_positions[km_index]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>km_quantile_position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.6681818181818182)</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>aoc_quantile_position <span class="op">=</span> quantile_positions[aoc_index]</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>aoc_quantile_position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>aoc_quantile_position <span class="op">=</span> quantile_positions[aoc_index]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>aoc_quantile_position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.18181818181818182)</code></pre>
 </div>
 </div>
 <p>If we multiply the QP by 100, we get the <em>percentile positions</em> — so the percentile position ranges from 0 through 100.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Percentile positions are just quantile positions * 100</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'KM percentile position:'</span>, km_quantile_position <span class="op">*</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Percentile positions are just quantile positions * 100</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'KM percentile position:'</span>, km_quantile_position <span class="op">*</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>KM percentile position: 66.81818181818183</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'AOC percentile position:'</span>, aoc_quantile_position <span class="op">*</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'AOC percentile position:'</span>, aoc_quantile_position <span class="op">*</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>AOC percentile position: 18.181818181818183</code></pre>
 </div>
 </div>
 <p>Now consider one particular QP: <span class="math inline">\(0.5\)</span>. The <span class="math inline">\(0.5\)</span> QP is exactly half-way along the line from rank <span class="math inline">\(1\)</span> to rank <span class="math inline">\(441\)</span>. In our case this corresponds to rank <span class="math inline">\(\frac{441 - 1}{2} + 1 = 221\)</span>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For rank 221 we need index 220, because Python indices start at 0</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Middle rank:'</span>, lo_to_hi_ranks[<span class="dv">220</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For rank 221 we need index 220, because Python indices start at 0</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Middle rank:'</span>, lo_to_hi_ranks[<span class="dv">220</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Middle rank: 221</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Quantile position:'</span>, quantile_positions[<span class="dv">220</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Quantile position:'</span>, quantile_positions[<span class="dv">220</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Quantile position: 0.5</code></pre>
 </div>
 </div>
 <p>The <em>value</em> corresponding to any particular QP is the <em>quantile value</em>, or just the <em>quantile</em> for short. For a QP of 0.5, the <em>quantile</em> (quantile value) is:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantile value for 0.5</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Quantile value for QP of 0.5:'</span>, incomes[<span class="dv">220</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantile value for 0.5</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Quantile value for QP of 0.5:'</span>, incomes[<span class="dv">220</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Quantile value for QP of 0.5: 67407</code></pre>
 </div>
 </div>
 <p>In fact we can ask Python for this <em>value</em> (quantile) directly, using the <code>quantile</code> function:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>np.quantile(incomes, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>np.quantile(incomes, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(67407.0)</code></pre>
 </div>
@@ -1128,13 +1002,13 @@ Table&nbsp;16.3: Rows for Kevin McCarthy and Alexandra Ocasio-Cortez
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In our case, the <code>incomes</code> data is already sorted from lowest (at position <span class="python">0</span> in the array to highest (at position <span class="python">440</span> in the array). The <code>quantile</code> function does not need the data to be sorted; it does its own internal sorting to do the calculation.</p>
+<p>In our case, the <code>incomes</code> data is already sorted from lowest (at position in the array to highest (at position in the array). The <code>quantile</code> function does not need the data to be sorted; it does its own internal sorting to do the calculation.</p>
 <p>For example, we could shuffle <code>incomes</code> into a random order, and still get the same values from <code>quantile</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>shuffled_incomes <span class="op">=</span> rnd.permuted(incomes)</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantile still gives the same value.</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>np.quantile(incomes, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>shuffled_incomes <span class="op">=</span> rnd.permuted(incomes)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantile still gives the same value.</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>np.quantile(incomes, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(67407.0)</code></pre>
 </div>
@@ -1142,33 +1016,33 @@ Table&nbsp;16.3: Rows for Kevin McCarthy and Alexandra Ocasio-Cortez
 </div>
 </div>
 <p>Above we have the 0.5 <em>quantile</em> — the value corresponding to the QP of 0.5.</p>
-<p>The 0.5 quantile is an interesting value. By the definition of QP, exactly half of the remaining values (after excluding the 0.5 quantile value) have lower rank, and are therefore less than the 0.5 quantile value. Similarly exactly half of the remaining values are greater than the 0.5 quantile. You may recognize this as the <em>median</em> value. This is such a common quantile value that NumPy has a function <span class="python"><code>np.median</code></span> as a shortcut for <span class="python"><code>np.quantile(data, 0.5)</code></span>.</p>
+<p>The 0.5 quantile is an interesting value. By the definition of QP, exactly half of the remaining values (after excluding the 0.5 quantile value) have lower rank, and are therefore less than the 0.5 quantile value. Similarly exactly half of the remaining values are greater than the 0.5 quantile. You may recognize this as the <em>median</em> value. This is such a common quantile value that NumPy has a function as a shortcut for .</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>np.median(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>np.median(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(67407.0)</code></pre>
 </div>
 </div>
 <p>Another interesting QP is 0.25. We find the QP of 0.25 at rank:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>qp25_rank <span class="op">=</span> (<span class="dv">441</span> <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="fl">0.25</span> <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>qp25_rank</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>qp25_rank <span class="op">=</span> (<span class="dv">441</span> <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="fl">0.25</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>qp25_rank</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>111.0</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Therefore, index 110 (Python indices start from 0)</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Rank corresponding to QP 0.25:'</span>, qp25_rank)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Therefore, index 110 (Python indices start from 0)</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Rank corresponding to QP 0.25:'</span>, qp25_rank)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rank corresponding to QP 0.25: 111.0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'0.25 quantile value:'</span>, incomes[<span class="dv">110</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'0.25 quantile value:'</span>, incomes[<span class="dv">110</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.25 quantile value: 58961</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'0.25 quantile value using np.quantile:'</span>,</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>      np.quantile(incomes, <span class="fl">0.25</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'0.25 quantile value using np.quantile:'</span>,</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>      np.quantile(incomes, <span class="fl">0.25</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.25 quantile value using np.quantile: 58961.0</code></pre>
 </div>
@@ -1185,8 +1059,8 @@ Table&nbsp;16.3: Rows for Kevin McCarthy and Alexandra Ocasio-Cortez
 <p>Call the 0.25 quantile value <span class="math inline">\(V\)</span>. <span class="math inline">\(V\)</span> is the number such that 25% of the <em>remaining</em> values are less than <span class="math inline">\(V\)</span>, and 75% are greater.</p>
 <p>Now let’s think about the 0.01 quantile. We don’t have an <em>income value</em> exactly corresponding to this QP, because there is no rank exactly corresponding to the 0.01 QP.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>rank_for_qp001 <span class="op">=</span> (<span class="dv">441</span> <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="fl">0.01</span> <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>rank_for_qp001</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>rank_for_qp001 <span class="op">=</span> (<span class="dv">441</span> <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="fl">0.01</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>rank_for_qp001</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5.4</code></pre>
 </div>
@@ -1212,7 +1086,7 @@ Table&nbsp;16.3: Rows for Kevin McCarthy and Alexandra Ocasio-Cortez
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>np.quantile(incomes, <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>np.quantile(incomes, <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(38887.4)</code></pre>
 </div>
@@ -1280,7 +1154,7 @@ Calculating quantiles using the linear method
 </div>
 <p>What could we mean by “outside” the “typical spread”. By outside, we mean somewhere away from the center of the distribution. Let us take the mean of the distribution to be its center, and add that to the plot.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>mean_income <span class="op">=</span> np.mean(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>mean_income <span class="op">=</span> np.mean(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1297,7 +1171,7 @@ Calculating quantiles using the linear method
 <p>Now let us ask what we could mean by <em>typical spread</em>. By <em>spread</em> we mean deviation either side of the center.</p>
 <p>We can calculate how far away each income is away from the mean, by subtracting the mean from all the income values. Call the result — the <em>deviations</em> from the mean, or <em>deviations</em> for short.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>deviations <span class="op">=</span> incomes <span class="op">-</span> np.mean(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>deviations <span class="op">=</span> incomes <span class="op">-</span> np.mean(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The deviation values give, for each district, how far that district’s income is from the mean. Values near the mean will have small (positive or negative) values, and values further from the mean will have large (positive and negative) values. Here is a histogram of the <em>deviation</em> values.</p>
 <div class="cell" data-layout-align="center">
@@ -1311,8 +1185,8 @@ Calculating quantiles using the linear method
 </div>
 <p>Notice that the shape of the distribution has not changed — all that changed is the position of the distribution on the x-axis. In fact, the distribution of deviations centers on zero — the deviations have a mean of (as near as the computer can accurately calculate) zero:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the mean of the deviations, rounded to 8 decimal places.</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(np.mean(deviations), <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the mean of the deviations, rounded to 8 decimal places.</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(np.mean(deviations), <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.0)</code></pre>
 </div>
@@ -1322,11 +1196,11 @@ Calculating quantiles using the linear method
 <h2 data-number="16.6" class="anchored" data-anchor-id="the-mean-absolute-deviation"><span class="header-section-number">16.6</span> The mean absolute deviation</h2>
 <p>Now let us consider the deviation value for KM and AOC:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation for KM:'</span>, deviations[km_index])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation for KM:'</span>, deviations[km_index])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Deviation for KM: 5098.036281179142</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation for AOC:'</span>, deviations[aoc_index])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation for AOC:'</span>, deviations[aoc_index])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Deviation for AOC: -15977.963718820858</code></pre>
 </div>
@@ -1342,19 +1216,19 @@ Calculating quantiles using the linear method
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;16.2: The <span class="python"><code>np.abs</code></span> function
+Note&nbsp;16.2: The function
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <span class="python"><code>np.abs</code></span> function will knock minus signs off negative values, like this:</p>
+<p>The function will knock minus signs off negative values, like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">abs</span>(<span class="op">-</span><span class="fl">3.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">abs</span>(<span class="op">-</span><span class="fl">3.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(3.1)</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">abs</span>([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">abs</span>([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([1, 0, 1, 2])</code></pre>
 </div>
@@ -1363,11 +1237,11 @@ Note&nbsp;16.2: The <span class="python"><code>np.abs</code></span> function
 </div>
 <p>To get an average of the deviations, <em>regardless of whether they are positive or negative</em>, we can take the mean of the absolute deviations, like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Mean Absolute Deviation (MAD)</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>abs_deviations <span class="op">=</span> np.<span class="bu">abs</span>(deviations)</span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>mad <span class="op">=</span> np.mean(abs_deviations)</span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>mad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Mean Absolute Deviation (MAD)</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>abs_deviations <span class="op">=</span> np.<span class="bu">abs</span>(deviations)</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>mad <span class="op">=</span> np.mean(abs_deviations)</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>mad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(15101.657570662428)</code></pre>
 </div>
@@ -1375,11 +1249,11 @@ Note&nbsp;16.2: The <span class="python"><code>np.abs</code></span> function
 <p>This is the Mean Absolute Deviation (MAD). It is one measure of the typical spread. MAD is the average distance (regardless of positive or negative) of a value from the mean of the values.</p>
 <p>We can get an idea of how typical a particular deviation is by dividing the deviation by the MAD value, like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation in MAD units for KM:'</span>, deviations[km_index] <span class="op">/</span> mad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation in MAD units for KM:'</span>, deviations[km_index] <span class="op">/</span> mad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Deviation in MAD units for KM: 0.33758123949803737</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation in MAD units AOC:'</span>, deviations[aoc_index] <span class="op">/</span> mad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation in MAD units AOC:'</span>, deviations[aoc_index] <span class="op">/</span> mad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Deviation in MAD units AOC: -1.0580271499375542</code></pre>
 </div>
@@ -1393,17 +1267,17 @@ Note&nbsp;16.2: The <span class="python"><code>np.abs</code></span> function
 <h3 data-number="16.7.1" class="anchored" data-anchor-id="sec-squared-arrays"><span class="header-section-number">16.7.1</span> Squares of values and arrays</h3>
 <p>Another very popular way of solving the same problem is to precede the calculation by squaring all the deviations. Python has an operator for the operation of taking values to the power of another value: it is <code>**</code>. For example, to square a single number, we take the number <em>to the power of</em> 2, like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 to the power of 2.</span></span>
-<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 to the power of 2.</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>100</code></pre>
 </div>
 </div>
 <p>You can also use the power of <code>**</code> operator on an array, and, as usual, that works <em>elementwise</em>. The array you get back is the result of applying the to-the-power-of operation to all elements of the array in turn:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>an_arr <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">12</span>])</span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co"># All the elements in the array, to the power of 2.</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>an_arr <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>an_arr <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">12</span>])</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="co"># All the elements in the array, to the power of 2.</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>an_arr <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([  4, 100, 144])</code></pre>
 </div>
@@ -1413,9 +1287,9 @@ Note&nbsp;16.2: The <span class="python"><code>np.abs</code></span> function
 <h3 data-number="16.7.2" class="anchored" data-anchor-id="calculating-the-standard-deviation"><span class="header-section-number">16.7.2</span> Calculating the standard deviation</h3>
 <p>We can therefore square the deviations we calculated above, like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>squared_deviations <span class="op">=</span> deviations <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five values.</span></span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>squared_deviations[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>squared_deviations <span class="op">=</span> deviations <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five values.</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>squared_deviations[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([2.48701328e+09, 1.91449685e+09, 1.66015207e+09, 1.16943233e+09,
        1.16785980e+09])</code></pre>
@@ -1439,7 +1313,7 @@ m * 10^n
 <p><span class="math inline">\(m\)</span> is a floating point number with one digit before the decimal point — so it can be any value from 1.0 through 9.9999… <span class="math inline">\(n\)</span> is an integer (positive or negative whole number).</p>
 <p>For example, the median household income of KM’s district is 77205 (dollars). We can express that same number in E-notation as <span class="math inline">\(7.7205 * 10^4\)</span> . Python writes this as <code>7.7205e4</code>, where the number before the <code>e</code> is <span class="math inline">\(m\)</span> and the number after the <code>e</code> is the exponent value <span class="math inline">\(n\)</span>. E-notation is another way of writing the number, because <span class="math inline">\(7.7205 * 10^4 = 77205\)</span>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fl">7.7205e4</span> <span class="op">==</span> <span class="dv">77205</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fl">7.7205e4</span> <span class="op">==</span> <span class="dv">77205</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
@@ -1451,58 +1325,30 @@ m * 10^n
 <p>The process of squaring the deviations turns all the negative values into positive values.</p>
 <p>We can then take the average (mean) of the <em>squared deviations</em> to give a measure of the typical <em>squared</em> deviation:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>mean_squared_deviation <span class="op">=</span> np.mean(squared_deviations)</span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>mean_squared_deviation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>mean_squared_deviation <span class="op">=</span> np.mean(squared_deviations)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>mean_squared_deviation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(385971462.1165975)</code></pre>
 </div>
 </div>
 <p>Rather confusingly, the field of statistics uses the term <em>variance</em> to refer to mean squared deviation value. Just to emphasize that naming, let’s do the same calculation but using “variance” as the variable name.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistics calls the mean squared deviation - the "variance"</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>variance <span class="op">=</span> np.mean(squared_deviations)</span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistics calls the mean squared deviation - the "variance"</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>variance <span class="op">=</span> np.mean(squared_deviations)</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(385971462.1165975)</code></pre>
-</div>
-</div>
-<div class="python">
-<p>It will come as no surprise to find that Numpy has a function to do the whole variance calculation — subtracting the mean, and returning the average squared deviation — <code>np.var</code>:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use np.var to calculate the mean squared deviation directly.</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>np.var(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>np.float64(385971462.1165975)</code></pre>
-</div>
 </div>
 </div>
 <p>The variance is the typical (in the sense of the mean) <em>squared</em> deviation. The units for the variance, in our case, would be <em>squared dollars</em>. But we are more interested in the typical <em>deviation</em>, in our original units – dollars rather than squared dollars.</p>
 <p>So we take the square root of the mean squared deviation (the square root of the variance), to get the <em>standard deviation</em>. It is the <em>standard</em> deviation in the sense that it a measure of <em>typical</em> deviation, in the specific sense of the square root of the mean squared deviations.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The standard deviation is the square root of the mean squared deviation.</span></span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (and therefore, the square root of the variance).</span></span>
-<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>standard_deviation <span class="op">=</span> np.sqrt(mean_squared_deviation)</span>
-<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>standard_deviation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The standard deviation is the square root of the mean squared deviation.</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (and therefore, the square root of the variance).</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>standard_deviation <span class="op">=</span> np.sqrt(mean_squared_deviation)</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>standard_deviation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(19646.156420954136)</code></pre>
-</div>
-</div>
-<div class="python">
-<p>Again, Numpy has a function to do this calculation directly: <code>np.std</code>:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use np.std to calculate the square root of the mean squared deviation</span></span>
-<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co"># directly.</span></span>
-<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>np.std(incomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>np.float64(19646.156420954136)</code></pre>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Of course, np.std(incomes) is the same as:</span></span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>np.sqrt(np.var(incomes))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>np.float64(19646.156420954136)</code></pre>
-</div>
 </div>
 </div>
 <p>The <em>standard deviation</em> (the square root of the mean squared deviation) is a popular alternative to the Mean Absolute Deviation, as a measure of typical spread.</p>
@@ -1523,15 +1369,15 @@ Figure&nbsp;16.1: Income histogram plus or minus 1 and 2 standard deviations
 </div>
 <p>Now let us return to the question of how unusual our two congressional districts are in terms of the distribution. First we calculate the number of standard deviations of each district from the mean:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>km_std_devs <span class="op">=</span> deviations[km_index] <span class="op">/</span> standard_deviation</span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation in standard deviation units for KM:'</span>,</span>
-<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>      np.<span class="bu">round</span>(km_std_devs, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>km_std_devs <span class="op">=</span> deviations[km_index] <span class="op">/</span> standard_deviation</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation in standard deviation units for KM:'</span>,</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>      np.<span class="bu">round</span>(km_std_devs, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Deviation in standard deviation units for KM: 0.26</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>aoc_std_devs <span class="op">=</span> deviations[aoc_index] <span class="op">/</span> standard_deviation</span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation in standard deviation units for AOC:'</span>,</span>
-<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>      np.<span class="bu">round</span>(aoc_std_devs, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>aoc_std_devs <span class="op">=</span> deviations[aoc_index] <span class="op">/</span> standard_deviation</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Deviation in standard deviation units for AOC:'</span>,</span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>      np.<span class="bu">round</span>(aoc_std_devs, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Deviation in standard deviation units for AOC: -0.81</code></pre>
 </div>
@@ -1549,14 +1395,14 @@ Figure&nbsp;16.1: Income histogram plus or minus 1 and 2 standard deviations
 <p>Let’s apply that procedure to all the <code>incomes</code> values.</p>
 <p>First we calculate the standard deviation:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>deviations <span class="op">=</span> incomes <span class="op">-</span> np.mean(incomes)</span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>income_std <span class="op">=</span> np.sqrt(np.mean(deviations <span class="op">**</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>deviations <span class="op">=</span> incomes <span class="op">-</span> np.mean(incomes)</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>income_std <span class="op">=</span> np.sqrt(np.mean(deviations <span class="op">**</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then we calculate standard scores:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>deviations_in_stds <span class="op">=</span> deviations <span class="op">/</span> income_std</span>
-<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five values.</span></span>
-<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>deviations_in_stds[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>deviations_in_stds <span class="op">=</span> deviations <span class="op">/</span> income_std</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first five values.</span></span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>deviations_in_stds[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([-2.53840816, -2.22715135, -2.07394072, -1.74064397, -1.73947326])</code></pre>
 </div>
@@ -1574,13 +1420,13 @@ Figure&nbsp;16.1: Income histogram plus or minus 1 and 2 standard deviations
 </div>
 <p>With all this information — what should we conclude about the two districts in question? KM’s district is 0.26 standard deviations <em>above</em> the mean, but that’s not enough to conclude that it is unusual. We see from the histogram that a large proportion of the districts are at least this distance from the mean. We can calculate that proportion directly.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distances (negative or positive) from the mean.</span></span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>abs_std_devs <span class="op">=</span> np.<span class="bu">abs</span>(deviations_in_stds)</span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Number where distance greater than KM distance.</span></span>
-<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>n_gt_km <span class="op">=</span> np.<span class="bu">sum</span>(abs_std_devs <span class="op">&gt;</span> km_std_devs)</span>
-<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>prop_gt_km <span class="op">=</span> n_gt_km <span class="op">/</span> <span class="bu">len</span>(deviations_in_stds)</span>
-<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Proportion of districts further from mean than KM:"</span>,</span>
-<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a>      np.<span class="bu">round</span>(prop_gt_km, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distances (negative or positive) from the mean.</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>abs_std_devs <span class="op">=</span> np.<span class="bu">abs</span>(deviations_in_stds)</span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Number where distance greater than KM distance.</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>n_gt_km <span class="op">=</span> np.<span class="bu">sum</span>(abs_std_devs <span class="op">&gt;</span> km_std_devs)</span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>prop_gt_km <span class="op">=</span> n_gt_km <span class="op">/</span> <span class="bu">len</span>(deviations_in_stds)</span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Proportion of districts further from mean than KM:"</span>,</span>
+<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>      np.<span class="bu">round</span>(prop_gt_km, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Proportion of districts further from mean than KM: 0.82</code></pre>
 </div>
@@ -1588,12 +1434,12 @@ Figure&nbsp;16.1: Income histogram plus or minus 1 and 2 standard deviations
 <p>A full 82% of districts are further from the mean than is KM’s district. KM’s district is richer than average, but not unusual. The benefit of the standard deviation distance is that we can see this directly from the value, without doing the calculation of proportions, because the standard deviation is a measure of typical spread, and KM’s district is well-within this measure.</p>
 <p>AOC’s district is -0.81 standard deviations from the mean. This is a little more unusual than KM’s score.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number where distance greater than AOC distance.</span></span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Make AOC's distance positive to correspond to distance from the mean.</span></span>
-<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>n_gt_aoc <span class="op">=</span> np.<span class="bu">sum</span>(abs_std_devs <span class="op">&gt;</span> np.<span class="bu">abs</span>(aoc_std_devs))</span>
-<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>prop_gt_aoc <span class="op">=</span> n_gt_aoc <span class="op">/</span> <span class="bu">len</span>(deviations_in_stds)</span>
-<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Proportion of districts further from mean than AOC:"</span>,</span>
-<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>      np.<span class="bu">round</span>(prop_gt_aoc, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number where distance greater than AOC distance.</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Make AOC's distance positive to correspond to distance from the mean.</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>n_gt_aoc <span class="op">=</span> np.<span class="bu">sum</span>(abs_std_devs <span class="op">&gt;</span> np.<span class="bu">abs</span>(aoc_std_devs))</span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>prop_gt_aoc <span class="op">=</span> n_gt_aoc <span class="op">/</span> <span class="bu">len</span>(deviations_in_stds)</span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Proportion of districts further from mean than AOC:"</span>,</span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>      np.<span class="bu">round</span>(prop_gt_aoc, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Proportion of districts further from mean than AOC: 0.35</code></pre>
 </div>
@@ -1746,35 +1592,35 @@ Table&nbsp;16.4: 2021 points and wage bills (£1000s) for EPL teams
 <p>It looks like there is a rough association of wages and points; teams that spend more in wages tend to have more points.</p>
 <p>At the moment, the points and wages are in very different units. Points are on a possible scale of 0 (lose every game) to 38 * 3 = 114 (win every game). Wages are in thousands of pounds. Maybe we are not interested in the values in these units, but in how unusual the values are, in terms of wages, and in terms of points.</p>
 <p>This is a good application of standard scores. Standard scores convert the original values to values on a standard scale, where 0 corresponds to an average value, 1 to a value one standard deviation above the mean, and -1 to a value one standard deviation below the mean. If we follow the standard score process for both points and wages, the values will be in the same standard units.</p>
-<p>To do this calculation, we need the values from the table. We follow the same recipe as before, in loading the data with <span class="python">Pandas, and converting to arrays</span>.</p>
+<p>To do this calculation, we need the values from the table. We follow the same recipe as before, in loading the data with .</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>points_wages <span class="op">=</span> pd.read_csv(<span class="st">'data/premier_league.csv'</span>)</span>
-<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> np.array(points_wages[<span class="st">'points'</span>])</span>
-<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a>wages <span class="op">=</span> np.array(points_wages[<span class="st">'wages'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>points_wages <span class="op">=</span> pd.read_csv(<span class="st">'data/premier_league.csv'</span>)</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> np.array(points_wages[<span class="st">'points'</span>])</span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>wages <span class="op">=</span> np.array(points_wages[<span class="st">'wages'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As you recall, the standard deviation is the square root of the mean squared deviation. In code:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The standard deviation is the square root of the</span></span>
-<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mean squared deviation.</span></span>
-<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a>wage_deviations <span class="op">=</span> wages <span class="op">-</span> np.mean(wages)</span>
-<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a>wage_std <span class="op">=</span> np.sqrt(np.mean(wage_deviations <span class="op">**</span> <span class="dv">2</span>))</span>
-<span id="cb116-5"><a href="#cb116-5" aria-hidden="true" tabindex="-1"></a>wage_std</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The standard deviation is the square root of the</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mean squared deviation.</span></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>wage_deviations <span class="op">=</span> wages <span class="op">-</span> np.mean(wages)</span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>wage_std <span class="op">=</span> np.sqrt(np.mean(wage_deviations <span class="op">**</span> <span class="dv">2</span>))</span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>wage_std</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(55523.946071289814)</code></pre>
 </div>
 </div>
 <p>Now we can apply the standard score procedure to wages. We divide the deviations by the standard deviation.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>standard_wages <span class="op">=</span> (wages <span class="op">-</span> np.mean(wages)) <span class="op">/</span> wage_std</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>standard_wages <span class="op">=</span> (wages <span class="op">-</span> np.mean(wages)) <span class="op">/</span> wage_std</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We apply the same procedure to the points:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>point_deviations <span class="op">=</span> points <span class="op">-</span> np.mean(points)</span>
-<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>point_std <span class="op">=</span> np.sqrt(np.mean(point_deviations <span class="op">**</span> <span class="dv">2</span>))</span>
-<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>standard_points <span class="op">=</span> point_deviations <span class="op">/</span> point_std</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>point_deviations <span class="op">=</span> points <span class="op">-</span> np.mean(points)</span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>point_std <span class="op">=</span> np.sqrt(np.mean(point_deviations <span class="op">**</span> <span class="dv">2</span>))</span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>standard_points <span class="op">=</span> point_deviations <span class="op">/</span> point_std</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, when we plot the standard score version of the points against the standard score version of the wages, we see that they are in comparable units, each with a mean of 0, and a spread (a standard deviation) of 1.</p>
 <div class="cell" data-layout-align="center">
@@ -1788,18 +1634,18 @@ Table&nbsp;16.4: 2021 points and wage bills (£1000s) for EPL teams
 </div>
 <p>Let us go back to our concerns as the owners of Crystal Palace. Counting down from the top in the table above, we see that Crystal Palace is the 12th row. Therefore, we can get the Crystal Palace wage value with:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Python the 12th value is at position (index) 11</span></span>
-<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>cp_index <span class="op">=</span> <span class="dv">11</span></span>
-<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>cp_wages <span class="op">=</span> wages[cp_index]</span>
-<span id="cb120-4"><a href="#cb120-4" aria-hidden="true" tabindex="-1"></a>cp_wages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Python the 12th value is at position (index) 11</span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>cp_index <span class="op">=</span> <span class="dv">11</span></span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>cp_wages <span class="op">=</span> wages[cp_index]</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>cp_wages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(71910)</code></pre>
 </div>
 </div>
 <p>We can get our wage bill in standard units in the same way:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>cp_standard_wages <span class="op">=</span> standard_wages[cp_index]</span>
-<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a>cp_standard_wages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>cp_standard_wages <span class="op">=</span> standard_wages[cp_index]</span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>cp_standard_wages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(-0.3474473873890471)</code></pre>
 </div>
@@ -1810,9 +1656,9 @@ Table&nbsp;16.4: 2021 points and wage bills (£1000s) for EPL teams
 <p>That is question about the strength of the association between two measures — here wages and points — and we will cover that topic in much more detail in <a href="correlation_causation.html" class="quarto-xref"><span>Chapter 29</span></a>. But, racing ahead — here is the answer to the question we have just posed — the amount we expect to gain in points, in standard units, if we increase our wages by one standard deviation (and therefore, 1 in standard units).</p>
 <p>For reasons we won’t justify now, we calculate the <span class="math inline">\(r\)</span> value of association between wages and points, like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>standards_multiplied <span class="op">=</span> standard_wages <span class="op">*</span> standard_points</span>
-<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.mean(standards_multiplied)</span>
-<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>standards_multiplied <span class="op">=</span> standard_wages <span class="op">*</span> standard_points</span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.mean(standards_multiplied)</span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.7080086644844557)</code></pre>
 </div>

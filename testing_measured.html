@@ -1154,7 +1154,7 @@ Notebook with data file
 <a class="interact-button" href="./interact/lab/index.html?path=measured_rations.ipynb">Interact</a>
 </div>
 
-<p>First we need to get the measured data from the data file using <span class="python">the Pandas library</span>:</p>
+<p>First we need to get the measured data from the data file using :</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Numpy library for arrays.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1481,7 +1481,7 @@ Figure&nbsp;24.3: Whiskey prices by state category
 <p>At first I used a resampling permutation test as follows: Assuming that the entire universe of possible prices consists of the set of events that were observed, because that is all the information available about the universe, I wrote each of the forty-two observed state prices on a separate card. The shuffled deck simulated a situation in which each state has an equal chance for each price.</p>
 <p>On the “null hypothesis” that the two groups’ prices do <em>not</em> reflect different price-setting mechanisms, but rather differ only by chance, I then examined how often that simulated universe stochastically produces groups with results as different as observed in 1961. I repeatedly dealt groups of 16 and 26 cards, without replacing the cards, to simulate hypothetical monopoly-state and private-state samples, each time calculating the difference in mean prices.</p>
 <p>The probability that the benchmark null-hypothesis universe would produce a difference between groups as large or larger than observed in 1961 is estimated by how frequently the mean of the group of randomly-chosen sixteen prices from the simulated state-ownership universe is less than (or equal to) the mean of the actual sixteen state-ownership prices. If the simulated difference between the randomly-chosen groups was frequently equal to or greater than observed in 1961, one would not conclude that the observed difference was due to the type of retailing system because it could well have been due to chance variation.</p>
-<p>Here is that procedure as <span class="python">a Python</span> notebook. Compare to the very similar bootstrap procedure in <a href="probability_theory_3.html#sec-public-liquor" class="quarto-xref"><span>Section 12.15</span></a>.</p>
+<p>Here is that procedure as notebook. Compare to the very similar bootstrap procedure in <a href="probability_theory_3.html#sec-public-liquor" class="quarto-xref"><span>Section 12.15</span></a>.</p>
 <div class="notebook" name="liquor_permutation" title="Permutation test of public and private liquor prices">
 <p>Start of <code>liquor_permutation</code> notebook</p>
 <div class="nb-links">
@@ -2317,7 +2317,7 @@ Table&nbsp;24.7: Weight gain sum per group
 <p>Squaring arrays squares <em>each element</em> of the array (see <a href="standard_scores.html#sec-squared-arrays" class="quarto-xref"><span>Section 16.7.1</span></a>):</p>
 <p>An advantage of working with the squares is that they are positive — a negative number squared is positive — which is convenient. Additionally, conventional statistics works mainly with squared quantities, and therefore it is worth getting familiar with that point of view. The squared differences in this case add up to 5299.</p>
 <p>Using Python, we shuffle all the weight gains together, select four random groups, and determine whether the sum of squared differences in the resample equal or exceed 5299. If they do so with regularity, then we conclude that the observed differences could easily have occurred by chance.</p>
-<p>With the <span class="python"><code>np.concatenate</code></span> func, we string the four arrays into a single array called <code>all_weights</code>. After shuffling (using <span class="python"><code>rnd.permuted</code></span> the 48-pig weight-gain array <code>all_weights</code> into <code>shuffled</code>, we split <code>shuffled</code> into four randomized samples. And we compute the squared differences between the pairs of groups and <code>sum</code> the squared differences just as we did above for the observed groups.</p>
+<p>With the func, we string the four arrays into a single array called <code>all_weights</code>. After shuffling (using the 48-pig weight-gain array <code>all_weights</code> into <code>shuffled</code>, we split <code>shuffled</code> into four randomized samples. And we compute the squared differences between the pairs of groups and <code>sum</code> the squared differences just as we did above for the observed groups.</p>
 <p>Last, we examine how often the simulated-trials data produce differences among the groups as large as (or larger than) the actually observed data — 5299.</p>
 <div class="notebook" name="squared_rations" title="Sum of squared differences for pig rations">
 <p>Start of <code>squared_rations</code> notebook</p>
