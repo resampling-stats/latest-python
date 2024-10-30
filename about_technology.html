@@ -411,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#python-and-its-packages" id="toc-python-and-its-packages" class="nav-link active" data-scroll-target="#python-and-its-packages"><span class="header-section-number">4.1</span> Python and its packages</a></li>
   <li><a href="#the-environment" id="toc-the-environment" class="nav-link" data-scroll-target="#the-environment"><span class="header-section-number">4.2</span> The environment</a></li>
   <li><a href="#getting-started-with-the-notebook" id="toc-getting-started-with-the-notebook" class="nav-link" data-scroll-target="#getting-started-with-the-notebook"><span class="header-section-number">4.3</span> Getting started with the notebook</a></li>
-  <li><a href="#sec-running-own-computer" id="toc-sec-running-own-computer" class="nav-link" data-scroll-target="#sec-running-own-computer"><span class="header-section-number">4.9</span> Running the code on your own computer</a></li>
+  <li><a href="#sec-running-own-computer" id="toc-sec-running-own-computer" class="nav-link" data-scroll-target="#sec-running-own-computer"><span class="header-section-number">4.10</span> Running the code on your own computer</a></li>
   </ul>
 </nav>
     </div>
@@ -453,7 +453,7 @@ Using Python on the web and on your computer
 </div>
 <div class="callout-body-container callout-body">
 <p>In this chapter, we concentrate on the technology we use for the interactive version of the book. The interactive version allows you to run Python code as interactive <em>notebooks</em> in your web browser.</p>
-<p>Either now, or later, you should also consider running the code on your own computer — see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.9</span></a>.</p>
+<p>Either now, or later, you should also consider running the code on your own computer — see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.10</span></a>.</p>
 </div>
 </div>
 <p>The chapter introduces <span class="python">Python and its packages</span>, and then gives an example to introduce Python and the Jupyter Notebook. If you have not used Python before, the example notebook will get you started. The example also shows how we will be using notebooks through the rest of the book.</p>
@@ -475,13 +475,12 @@ Using Python on the web and on your computer
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-JupyterLite
+About JupyterLite
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>JupyterLite<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> is a version of the Jupyter notebook and Python that will automatically download and run inside your web browser.</p>
 <p>When you click on the “Interact” link, it will take you to a web address that has the effect of making your browser download the JupyterLite system, along with <span class="python">compatible versions of Python and its standard packages</span> . The web page that opens allows you run to the Python code in the notebook inside your browser.</p>
-<p>Please bear in mind that your browser keeps all these notebooks in its browser <em>cache</em> — a private and temporary store that the browser maintains somewhere on your system. If you want to keep any changes you make to notebooks you have run with the “Interact” JupyterLite system, you might want to save a copy of the notebook outside the browser cache, by using the “File” menu in the JupyterLite interface; choose “Save and Export Notebook as …” and choose “.ipynb” as the format. Save the file somewhere memorable on your computer. You can go back to the notebook by following the instructions at <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.9</span></a>.</p>
 </div>
 </div>
 <p>In the print version of the book, we point you to the web version, to get the links.</p>
@@ -498,7 +497,7 @@ JupyterLite
 </div>
 
 <div class="python">
-<p>The text in this notebook section assumes you have opened the page as an interactive notebook on the web, or on your own computer (see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.9</span></a>).</p>
+<p>The text in this notebook section assumes you have opened the page as an interactive notebook on the web, or on your own computer (see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.10</span></a>).</p>
 </div>
 <p>A notebook can contain blocks of text — like this one — as well as code, and the results from running the code.</p>
 <p>Jupyter Notebooks are made up of <em>cells</em>.</p>
@@ -683,15 +682,29 @@ Note&nbsp;4.1: Three types of brackets in Python
 <section id="and-so-on" class="level2" data-number="4.8">
 <h2 data-number="4.8" class="anchored" data-anchor-id="and-so-on"><span class="header-section-number">4.8</span> And so, on</h2>
 <p>Now you have done some practice with the notebook, and with variables, you are ready for a new problem in probability and statistics, in the next chapter.</p>
+</section>
+<section id="saving-your-work" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="saving-your-work"><span class="header-section-number">4.9</span> Saving your work</h2>
+<p>If you are running this notebook via the “Interact” button, you are running it using the JupyterLite system. Please bear in mind that your browser keeps all the notebooks you run in JupyterLite, in its browser <em>cache</em> — a private and temporary store that the browser maintains somewhere on your system. If you want to keep any changes you make to notebooks you have run with the “Interact” JupyterLite system, you might want to save a copy of the notebook outside the browser cache. To do this, look the pane to the left of the notebook for the name of the notebook. This name of this particular notebook is “billies_bill”, and you will see the notebook file in the left pane listed as <code>billies_bill.ipynb</code>. If you want to save a copy to your computer, first use the “File” menu, and the “Save” option, to save your notebook. This saves the notebook to your browser’s private store (the <em>cache</em>). Next <em>right-click</em> on <code>billies_bill.ipynb</code> in the left pane (see <a href="#fig-jupyterlite-download" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>), and choose “Download”. Save the file somewhere memorable on your computer. You can go back to the notebook by following the instructions at <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.10</span></a>.</p>
 <p>End of <code>billies_bill</code> notebook</p>
 </section>
 </div>
 <!---
 End of notebook.
 -->
+<div id="fig-jupyterlite-download" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-jupyterlite-download-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/jupyterlite_download.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jupyterlite-download-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Downloading files in JupyterLite
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="sec-running-own-computer" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="sec-running-own-computer"><span class="header-section-number">4.9</span> Running the code on your own computer</h2>
+<section id="sec-running-own-computer" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="sec-running-own-computer"><span class="header-section-number">4.10</span> Running the code on your own computer</h2>
 <p>Many people, including your humble authors, like to be able to run code examples on their own computers. This section explains how you can set up to run the notebooks on your own computer.</p>
 <p>Once you have done this setup, you can use the “download” link that you will see for each notebook, to download the notebook to your machine. From there, you can open the notebook on Jupyter.</p>
 <div id="nte-basic-download-links" class="callout callout-style-default callout-note callout-titled">
