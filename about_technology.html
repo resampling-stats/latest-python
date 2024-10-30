@@ -408,9 +408,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-environment" id="toc-the-environment" class="nav-link active" data-scroll-target="#the-environment"><span class="header-section-number">4.1</span> The environment</a></li>
-  <li><a href="#getting-started-with-the-notebook" id="toc-getting-started-with-the-notebook" class="nav-link" data-scroll-target="#getting-started-with-the-notebook"><span class="header-section-number">4.2</span> Getting started with the notebook</a></li>
-  <li><a href="#sec-running-own-computer" id="toc-sec-running-own-computer" class="nav-link" data-scroll-target="#sec-running-own-computer"><span class="header-section-number">4.8</span> Running the code on your own computer</a></li>
+  <li><a href="#python-and-its-packages" id="toc-python-and-its-packages" class="nav-link active" data-scroll-target="#python-and-its-packages"><span class="header-section-number">4.1</span> Python and its packages</a></li>
+  <li><a href="#the-environment" id="toc-the-environment" class="nav-link" data-scroll-target="#the-environment"><span class="header-section-number">4.2</span> The environment</a></li>
+  <li><a href="#getting-started-with-the-notebook" id="toc-getting-started-with-the-notebook" class="nav-link" data-scroll-target="#getting-started-with-the-notebook"><span class="header-section-number">4.3</span> Getting started with the notebook</a></li>
+  <li><a href="#sec-running-own-computer" id="toc-sec-running-own-computer" class="nav-link" data-scroll-target="#sec-running-own-computer"><span class="header-section-number">4.9</span> Running the code on your own computer</a></li>
   </ul>
 </nav>
     </div>
@@ -452,19 +453,27 @@ Using Python on the web and on your computer
 </div>
 <div class="callout-body-container callout-body">
 <p>In this chapter, we concentrate on the technology we use for the interactive version of the book. The interactive version allows you to run Python code as interactive <em>notebooks</em> in your web browser.</p>
-<p>Either now, or later, you should also consider running the code on your own computer — see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.8</span></a>.</p>
+<p>Either now, or later, you should also consider running the code on your own computer — see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.9</span></a>.</p>
 </div>
 </div>
-<p>The chapter introduces , and then gives an example to introduce Python and the Jupyter Notebook. If you have not used Python before, the example notebook will get you started. The example also shows how we will be using notebooks through the rest of the book.</p>
+<p>The chapter introduces <span class="python">Python and its packages</span>, and then gives an example to introduce Python and the Jupyter Notebook. If you have not used Python before, the example notebook will get you started. The example also shows how we will be using notebooks through the rest of the book.</p>
+<section id="python-and-its-packages" class="level2 python" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="python-and-its-packages"><span class="header-section-number">4.1</span> Python and its packages</h2>
+<p>This version of the book uses the <em>Python</em>[^python-lang] programming language to implement resampling algorithms.</p>
+<p>Python is a programming language that can be used for many tasks. It is a popular language for teaching, but has also become standard in industry and academia. It is one of the most widely used programming languages in the world, and the most popular language for data science.</p>
+<p>For many of the initial examples, we will also be using the <em>NumPy</em>[^numpy] package for Python. A Python <em>package</em> is a library of Python code and data. NumPy is a package that makes it easier to work with sequences of data values, such as sequences of numbers. These are typical in probability and statistics.</p>
+<p>Later, we be using the <em>Matplotlib</em>[^matplotlib] package. This is the main Python package with code for producing plots, such as bar charts, histograms, and scatter plots. See the rest of the book for more details on these plots.</p>
+<p>Still further on in the book, we will use more specialized libraries for data manipulation and analysis. <em>Pandas</em>[^pandas] is the standard Python package for loading data files and working with data tables. <em>SciPy</em>[^scipy] is a package that houses a wide range of numerical routines, including some simple statistical methods. The <em>Statsmodels</em>[^statsmodels] package has code for many more statistical procedures. We will find ourselves comparing the results of our own resampling algorithms to those in SciPy and Statsmodels.</p>
+</section>
 <p>It is very important that Python is a <em>programming language</em> and not a set of canned routines for “doing statistics”. It means that we can explore the <em>ideas</em> of probability and statistics using the <em>language</em> of Python to express those ideas. It also means that you, and we, and anyone else in the world, can write new code to share with others, so they can benefit from our work, understand it, and improve it. This book is one example; we have written the Python code in this book as clearly as we can to make it easy to follow, and to explain the underlying ideas. We hope you will help us by testing what we have done and sending us suggestions for ways we could improve. Please see <a href="preface_third.html#sec-book-as-public" class="quarto-xref"><span>Section 6</span></a> for more information about how to do that.</p>
-<section id="the-environment" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="the-environment"><span class="header-section-number">4.1</span> The environment</h2>
+<section id="the-environment" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="the-environment"><span class="header-section-number">4.2</span> The environment</h2>
 <p>Many of the chapters have sections with code for you to run, and experiment with. These sections contain <em>Jupyter notebooks</em> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>]. Jupyter notebooks are interactive web pages that allow you to read, write and run Python code. We mark the start of each notebook in the text with a note and link heading like the one you see below. In the web edition of this book, you can click on the <em>Download</em> link in this header to download the section as a notebook. You can also click on the <em>Interact</em> link in this header to open the notebook on a cloud computer. This allows you to interact with the notebook on the cloud computer. You can run the code, and experiment by making changes.</p>
 <p>In the print version of the book, we point you to the web version, to get the links.</p>
 <p>At the end of this chapter, we explain how to run these notebooks on your own computer. In the next section you will see an example notebook; you might want to run this in the cloud to get started.</p>
 </section>
-<section id="getting-started-with-the-notebook" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="getting-started-with-the-notebook"><span class="header-section-number">4.2</span> Getting started with the notebook</h2>
+<section id="getting-started-with-the-notebook" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="getting-started-with-the-notebook"><span class="header-section-number">4.3</span> Getting started with the notebook</h2>
 <p>The next section contains a notebook called “Billie’s Bill”. If you are looking at the web edition, you will see links to interact with this notebook in the cloud, or download it to your computer.</p>
 <div class="notebook" name="billies_bill" title="Billie's Bill">
 <p>Start of <code>billies_bill</code> notebook</p>
@@ -473,6 +482,9 @@ Using Python on the web and on your computer
 <a class="interact-button" href="./interact/lab/index.html?path=billies_bill.ipynb">Interact</a>
 </div>
 
+<div class="python">
+<p>The text in this notebook section assumes you have opened the page as an interactive notebook on the web, or on your own computer (see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.9</span></a>).</p>
+</div>
 <p>A notebook can contain blocks of text — like this one — as well as code, and the results from running the code.</p>
 <p>Jupyter Notebooks are made up of <em>cells</em>.</p>
 <p>Jupyter cells can contain text or code.</p>
@@ -483,11 +495,11 @@ Using Python on the web and on your computer
 <p>In the Jupyter toolbar, you may see icons to run the current cell, among others.</p>
 <p>To move from one cell to the next, you can click the run icon in the toolbar, but it is more efficient to press the Shift key, and press Enter (with Shift still held down). We will write this as Shift-Enter.</p>
 <p>In this, our first notebook, we will be using Python to solve one of those difficult and troubling problems in life — working out the bill in a restaurant.</p>
-<section id="the-meal-in-question" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="the-meal-in-question"><span class="header-section-number">4.3</span> The meal in question</h2>
+<section id="the-meal-in-question" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="the-meal-in-question"><span class="header-section-number">4.4</span> The meal in question</h2>
 <p>Alex and Billie are at a restaurant, getting ready to order. They do not have much money, so they are calculating the expected bill before they order.</p>
 <p>Alex is thinking of having the fish for £10.50, and Billie is leaning towards the chicken, at £9.25. First they calculate their combined bill.</p>
-<p>Below this text you see a <em>code</em> cell. It contains the Python code to calculate the total bill. Press in the cell below, to see the total..</p>
+<p>Below this text you see a <em>code</em> cell. It contains the Python code to calculate the total bill. Press <span class="python">Shift-Enter</span> in the cell below, to see the total..</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">10.50</span> <span class="op">+</span> <span class="fl">9.25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -499,8 +511,8 @@ Using Python on the web and on your computer
 <p>Finally, Python sends the resulting number (19.75) back to the notebook for display. The notebook detects that Python sent back a value, and shows it to us.</p>
 <p>This is exactly what a calculator would do.</p>
 </section>
-<section id="comments" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="comments"><span class="header-section-number">4.4</span> Comments</h2>
+<section id="comments" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="comments"><span class="header-section-number">4.5</span> Comments</h2>
 <p>Unlike a calculator, we can also put notes next to our calculations, to remind us what they are for. One way of doing this is to use a “comment”. You have already seen comments in the previous chapter.</p>
 <p>A comment is some text that the computer will ignore. In Python, you can make a comment by starting a line with the <code>#</code> (hash) character. For example, the next cell is a code cell, but when you run it, it does not show any result. In this case, that is because the computer sees the <code>#</code> at the beginning of the line, and then ignores the rest.</p>
 <div class="cell" data-layout-align="center">
@@ -509,8 +521,8 @@ Using Python on the web and on your computer
 <p>Many of the code cells you see will have comments in them, to explain what the code is doing.</p>
 <p>Practice writing comments for your own code. It is a very good habit to get into. You will find that experienced programmers write many comments on their code. They do not do this to show off, but because they have a lot of experience in reading code, and they know that comments make it much easier to read and understand code.</p>
 </section>
-<section id="more-calculations" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="more-calculations"><span class="header-section-number">4.5</span> More calculations</h2>
+<section id="more-calculations" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="more-calculations"><span class="header-section-number">4.6</span> More calculations</h2>
 <p>Let us continue with the struggle that Alex and Billie are having with their bill.</p>
 <p>They realize that they will also need to pay a tip.</p>
 <p>They think it would be reasonable to leave a 15% tip. Now they need to multiply their total bill by 0.15, to get the tip. The bill is about £20, so they know that the tip will be about £3.</p>
@@ -565,8 +577,8 @@ Note&nbsp;4.1: Three types of brackets in Python
 </div>
 <p>At this stage we start to feel that we are doing too much typing. Notice that we had to type out <code>10.50 + 9.25</code> twice there. That is a little boring, but it also makes it easier to make mistakes. The more we have to type, the greater the chance we have to make a mistake.</p>
 </section>
-<section id="sec-variables" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="sec-variables"><span class="header-section-number">4.6</span> Variables</h2>
+<section id="sec-variables" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="sec-variables"><span class="header-section-number">4.7</span> Variables</h2>
 <p>To make things simpler, we would like to be able to <em>store</em> the result of the calculation <code>10.50 + 9.25</code>, and then re-use this value, to calculate the tip.</p>
 <p>This is the role of <em>variables</em>. A <em>variable</em> is a value with a name.</p>
 <p>Here is a variable:</p>
@@ -653,8 +665,8 @@ Note&nbsp;4.1: Three types of brackets in Python
 </div>
 <p>Now we are using variables with relevant names, the calculation looks right to our eye. The code expresses the calculation as we mean it: the bill after tip is equal to the bill before the tip, plus the bill before the tip times 0.15.</p>
 </section>
-<section id="and-so-on" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="and-so-on"><span class="header-section-number">4.7</span> And so, on</h2>
+<section id="and-so-on" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="and-so-on"><span class="header-section-number">4.8</span> And so, on</h2>
 <p>Now you have done some practice with the notebook, and with variables, you are ready for a new problem in probability and statistics, in the next chapter.</p>
 <p>End of <code>billies_bill</code> notebook</p>
 </section>
@@ -663,8 +675,8 @@ Note&nbsp;4.1: Three types of brackets in Python
 End of notebook.
 -->
 </section>
-<section id="sec-running-own-computer" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="sec-running-own-computer"><span class="header-section-number">4.8</span> Running the code on your own computer</h2>
+<section id="sec-running-own-computer" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="sec-running-own-computer"><span class="header-section-number">4.9</span> Running the code on your own computer</h2>
 <p>Many people, including your humble authors, like to be able to run code examples on their own computers. This section explains how you can set up to run the notebooks on your own computer.</p>
 <p>Once you have done this setup, you can use the “download” link that you will see for each notebook, to download the notebook to your machine. From there, you can open the notebook on Jupyter.</p>
 <div id="nte-basic-download-links" class="callout callout-style-default callout-note callout-titled">
@@ -677,9 +689,23 @@ Note&nbsp;4.2: Download links and data files
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Most of the download links in this book will trigger a download of the notebook file. This is a file with extension , that you can open with Jupyter.</p>
+<p>Most of the download links in this book will trigger a download of the notebook file. This is a file with extension <span class="python"><code>.ipynb</code></span>, that you can open with Jupyter.</p>
 <p>Later in the book, you will see examples where the notebook loads a data file. In that case, the download link for the notebook points to a <code>.zip</code> file containing the notebook and the data file. Unzip the <code>.zip</code> file to get the notebook and data file, and then open the resulting notebook in Jupyter.</p>
 </div>
+</div>
+<div class="python">
+<p>You will need to install the Python language on your computer, and then install the following packages:</p>
+<ul>
+<li>NumPy</li>
+<li>Matplotlib - for plots</li>
+<li>SciPy - a collection of modules for scientific computing;</li>
+<li>Pandas - for loading, saving and manipulating data tables;</li>
+<li>Statsmodels - for traditional statistical analysis.</li>
+<li>Jupyter - to run the Jupyter Notebook on your own computer.</li>
+</ul>
+<p>One way to install Python and the packages you need, is to install Python from the Python website[^python-lang]. Then use the <em>Pip</em>[^pip] installer to install the packages you need.</p>
+<p>To install the Python packages, first start a terminal application on your computer. To do this, you can use the Start key, “cmd” in Windows, or the Command key and space then “Terminal” on Mac. At the terminal prompt, type the following command:</p>
+<p>Now you should be able to start the Jupyter notebook application. See the <a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#starting-the-notebook-server">Jupyter documentation for how to start Jupyter</a>. Open the notebook you downloaded for the chapter; you will now be able to run the code on your own computer, and experiment by making changes.</p>
 </div>
 <p>You can run any of the code notebooks in this textbook on your own machine by downloading the notebook, via the download link at the top of each notebook section, and then opening the resulting notebook in Jupyter.</p>
 <!---

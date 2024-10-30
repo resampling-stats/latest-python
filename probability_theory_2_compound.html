@@ -766,7 +766,10 @@ Table&nbsp;11.1: Results of 25 hands for the problem “one pair”
 </section>
 <section id="sec-shuffling-deck" class="level2" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="sec-shuffling-deck"><span class="header-section-number">11.4</span> Shuffling the deck with Python</h2>
-<p>At this point we have a complete deck in the variable <code>deck</code> . But that “deck” is . If we do not shuffle the deck, the results will be predictable. Therefore, we would like to select five of these “cards” (52 values) at random. There are two ways of doing this. The first is to use the ’rnd.choice`]{.python} tool in the familiar way, to choose 5 values at random from this strictly ordered deck. We want to draw these cards <em>without replacement</em> (of which more later). <em>Without replacement</em> means that once we have drawn a particular value, we cannot draw that value a second time — just as you cannot get the same card twice in a hand when the dealer deals you a hand of five cards.</p>
+<p>At this point we have a complete deck in the variable <code>deck</code> . But that “deck” is <span class="python">ordered by value, first ones (Aces) then 2s and so on</span>. If we do not shuffle the deck, the results will be predictable. Therefore, we would like to select five of these “cards” (52 values) at random. There are two ways of doing this. The first is to use the ’rnd.choice`]{.python} tool in the familiar way, to choose 5 values at random from this strictly ordered deck. We want to draw these cards <em>without replacement</em> (of which more later). <em>Without replacement</em> means that once we have drawn a particular value, we cannot draw that value a second time — just as you cannot get the same card twice in a hand when the dealer deals you a hand of five cards.</p>
+<div class="python">
+<p>So far, each of our uses of <code>rnd.choice</code> has done sampling <em>with replacement</em>, where you <em>can</em> get the same item more than once in a particular sample. Here we need <em>without replacement</em>. <code>rnd.choice</code> has an argument you can send, called <code>replace</code>, to tell it whether to replace values when drawing the sample. We have not used that argument so far, because the default is <code>True</code> — sampling <em>with replacement</em>. Here we need to use the argument — <code>replace=False</code> — to get sampling <em>without replacement</em>.</p>
+</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One hand, sampling from the deck without replacement.</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>hand <span class="op">=</span> rnd.choice(deck, size<span class="op">=</span><span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
@@ -775,7 +778,7 @@ Table&nbsp;11.1: Results of 25 hands for the problem “one pair”
 <pre><code>array([ 9,  4, 11,  9, 13])</code></pre>
 </div>
 </div>
-<p>The above is one way to get a random hand of five cards from the deck. Another way is to use to shuffle the whole <code>deck</code> of 52 “cards” into a random order, just as a dealer would shuffle the deck before dealing. Then we could take — for example — the first five cards from the shuffled deck to give a random hand. See <a href="probability_theory_1a.html#sec-shuffling" class="quarto-xref"><span>Section 8.14</span></a> for more on .</p>
+<p>The above is one way to get a random hand of five cards from the deck. Another way is to use <span class="python">the <code>rnd.permuted</code> function</span> to shuffle the whole <code>deck</code> of 52 “cards” into a random order, just as a dealer would shuffle the deck before dealing. Then we could take — for example — the first five cards from the shuffled deck to give a random hand. See <a href="probability_theory_1a.html#sec-shuffling" class="quarto-xref"><span>Section 8.14</span></a> for more on <span class="python"><code>rnd.permuted</code></span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shuffle the whole 52 card deck.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>shuffled <span class="op">=</span> rnd.permuted(deck)</span>
@@ -799,7 +802,7 @@ Table&nbsp;11.1: Results of 25 hands for the problem “one pair”
 </div>
 <p>You have seen that we can use one of two procedures to a get random sample of five cards from <code>deck</code>, drawn without replacement:</p>
 <ol type="1">
-<li>Using to take the random sample directly from <code>deck</code>, or</li>
+<li>Using <span class="python"><code>rnd.choice</code> with <code>size=5</code> and <code>replace=False</code></span> to take the random sample directly from <code>deck</code>, or</li>
 <li>shuffling the entire <code>deck</code> and then taking the first five “cards” from the result of the shuffle.</li>
 </ol>
 <p>Either is a valid way of getting five cards at random from the <code>deck</code>. It’s up to us which to choose — we slightly prefer to shuffle and take the first five, because it is more like the physical procedure of shuffling the deck and dealing, but which you prefer, is up to you.</p>
@@ -1152,7 +1155,7 @@ Table&nbsp;11.2: Results of 25 hands using random numbers
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>number_of_12s <span class="op">=</span> np.<span class="bu">sum</span>(hand <span class="op">==</span> <span class="dv">12</span>)</span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>number_of_13s <span class="op">=</span> np.<span class="bu">sum</span>(hand <span class="op">==</span> <span class="dv">13</span>)  <span class="co"># Number of Kings in hand.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Above, we store the result for each card in a separate variable; this is inconvenient, because we would have to go through each variable checking for a pair (a value of 2). It would be more convenient to store these results in an array. One way to do that would be to store the result for card value 1 at position (index) 1, the result for value 2 at position 2, and so on, like this:</p>
+<p>Above, we store the result for each card in a separate variable; this is inconvenient, because we would have to go through each variable checking for a pair (a value of 2). It would be more convenient to store these results in an array. One way to do that would be to store the result for card value 1 at position (index<span class="python">, offset</span>) 1, the result for value 2 at position 2, and so on, like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make array length 14.  We don't use position (offset) 0, and the last</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># position (offset) in this array will be 13.</span></span>
@@ -1187,14 +1190,17 @@ Table&nbsp;11.2: Results of 25 hands using random numbers
 <pre><code>array([0., 0., 0., 0., 1., 2., 0., 2., 0., 0., 0., 0., 0., 0.])</code></pre>
 </div>
 </div>
-<p>In our particular <code>hand</code>, after we have done the count for 7s, we will always get 0 for card values 8, 9 … 13, because 7 was the highest card (maximum value) for our particular <code>hand</code>. As you might expect, there is a function that will quickly tell us the maximum value in the hand:</p>
+<div class="python">
+<p>Notice that we started our loop by checking for values equal to 0, and then values equal to 1 and so on. By our definition of the deck, no card can have value 0, so the first time through this loop, we will always get a count of 0. We could have saved ourselves a tiny amount of computing time if we had missed out that pointless step of checking 0, by using <code>for i in range(1, 14):</code> instead. In this case, we think the code is a little bit neater to read if we leave in the default start at 0, at a tiny cost in wasted computer effort.</p>
+</div>
+<p>In our particular <code>hand</code>, after we have done the count for 7s, we will always get 0 for card values 8, 9 … 13, because 7 was the highest card (maximum value) for our particular <code>hand</code>. As you might expect, there is a <span class="python">a Numpy</span> function <span class="python"><code>np.max</code></span> that will quickly tell us the maximum value in the hand:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">max</span>(hand)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(7)</code></pre>
 </div>
 </div>
-<p>We can use to make our loop more efficient, by stopping our checks when we’ve reached the maximum value, like this:</p>
+<p>We can use <span class="python"><code>np.max</code></span> to make our loop more efficient, by stopping our checks when we’ve reached the maximum value, like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> np.<span class="bu">max</span>(hand)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Only make an array large enough to house counts for the max value.</span></span>
@@ -1207,7 +1213,7 @@ Table&nbsp;11.2: Results of 25 hands using random numbers
 <pre><code>array([0., 0., 0., 0., 1., 2., 0., 2.])</code></pre>
 </div>
 </div>
-<p>In fact, this is exactly what the function does, so we can use that function instead of our loop, to do the same job:</p>
+<p>In fact, this is exactly what the function <span class="python"><code>np.bincount</code></span> does, so we can use that function instead of our loop, to do the same job:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>repeat_nos <span class="op">=</span> np.bincount(hand)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>repeat_nos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1243,7 +1249,7 @@ Table&nbsp;11.2: Results of 25 hands using random numbers
 </div>
 </div>
 <p>We now have the machinery to use Python for all the logic in simulating multiple hands, and checking for exactly one pair.</p>
-<p>Let’s do that, and use Python to do the full job of dealing many hands and finding pairs in each one. We repeat the procedure above using a <code>for</code> loop. The <code>for</code> loop commands the program to do ten thousand repeats of the statements in the “loop” .</p>
+<p>Let’s do that, and use Python to do the full job of dealing many hands and finding pairs in each one. We repeat the procedure above using a <code>for</code> loop. The <code>for</code> loop commands the program to do ten thousand repeats of the statements in the “loop” <span class="python">(indented statements)</span>.</p>
 <p>In the <em>body</em> of the loop (the part that gets repeated for each trial) we:</p>
 <ul>
 <li>Shuffle the <code>deck</code>.</li>
@@ -1253,7 +1259,7 @@ Table&nbsp;11.2: Results of 25 hands using random numbers
 <li>Put <code>n_pairs</code> for this repetition into the correct place in the scoring array <code>z</code>.</li>
 </ul>
 <p>With that we end a single trial, and go back to the beginning, until we have done this 10000 times.</p>
-<p>When those 10000 repetitions are over, the computer moves on to count (<code>sum</code>) the number of “1’s” in the score-keeping array <code>z</code>, each “1” indicating a hand with exactly one pair. We store this count at location <code>k</code>. We divide <code>k</code> by 10000 to get the <em>proportion</em> of hands that had one pair, and we the result of <code>k</code> to the screen.</p>
+<p>When those 10000 repetitions are over, the computer moves on to count (<code>sum</code>) the number of “1’s” in the score-keeping array <code>z</code>, each “1” indicating a hand with exactly one pair. We store this count at location <code>k</code>. We divide <code>k</code> by 10000 to get the <em>proportion</em> of hands that had one pair, and we <span class="python"><code>print</code></span> the result of <code>k</code> to the screen.</p>
 <div class="notebook" name="one_pair" title="One pair">
 <p>Start of <code>one_pair</code> notebook</p>
 <div class="nb-links">
@@ -1323,7 +1329,7 @@ Table&nbsp;11.2: Results of 25 hands using random numbers
 </div>
 <p>In one run of the program, the result in <code>kk</code> was 0.419, so our estimate would be that the probability of a single pair is 0.419.</p>
 <p>How accurate are these resampling estimates? The accuracy depends on the <em>number of hands</em> we deal — the more hands, the greater the accuracy. If we were to examine millions of hands, 42 percent would contain a pair each; that is, the chance of getting a pair in the long run is 42 percent. It turns out the estimate of 48 percent based on 25 hands in <a href="#tbl-one-pair" class="quarto-xref">Table&nbsp;<span>11.1</span></a> is fairly close to the long-run estimate, though whether or not it is close <em>enough</em> depends on one’s needs of course. If you need great accuracy, deal many more hands.</p>
-<p>A note on the <code>deck</code>s, <code>hand</code>s, <code>repeat_nos</code>s in the above program, etc.: These “variables” are called “array”s in Python. is an array (sequence) of elements that gets filled with numbers as Python conducts its operations.</p>
+<p>A note on the <code>deck</code>s, <code>hand</code>s, <code>repeat_nos</code>s in the above program, etc.: These “variables” are called “array”s in Python. <span class="python">An <em>array</em></span> is an array (sequence) of elements that gets filled with numbers as Python conducts its operations.</p>
 <p>To help keep things straight (though the program does not require it), we often use <code>z</code> to name the array that collects all the trial results, and <code>k</code> to denote our overall summary results. Or you could call it something like <code>scoreboard</code> — it’s up to you.</p>
 <p>How many trials (hands) should be made for the estimate? There is no easy answer.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> One useful device is to run several (perhaps ten) equal sized sets of trials, and then examine whether the proportion of pairs found in the entire group of trials is very different from the proportions found in the various subgroup sets. If the proportions of pairs in the various subgroups differ greatly from one another or from the overall proportion, then keep running additional larger subgroups of trials until the variation from one subgroup to another is sufficiently small for your purposes. While such a procedure would be impractical using a deck of cards or any other physical means, it requires little effort with the computer and Python.</p>
 </section>
