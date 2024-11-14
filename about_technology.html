@@ -411,6 +411,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#python-and-its-packages" id="toc-python-and-its-packages" class="nav-link active" data-scroll-target="#python-and-its-packages"><span class="header-section-number">4.1</span> Python and its packages</a></li>
   <li><a href="#the-environment" id="toc-the-environment" class="nav-link" data-scroll-target="#the-environment"><span class="header-section-number">4.2</span> The environment</a></li>
   <li><a href="#getting-started-with-the-notebook" id="toc-getting-started-with-the-notebook" class="nav-link" data-scroll-target="#getting-started-with-the-notebook"><span class="header-section-number">4.3</span> Getting started with the notebook</a></li>
+  <li><a href="#the-meal-in-question" id="toc-the-meal-in-question" class="nav-link" data-scroll-target="#the-meal-in-question">4.4 The meal in question</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">4.5 Comments</a></li>
+  <li><a href="#more-calculations" id="toc-more-calculations" class="nav-link" data-scroll-target="#more-calculations">4.6 More calculations</a></li>
+  <li><a href="#sec-variables" id="toc-sec-variables" class="nav-link" data-scroll-target="#sec-variables">4.7 Variables</a></li>
+  <li><a href="#and-so-on" id="toc-and-so-on" class="nav-link" data-scroll-target="#and-so-on">4.8 And so, on</a></li>
+  <li><a href="#saving-your-work" id="toc-saving-your-work" class="nav-link" data-scroll-target="#saving-your-work">4.9 Saving your work</a></li>
   <li><a href="#sec-running-own-computer" id="toc-sec-running-own-computer" class="nav-link" data-scroll-target="#sec-running-own-computer"><span class="header-section-number">4.10</span> Running the code on your own computer</a></li>
   </ul>
 </nav>
@@ -489,13 +495,24 @@ About JupyterLite
 <section id="getting-started-with-the-notebook" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="getting-started-with-the-notebook"><span class="header-section-number">4.3</span> Getting started with the notebook</h2>
 <p>The next section contains a notebook called “Billie’s Bill”. If you are looking at the web edition, you will see links to interact with this notebook in your browser, or download it to your computer.</p>
-<div class="notebook" name="billies_bill" title="Billie's Bill">
-<p>Start of <code>billies_bill</code> notebook</p>
-<div class="nb-links">
-<a class="notebook-link" href="notebooks/billies_bill.ipynb">Download notebook</a>
-<a class="interact-button" href="./interact/lab/index.html?path=billies_bill.ipynb">Interact</a>
+<div id="nte-billies_bill" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;4.1: Notebook: Billie’s Bill
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nb-links">
+<p><a class="notebook-link" href="notebooks/billies_bill.ipynb">Download notebook</a> <a class="interact-button" href="./interact/lab/index.html?path=billies_bill.ipynb">Interact</a></p>
+</div>
+</div>
+</div>
+<div class="nb-start" name="billies_bill" title="Billie's Bill">
 
+</div>
 <div class="python">
 <p>The text in this notebook section assumes you have opened the page as an interactive notebook on the web, or on your own computer (see <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.10</span></a>).</p>
 </div>
@@ -509,11 +526,12 @@ About JupyterLite
 <p>In the Jupyter toolbar, you may see icons to run the current cell, among others.</p>
 <p>To move from one cell to the next, you can click the run icon in the toolbar, but it is more efficient to press the Shift key, and press Enter (with Shift still held down). We will write this as Shift-Enter.</p>
 <p>In this, our first notebook, we will be using Python to solve one of those difficult and troubling problems in life — working out the bill in a restaurant.</p>
+</section>
 <section id="the-meal-in-question" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="the-meal-in-question"><span class="header-section-number">4.4</span> The meal in question</h2>
+<h2 data-number="4.4" class="anchored" data-anchor-id="the-meal-in-question">4.4 The meal in question</h2>
 <p>Alex and Billie are at a restaurant, getting ready to order. They do not have much money, so they are calculating the expected bill before they order.</p>
 <p>Alex is thinking of having the fish for £10.50, and Billie is leaning towards the chicken, at £9.25. First they calculate their combined bill.</p>
-<p>Below this text you see a <em>code</em> cell. It contains the Python code to calculate the total bill. Press <span class="python">Shift-Enter</span> in the cell below, to see the total..</p>
+<p>Below this text you see a <em>code</em> cell. It contains the Python code to calculate the total bill. Press Shift-Enter in the cell below, to see the total..</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">10.50</span> <span class="op">+</span> <span class="fl">9.25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -526,7 +544,7 @@ About JupyterLite
 <p>This is exactly what a calculator would do.</p>
 </section>
 <section id="comments" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="comments"><span class="header-section-number">4.5</span> Comments</h2>
+<h2 data-number="4.5" class="anchored" data-anchor-id="comments">4.5 Comments</h2>
 <p>Unlike a calculator, we can also put notes next to our calculations, to remind us what they are for. One way of doing this is to use a “comment”. You have already seen comments in the previous chapter.</p>
 <p>A comment is some text that the computer will ignore. In Python, you can make a comment by starting a line with the <code>#</code> (hash) character. For example, the next cell is a code cell, but when you run it, it does not show any result. In this case, that is because the computer sees the <code>#</code> at the beginning of the line, and then ignores the rest.</p>
 <div class="cell" data-layout-align="center">
@@ -536,7 +554,7 @@ About JupyterLite
 <p>Practice writing comments for your own code. It is a very good habit to get into. You will find that experienced programmers write many comments on their code. They do not do this to show off, but because they have a lot of experience in reading code, and they know that comments make it much easier to read and understand code.</p>
 </section>
 <section id="more-calculations" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="more-calculations"><span class="header-section-number">4.6</span> More calculations</h2>
+<h2 data-number="4.6" class="anchored" data-anchor-id="more-calculations">4.6 More calculations</h2>
 <p>Let us continue with the struggle that Alex and Billie are having with their bill.</p>
 <p>They realize that they will also need to pay a tip.</p>
 <p>They think it would be reasonable to leave a 15% tip. Now they need to multiply their total bill by 0.15, to get the tip. The bill is about £20, so they know that the tip will be about £3.</p>
@@ -560,7 +578,7 @@ About JupyterLite
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;4.1: Three types of brackets in Python
+Note&nbsp;4.2: Three types of brackets in Python
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -592,7 +610,7 @@ Note&nbsp;4.1: Three types of brackets in Python
 <p>At this stage we start to feel that we are doing too much typing. Notice that we had to type out <code>10.50 + 9.25</code> twice there. That is a little boring, but it also makes it easier to make mistakes. The more we have to type, the greater the chance we have to make a mistake.</p>
 </section>
 <section id="sec-variables" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="sec-variables"><span class="header-section-number">4.7</span> Variables</h2>
+<h2 data-number="4.7" class="anchored" data-anchor-id="sec-variables">4.7 Variables</h2>
 <p>To make things simpler, we would like to be able to <em>store</em> the result of the calculation <code>10.50 + 9.25</code>, and then re-use this value, to calculate the tip.</p>
 <p>This is the role of <em>variables</em>. A <em>variable</em> is a value with a name.</p>
 <p>Here is a variable:</p>
@@ -680,14 +698,27 @@ Note&nbsp;4.1: Three types of brackets in Python
 <p>Now we are using variables with relevant names, the calculation looks right to our eye. The code expresses the calculation as we mean it: the bill after tip is equal to the bill before the tip, plus the bill before the tip times 0.15.</p>
 </section>
 <section id="and-so-on" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="and-so-on"><span class="header-section-number">4.8</span> And so, on</h2>
+<h2 data-number="4.8" class="anchored" data-anchor-id="and-so-on">4.8 And so, on</h2>
 <p>Now you have done some practice with the notebook, and with variables, you are ready for a new problem in probability and statistics, in the next chapter.</p>
 </section>
 <section id="saving-your-work" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="saving-your-work"><span class="header-section-number">4.9</span> Saving your work</h2>
+<h2 data-number="4.9" class="anchored" data-anchor-id="saving-your-work">4.9 Saving your work</h2>
 <p>If you are running this notebook via the “Interact” button, you are running it using the JupyterLite system. Please bear in mind that your browser keeps all the notebooks you run in JupyterLite, in its browser <em>cache</em> — a private and temporary store that the browser maintains somewhere on your system. If you want to keep any changes you make to notebooks you have run with the “Interact” JupyterLite system, you might want to save a copy of the notebook outside the browser cache. To do this, look the pane to the left of the notebook for the name of the notebook. This name of this particular notebook is “billies_bill”, and you will see the notebook file in the left pane listed as <code>billies_bill.ipynb</code>. If you want to save a copy to your computer, first use the “File” menu, and the “Save” option, to save your notebook. This saves the notebook to your browser’s private store (the <em>cache</em>). Next <em>right-click</em> on <code>billies_bill.ipynb</code> in the left pane (see <a href="#fig-jupyterlite-download" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>), and choose “Download”. Save the file somewhere memorable on your computer. You can go back to the notebook by following the instructions at <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.10</span></a>.</p>
-<p>End of <code>billies_bill</code> notebook</p>
-</section>
+<div class="nb-end">
+
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+End of notebook: Billie’s Bill
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>billies_bill</code> starts at <a href="#nte-billies_bill" class="quarto-xref">Note&nbsp;<span>4.1</span></a>.</p>
+</div>
 </div>
 <!---
 End of notebook.
@@ -713,7 +744,7 @@ Figure&nbsp;4.1: Downloading files in JupyterLite
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;4.2: Download links and data files
+Note&nbsp;4.3: Download links and data files
 </div>
 </div>
 <div class="callout-body-container callout-body">

@@ -474,6 +474,8 @@ window.Quarto = {
   <li><a href="#sec-multiplication-rule" id="toc-sec-multiplication-rule" class="nav-link" data-scroll-target="#sec-multiplication-rule"><span class="header-section-number">8.12</span> Multiplication rule</a></li>
   <li><a href="#sec-cond-uncond" id="toc-sec-cond-uncond" class="nav-link" data-scroll-target="#sec-cond-uncond"><span class="header-section-number">8.13</span> Conditional and unconditional probabilities</a></li>
   <li><a href="#sec-shuffling" id="toc-sec-shuffling" class="nav-link" data-scroll-target="#sec-shuffling"><span class="header-section-number">8.14</span> Shuffling with <span class="python"><code>rnd.permuted</code></span></a></li>
+  <li><a href="#code-answers-to-the-cards-and-pennies-problem" id="toc-code-answers-to-the-cards-and-pennies-problem" class="nav-link" data-scroll-target="#code-answers-to-the-cards-and-pennies-problem"><span class="header-section-number">8.15</span> Code answers to the cards and pennies problem</a></li>
+  <li><a href="#the-commanders-again-plus-leaving-the-game-early" id="toc-the-commanders-again-plus-leaving-the-game-early" class="nav-link" data-scroll-target="#the-commanders-again-plus-leaving-the-game-early"><span class="header-section-number">8.16</span> The Commanders again, plus leaving the game early</a></li>
   </ul>
 </nav>
     </div>
@@ -606,6 +608,9 @@ R\)</span> the <em>complement</em> of <span class="math inline">\(R\)</span>.</p
 <p>For example, say we call the event “Commanders win the game” as <span class="math inline">\(W\)</span>. One example of a <em>compound event</em> (see above) would be the event <span class="math inline">\(W \text{and} R\)</span>, meaning, the event where the Commanders won the game <em>and</em> it rained.</p>
 </div>
 </div>
+<!---
+End of callout note.
+-->
 </section>
 <section id="sec-addition-rule" class="level2" data-number="8.7">
 <h2 data-number="8.7" class="anchored" data-anchor-id="sec-addition-rule"><span class="header-section-number">8.7</span> Mutually exclusive events — the addition rule</h2>
@@ -690,13 +695,24 @@ Figure&nbsp;8.1: Tree diagram
 <p>The indented stuff above is the <em>body</em> of the <code>if</code> statement. It is the stuff we do <code>if</code> the <em>conditional</em> at the top is True.</p>
 <p>Now let’s see how we would write that in Python.</p>
 <p>Let’s make bucket A. Remember, this is the <em>weather</em> bucket. It has seven blue balls (for 70% fine days) and 3 yellow balls (for 30% rainy days). See <a href="sampling_tools.html#sec-repeating" class="quarto-xref"><span>Section 7.6</span></a> for the <span class="python"><code>np.repeat</code></span> way of repeating elements multiple times.</p>
-<div class="notebook" name="fine_win" title="Fine day and win">
-<p>Start of <code>fine_win</code> notebook</p>
-<div class="nb-links">
-<a class="notebook-link" href="notebooks/fine_win.ipynb">Download notebook</a>
-<a class="interact-button" href="./interact/lab/index.html?path=fine_win.ipynb">Interact</a>
+<div id="nte-fine_win" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;8.1: Notebook: Fine day and win
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nb-links">
+<p><a class="notebook-link" href="notebooks/fine_win.ipynb">Download notebook</a> <a class="interact-button" href="./interact/lab/index.html?path=fine_win.ipynb">Interact</a></p>
+</div>
+</div>
+</div>
+<div class="nb-start" name="fine_win" title="Fine day and win">
 
+</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Numpy array library.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -732,6 +748,12 @@ Figure&nbsp;8.1: Tree diagram
 <div class="python">
 <p>Notice that the header line has <code>if</code>, followed by the conditional expression (question) <code>a_ball == 'blue'</code>. The header line finishes with a colon <code>:</code>. The <em>body</em> of the <code>if</code> statement is one or more <em>indented</em> lines. Here there is only one line: <code>print('The ball was blue')</code>. Python only runs the body of the if statement if the <em>condition</em> is <code>True</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 </div>
+<!---
+End of Python block.
+-->
+<!---
+End of R block
+-->
 <p>To confirm we see “The ball was blue” if <code>a_ball</code> is <code>'blue'</code> and nothing otherwise, we can set <code>a_ball</code> and re-run the code:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set value of a_ball so we know what it is.</span></span>
@@ -851,8 +873,25 @@ Figure&nbsp;8.1: Tree diagram
 </div>
 </div>
 <p>The above procedure gives us the probability that it will be a nice day and the Commanders will win — about 46%.</p>
-<p>End of <code>fine_win</code> notebook</p>
+<div class="nb-end">
+
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+End of notebook: Fine day and win
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>fine_win</code> starts at <a href="#nte-fine_win" class="quarto-xref">Note&nbsp;<span>8.1</span></a>.</p>
+</div>
+</div>
+<!---
+End of notebook.
+-->
 <p>Let’s say that we think that the Commanders have a 0.55 (55%) chance of winning on a not-nice day. With the aid of a bucket with a different composition — one made by substituting 55 green and 45 yellow balls in Step 4 — a similar procedure yields the chance that it will be a <em>nasty</em> day and the Commanders will win. With a similar substitution and procedure we could also estimate the probabilities that it will be a nasty day and the Commanders will lose, and a nice day and the Commanders will lose. The sum of these probabilities should come close to unity, because the sum includes all the possible outcomes. But it will not <em>exactly</em> equal unity because of what we call “sampling variation” or “sampling error.”</p>
 <p>Please notice that each trial of the procedure begins with the same numbers of balls in the buckets as the previous trial. That is, you must replace the balls you draw after each trial in order that the probabilities remain the same from trial to trial. Later we will discuss the general concept of replacement versus non-replacement more fully.</p>
 </section>
@@ -920,16 +959,32 @@ P(\text{nice day and win}) = P(\text{nice day}) * P(\text{winning | nice day})
 <pre><code>array([2, 2, 1, 1])</code></pre>
 </div>
 </div>
+</div>
+<!---
+End of Python block.
+-->
 <p>See <a href="probability_theory_2_compound.html#sec-shuffling-deck" class="quarto-xref"><span>Section 11.4</span></a> for some more discussion of shuffling and sampling without replacement.</p>
+</section>
 <section id="code-answers-to-the-cards-and-pennies-problem" class="level2" data-number="8.15">
 <h2 data-number="8.15" class="anchored" data-anchor-id="code-answers-to-the-cards-and-pennies-problem"><span class="header-section-number">8.15</span> Code answers to the cards and pennies problem</h2>
-<div class="notebook" name="cards_pennies" title="Cards and pennies">
-<p>Start of <code>cards_pennies</code> notebook</p>
-<div class="nb-links">
-<a class="notebook-link" href="notebooks/cards_pennies.ipynb">Download notebook</a>
-<a class="interact-button" href="./interact/lab/index.html?path=cards_pennies.ipynb">Interact</a>
+<div id="nte-cards_pennies" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;8.2: Notebook: Cards and pennies
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nb-links">
+<p><a class="notebook-link" href="notebooks/cards_pennies.ipynb">Download notebook</a> <a class="interact-button" href="./interact/lab/index.html?path=cards_pennies.ipynb">Interact</a></p>
+</div>
+</div>
+</div>
+<div class="nb-start" name="cards_pennies" title="Cards and pennies">
 
+</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1001,8 +1056,25 @@ P(\text{nice day and win}) = P(\text{nice day}) * P(\text{winning | nice day})
 <pre><code>0.5072</code></pre>
 </div>
 </div>
-<p>End of <code>cards_pennies</code> notebook</p>
+<div class="nb-end">
+
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+End of notebook: Cards and pennies
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>cards_pennies</code> starts at <a href="#nte-cards_pennies" class="quarto-xref">Note&nbsp;<span>8.2</span></a>.</p>
+</div>
+</div>
+<!---
+End of notebook.
+-->
 <p>Why do you get different results in the two cases? Let’s ask the question differently: What is the probability of first picking a black card? Clearly, it is 50-50, or 0.5. Now, if you first pick a black card, what is the probability in the first game above of getting a second black card? There are two red and one black cards left, so now p = 1/3.</p>
 <p>But in the second game, what is the probability of picking a second black card if the first one you pick is black? It is still 0.5 because we are <em>sampling with replacement.</em></p>
 <p>The probability of picking a second black card <em>conditional on picking a first black card</em> in the first game is 1/3, and it is different from the unconditional probability of picking a black card first. But in the second game the probability of the second black card conditional on first picking a black card is the same as the probability of the first black card.</p>
@@ -1019,8 +1091,6 @@ P(\text{nice day and win}) = P(\text{nice day}) * P(\text{winning | nice day})
 <p>The multiplication rule is very useful in everyday life. It fits closely to a great many situations such as “What is the chance that it will rain (.3) and that (if it does rain) the plane will not fly (.8)?” Hence the probability of your not leaving the airport today is 0.3 x 0.8 = 0.24.</p>
 
 
-</section>
-</div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-gardner2001colossal" class="csl-entry" role="listitem">
 Gardner, Martin. 2001. <em>The Colossal Book of Mathematics</em>. W.W. Norton &amp; Company Inc., New York. <a href="https://archive.org/details/B-001-001-265">https://archive.org/details/B-001-001-265</a>.
@@ -1031,7 +1101,7 @@ Gardner, Martin. 2001. <em>The Colossal Book of Mathematics</em>. W.W. Norton &a
 <hr>
 <ol>
 <li id="fn1"><p>“Universe” and “population” are perfect synonyms in scientific research. We choose to use “universe” because it seems to have fewer confusing associations.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>In this case, the result of the conditional expression is in fact either <code>True</code> or <code>False</code>. Python is more liberal on what it allows in the conditional expression; it will take whatever the result is, and then force the result into either <code>True</code> or <code>False</code>, in fact, by wrapping the result with the <span class="python"><code>bool</code></span> function, that takes anything as input, and returns either <code>True</code> or <code>False</code>. Therefore, we could refer to the result of the conditional expression as something “truthy” — that is - something that comes back as <code>True</code> or <code>False</code> from the <span class="python"><code>bool</code></span> function. In the case here, that does not arise, because the result is in fact either exactly <code>True</code> or exactly <code>False</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In this case, the result of the conditional expression is in fact either <code>True</code> or <code>False</code>. Python is more liberal on what it allows in the conditional expression; it will take whatever the result is, and then force the result into either <code>True</code> or <code>False</code>, in fact, by wrapping the result with the <code>bool</code> function, that takes anything as input, and returns either <code>True</code> or <code>False</code>. Therefore, we could refer to the result of the conditional expression as something “truthy” — that is - something that comes back as <code>True</code> or <code>False</code> from the <code>bool</code> function. In the case here, that does not arise, because the result is in fact either exactly <code>True</code> or exactly <code>False</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
