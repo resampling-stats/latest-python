@@ -416,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#more-calculations" id="toc-more-calculations" class="nav-link" data-scroll-target="#more-calculations">4.6 More calculations</a></li>
   <li><a href="#sec-variables" id="toc-sec-variables" class="nav-link" data-scroll-target="#sec-variables">4.7 Variables</a></li>
   <li><a href="#and-so-on" id="toc-and-so-on" class="nav-link" data-scroll-target="#and-so-on">4.8 And so, on</a></li>
-  <li><a href="#saving-your-work" id="toc-saving-your-work" class="nav-link" data-scroll-target="#saving-your-work">4.9 Saving your work</a></li>
+  <li><a href="#sec-saving-ipynb" id="toc-sec-saving-ipynb" class="nav-link" data-scroll-target="#sec-saving-ipynb">4.9 Saving your work</a></li>
   <li><a href="#sec-running-own-computer" id="toc-sec-running-own-computer" class="nav-link" data-scroll-target="#sec-running-own-computer"><span class="header-section-number">4.10</span> Running the code on your own computer</a></li>
   </ul>
 </nav>
@@ -471,10 +471,10 @@ Using Python on the web and on your computer
 <p>Later, we be using the <em>Matplotlib</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> package. This is the main Python package with code for producing plots, such as bar charts, histograms, and scatter plots. See the rest of the book for more details on these plots.</p>
 <p>Still further on in the book, we will use more specialized libraries for data manipulation and analysis. <em>Pandas</em><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> is the standard Python package for loading data files and working with data tables. <em>Scipy</em><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> is a package that houses a wide range of numerical routines, including some simple statistical methods. The <em>Statsmodels</em><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> package has code for many more statistical procedures. We will find ourselves comparing the results of our own resampling algorithms to those in Scipy and Statsmodels.</p>
 </section>
-<p>It is very important that Python is a <em>programming language</em> and not a set of canned routines for “doing statistics”. It means that we can explore the <em>ideas</em> of probability and statistics using the <em>language</em> of Python to express those ideas. It also means that you, and we, and anyone else in the world, can write new code to share with others, so they can benefit from our work, understand it, and improve it. This book is one example; we have written the Python code in this book as clearly as we can to make it easy to follow, and to explain the underlying ideas. We hope you will help us by testing what we have done and sending us suggestions for ways we could improve. Please see <a href="preface_third.html#sec-book-as-public" class="quarto-xref"><span>Section 6</span></a> for more information about how to do that.</p>
+<p>It is crucial to our purpose that Python is a <em>programming language</em> and not a set of canned routines for “doing statistics”. It means that we can explore the <em>ideas</em> of probability and statistics using the <em>language</em> of Python to express those ideas. It also means that you, and we, and anyone else in the world, can write new code to share with others, so they can use our work, understand it, and improve it. This book is one example; we have written the Python code in this book as clearly as we can to make it easy to follow, and to explain the underlying ideas. We hope you will help us by testing what we have done and sending us suggestions for ways we could improve. Please see <a href="preface_third.html#sec-book-as-public" class="quarto-xref"><span>Section 6</span></a> for more information about how to do that.</p>
 <section id="the-environment" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="the-environment"><span class="header-section-number">4.2</span> The environment</h2>
-<p>Many of the chapters have sections with code for you to run, and experiment with. These sections contain <em>Jupyter notebooks</em>[^jupyter-nb]. Jupyter notebooks are interactive web pages that allow you to read, write and run Python code. We mark the start of each notebook in the text with a note and link heading like the one you see below. In the web edition of this book, you can click on the <em>Download</em> link in this header to download the section as a notebook. You can also click on the <em>Interact</em> link in this header to open the notebook in your web browser, using a system called JupyterLite. You can run the code, and experiment by making changes.</p>
+<p>Many of the chapters have sections with code for you to run, and experiment with. These sections contain <em>Jupyter notebooks</em>[^jupyter-nb]. Jupyter notebooks are interactive web pages that allow you to read, write and run Python code. We mark the start of each notebook in the text with a note-and-link heading like the one you see below. In the web edition of this book, you can click on the <em>Download</em> link in this heading to download the section as a notebook. You can also click on the <em>Interact</em> link to open the notebook in your web browser, using a system called JupyterLite. JupyterLite allows you to run the code in your browser, and experiment by making changes.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -489,7 +489,7 @@ About JupyterLite
 <p>When you click on the “Interact” link, it will take you to a web address that has the effect of making your browser download the JupyterLite system, along with <span class="python">compatible versions of Python and its standard packages</span> . The web page that opens allows you run to the Python code in the notebook inside your browser.</p>
 </div>
 </div>
-<p>In the print version of the book, we point you to the web version, to get the links.</p>
+<p>In the print version of the book, we point you to the web version to get the “Download” and “Interact” links.</p>
 <p>At the end of this chapter, we explain how to run these notebooks on your own computer. In the next section you will see an example notebook; to start with, you might want to run this in your browser using the “Interact” link.</p>
 </section>
 <section id="getting-started-with-the-notebook" class="level2" data-number="4.3">
@@ -701,9 +701,10 @@ Note&nbsp;4.2: Three types of brackets in Python
 <h2 data-number="4.8" class="anchored" data-anchor-id="and-so-on">4.8 And so, on</h2>
 <p>Now you have done some practice with the notebook, and with variables, you are ready for a new problem in probability and statistics, in the next chapter.</p>
 </section>
-<section id="saving-your-work" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="saving-your-work">4.9 Saving your work</h2>
-<p>If you are running this notebook via the “Interact” button, you are running it using the JupyterLite system. Please bear in mind that your browser keeps all the notebooks you run in JupyterLite, in its browser <em>cache</em> — a private and temporary store that the browser maintains somewhere on your system. If you want to keep any changes you make to notebooks you have run with the “Interact” JupyterLite system, you might want to save a copy of the notebook outside the browser cache. To do this, look the pane to the left of the notebook for the name of the notebook. This name of this particular notebook is “billies_bill”, and you will see the notebook file in the left pane listed as <code>billies_bill.ipynb</code>. If you want to save a copy to your computer, first use the “File” menu, and the “Save” option, to save your notebook. This saves the notebook to your browser’s private store (the <em>cache</em>). Next <em>right-click</em> on <code>billies_bill.ipynb</code> in the left pane (see <a href="#fig-jupyterlite-download" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>), and choose “Download”. Save the file somewhere memorable on your computer. You can go back to the notebook by following the instructions at <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.10</span></a>.</p>
+<section id="sec-saving-ipynb" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="sec-saving-ipynb">4.9 Saving your work</h2>
+<p>If you are running this notebook via the “Interact” button, you are running it using the JupyterLite system. JupyterLite keeps all its notebooks in your browser <em>cache</em>. This is a private and temporary store that the browser keeps somewhere on your system. This can be a problem if you find yourself clearing your browser cache for some reason, or if you start using another browser, that has a different cache. If you want make sure you have a copy of any changes you make to notebooks you ran with the “Interact” JupyterLite system, you might want to save a copy of the notebook outside the browser cache. To do this, look the pane to the left of the notebook for the name of the notebook. This name of this particular notebook is “billies_bill”, and you will see the notebook file in the left pane listed as <code>billies_bill.ipynb</code>. If you want to save a copy to your computer, first use the “File” menu, and the “Save” option, to save your notebook. This saves the notebook to your browser’s private store (the <em>cache</em>). Next <em>right-click</em> on <code>billies_bill.ipynb</code> in the left pane (see <a href="#fig-jupyterlite-download" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>), and choose “Download”. Save the file somewhere memorable on your computer. You can go back to the notebook by following the instructions at <a href="#sec-running-own-computer" class="quarto-xref"><span>Section 4.10</span></a>.</p>
+<p>You can use this copy by re-uploading it to the “Interact” JupyterLite system. Go to the upload button near the top-left of the JupyterLite interface (see <a href="#fig-jupyterlite-upload" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>). Select the <code>.ipynb</code> (Jupyter notebook) file you want to upload; once done, you can open the notebook using the file listing panel to the left of the interface.</p>
 <div class="nb-end">
 
 </div>
@@ -730,6 +731,16 @@ End of notebook.
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jupyterlite-download-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4.1: Downloading files in JupyterLite
+</figcaption>
+</figure>
+</div>
+<div id="fig-jupyterlite-upload" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-jupyterlite-upload-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/jupyterlite_upload.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jupyterlite-upload-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: Uploading files in JupyterLite
 </figcaption>
 </figure>
 </div>
@@ -767,6 +778,7 @@ Note&nbsp;4.3: Download links and data files
 <p>Now you should be able to start the Jupyter notebook application. See the <a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#starting-the-notebook-server">Jupyter documentation for how to start Jupyter</a>. Open the notebook you downloaded for the chapter; you will now be able to run the code on your own computer, and experiment by making changes.</p>
 </div>
 <p>You can run any of the code notebooks in this textbook on your own machine by downloading the notebook, via the download link at the top of each notebook section, and then opening the resulting notebook in Jupyter.</p>
+<p>Notice that the notebooks for download are in the same <code>.ipynb</code> (Jupyter) format as the notebooks in the “Interact” system (see <a href="#sec-saving-ipynb" class="quarto-xref"><span>Section 4.9</span></a>). That means you can upload the <code>.ipynb</code> files from the download links into the Interact system and work with them there, and conversely, you can download the <code>.ipynb</code> files from the Interact system and work with them in Jupyter.</p>
 <!---
 End of R segment.
 -->
