@@ -433,22 +433,22 @@ div.csl-indent {
   <li><a href="#designing-the-experiment" id="toc-designing-the-experiment" class="nav-link" data-scroll-target="#designing-the-experiment"><span class="header-section-number">6.3</span> Designing the experiment</a>
   <ul class="collapse">
   <li><a href="#one-trial" id="toc-one-trial" class="nav-link" data-scroll-target="#one-trial"><span class="header-section-number">6.3.1</span> One trial</a></li>
-  <li><a href="#using-code-to-simulate-a-trial" id="toc-using-code-to-simulate-a-trial" class="nav-link" data-scroll-target="#using-code-to-simulate-a-trial"><span class="header-section-number">6.3.2</span> Using code to simulate a trial</a></li>
-  <li><a href="#sec-random-zero-through-ninety-nine" id="toc-sec-random-zero-through-ninety-nine" class="nav-link" data-scroll-target="#sec-random-zero-through-ninety-nine"><span class="header-section-number">6.3.3</span> Random numbers from 0 through 99</a></li>
+  <li><a href="#using-code-to-simulate-a-trial" id="toc-using-code-to-simulate-a-trial" class="nav-link" data-scroll-target="#using-code-to-simulate-a-trial">6.3.2 Using code to simulate a trial</a></li>
+  <li><a href="#sec-random-zero-through-ninety-nine" id="toc-sec-random-zero-through-ninety-nine" class="nav-link" data-scroll-target="#sec-random-zero-through-ninety-nine">6.3.3 Random numbers from 0 through 99</a></li>
   </ul></li>
-  <li><a href="#three-simulation-steps" id="toc-three-simulation-steps" class="nav-link" data-scroll-target="#three-simulation-steps"><span class="header-section-number">6.4</span> Three simulation steps</a>
+  <li><a href="#three-simulation-steps" id="toc-three-simulation-steps" class="nav-link" data-scroll-target="#three-simulation-steps">6.4 Three simulation steps</a>
   <ul class="collapse">
-  <li><a href="#more-on-s" id="toc-more-on-s" class="nav-link" data-scroll-target="#more-on-s"><span class="header-section-number">6.4.1</span> More on arrays</a></li>
+  <li><a href="#more-on-s" id="toc-more-on-s" class="nav-link" data-scroll-target="#more-on-s">6.4.1 More on arrays</a></li>
   </ul></li>
-  <li><a href="#sec-array-length" id="toc-sec-array-length" class="nav-link" data-scroll-target="#sec-array-length"><span class="header-section-number">6.5</span> <span class="python">Array</span> length</a></li>
-  <li><a href="#sec-array-indexing" id="toc-sec-array-indexing" class="nav-link" data-scroll-target="#sec-array-indexing"><span class="header-section-number">6.6</span> Indexing into arrays with integers</a>
+  <li><a href="#sec-array-length" id="toc-sec-array-length" class="nav-link" data-scroll-target="#sec-array-length">6.5 Array length</a></li>
+  <li><a href="#sec-array-indexing" id="toc-sec-array-indexing" class="nav-link" data-scroll-target="#sec-array-indexing">6.6 Indexing into arrays with integers</a>
   <ul class="collapse">
-  <li><a href="#repeating-trials" id="toc-repeating-trials" class="nav-link" data-scroll-target="#repeating-trials"><span class="header-section-number">6.6.1</span> Repeating trials</a></li>
-  <li><a href="#sec-for-loops" id="toc-sec-for-loops" class="nav-link" data-scroll-target="#sec-for-loops"><span class="header-section-number">6.6.2</span> For-loops in Python</a></li>
-  <li><a href="#sec-for-range" id="toc-sec-for-range" class="nav-link" data-scroll-target="#sec-for-range"><span class="header-section-number">6.6.3</span> <code>range</code> in Python <code>for</code> loops</a></li>
-  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">6.6.4</span> Putting it all together</a></li>
+  <li><a href="#repeating-trials" id="toc-repeating-trials" class="nav-link" data-scroll-target="#repeating-trials">6.6.1 Repeating trials</a></li>
+  <li><a href="#sec-for-loops" id="toc-sec-for-loops" class="nav-link" data-scroll-target="#sec-for-loops">6.6.2 For-loops in Python</a></li>
+  <li><a href="#sec-for-range" id="toc-sec-for-range" class="nav-link" data-scroll-target="#sec-for-range">6.6.3 <code>range</code> in Python <code>for</code> loops</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">6.6.4 Putting it all together</a></li>
   </ul></li>
-  <li><a href="#many-many-trials" id="toc-many-many-trials" class="nav-link" data-scroll-target="#many-many-trials"><span class="header-section-number">6.7</span> Many many trials</a></li>
+  <li><a href="#many-many-trials" id="toc-many-many-trials" class="nav-link" data-scroll-target="#many-many-trials">6.7 Many many trials</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6.8</span> Conclusion</a></li>
   </ul>
 </nav>
@@ -518,14 +518,32 @@ div.csl-indent {
 <p>We will arbitrarily say that the juror is white if the random number is in the range from 0 through 73. 74 of the 100 numbers are in this range, so the juror has a 74/100 = 74% chance of getting the label “white”. We will say the juror is black if the random number is in the range 74 though 99. There are 26 such numbers, so the juror has a 26% chance of getting the label “black”.</p>
 <p>Next we need a way of getting a random number in the range 0 through 99. This is an easy job for the computer, but if we had to do this with a physical device, we could get a single number by throwing <em>two</em> 10-sided dice, say a blue die and a green die. The face of the blue die will be the 10s digit, and the green face will be the ones digit. So, if the blue die comes up with 8 and the green die has 4, then the random number is 84.</p>
 <p>We could then simulate 12 jurors by repeating this process 12 times, each time writing down “white” if the number is from 0 through 74, and “black” otherwise. The trial outcome is the number of times we wrote “black” for these 12 simulated jurors.</p>
+<div id="nte-life_and_death" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;6.1: Notebook: Simulating juries
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nb-links">
+<p><a class="notebook-link" href="notebooks/life_and_death.ipynb">Download notebook</a> <a class="interact-button" href="./interact/lab/index.html?path=life_and_death.ipynb">Interact</a></p>
+</div>
+</div>
+</div>
+<div class="nb-start" name="life_and_death" title="Simulating juries">
+
+</div>
 </section>
 <section id="using-code-to-simulate-a-trial" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="using-code-to-simulate-a-trial"><span class="header-section-number">6.3.2</span> Using code to simulate a trial</h3>
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="using-code-to-simulate-a-trial">6.3.2 Using code to simulate a trial</h3>
 <p>We use the same logic to simulate a trial with the computer. A little code makes the job easier, because we can ask Python to give us 12 random numbers from 0 through 99, and to count how many of these numbers are in the range from 75 through 99. Numbers in the range from 75 through 99 correspond to black jurors.</p>
 </section>
 <section id="sec-random-zero-through-ninety-nine" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="sec-random-zero-through-ninety-nine"><span class="header-section-number">6.3.3</span> Random numbers from 0 through 99</h3>
-<p>We can now use NumPy and <span class="python">the random number functions</span> from the last chapter to get 12 random numbers from 0 through 99.</p>
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="sec-random-zero-through-ninety-nine">6.3.3 Random numbers from 0 through 99</h3>
+<p>We can now use NumPy and the random number functions from the last chapter to get 12 random numbers from 0 through 99.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the Numpy library, rename as "np"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -546,8 +564,8 @@ div.csl-indent {
 </div>
 </div>
 <section id="counting-the-jurors" class="level4" data-number="6.3.3.1">
-<h4 data-number="6.3.3.1" class="anchored" data-anchor-id="counting-the-jurors"><span class="header-section-number">6.3.3.1</span> Counting the jurors</h4>
-<p>We use <em>comparison</em> and <span class="python"><code>np.sum</code></span> to count how many numbers are greater than 74, and therefore, in the range from 75 through 99:</p>
+<h4 data-number="6.3.3.1" class="anchored" data-anchor-id="counting-the-jurors">6.3.3.1 Counting the jurors</h4>
+<p>We use <em>comparison</em> and <code>np.sum</code> to count how many numbers are greater than 74, and therefore, in the range from 75 through 99:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How many numbers are greater than 74?</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">&gt;</span> <span class="dv">74</span>)</span>
@@ -559,7 +577,7 @@ div.csl-indent {
 </div>
 </section>
 <section id="a-single-simulated-trial" class="level4" data-number="6.3.3.2">
-<h4 data-number="6.3.3.2" class="anchored" data-anchor-id="a-single-simulated-trial"><span class="header-section-number">6.3.3.2</span> A single simulated trial</h4>
+<h4 data-number="6.3.3.2" class="anchored" data-anchor-id="a-single-simulated-trial">6.3.3.2 A single simulated trial</h4>
 <p>We assemble the pieces from the last few sections to make a cell that simulates a single trial:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
@@ -581,7 +599,7 @@ div.csl-indent {
 </section>
 </section>
 <section id="three-simulation-steps" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="three-simulation-steps"><span class="header-section-number">6.4</span> Three simulation steps</h2>
+<h2 data-number="6.4" class="anchored" data-anchor-id="three-simulation-steps">6.4 Three simulation steps</h2>
 <p>Now we come back to the details of how we:</p>
 <ol type="1">
 <li>Repeat the simulated trial many times;</li>
@@ -591,9 +609,9 @@ div.csl-indent {
 <p>Repeating the trial many times is the job of the <code>for</code> loop, and we will come to that soon.</p>
 <p>In order to record the results, we will store each trial result in an array.</p>
 <section id="more-on-s" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="more-on-s"><span class="header-section-number">6.4.1</span> More on arrays</h3>
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="more-on-s">6.4.1 More on arrays</h3>
 <p>Since we will be working with arrays a lot, it is worth knowing more about them.</p>
-<p>A <span class="python">Numpy array</span> is a <em>container</em> that stores many elements of the same type. You have already seen, in <a href="resampling_method.html" class="quarto-xref"><span>Chapter 2</span></a>, how we can create an array from a sequence of numbers using the <span class="python"><code>np.array</code></span> function.</p>
+<p>A Numpy array is a <em>container</em> that stores many elements of the same type. You have already seen, in <a href="resampling_method.html" class="quarto-xref"><span>Chapter 2</span></a>, how we can create an array from a sequence of numbers using the <code>np.array</code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make an array of numbers, store with the name "some_numbers".</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>some_numbers <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>])</span>
@@ -603,7 +621,7 @@ div.csl-indent {
 <pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
 </div>
 </div>
-<p>Another way that we can create arrays is to use the <span class="python"><code>np.zeros</code></span> function to make a new array where all the elements are 0.</p>
+<p>Another way that we can create arrays is to use the <code>np.zeros</code> function to make a new array where all the elements are 0.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a new array containing 5 zeros.</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># store with the name "z".</span></span>
@@ -614,12 +632,12 @@ div.csl-indent {
 <pre><code>array([0., 0., 0., 0., 0.])</code></pre>
 </div>
 </div>
-<p>Notice the argument <code>5</code> to the <span class="python"><code>np.zeros</code></span> function. This tells the function how many zeros we want in the array that the function will return.</p>
+<p>Notice the argument <code>5</code> to the <code>np.zeros</code> function. This tells the function how many zeros we want in the array that the function will return.</p>
 </section>
 </section>
 <section id="sec-array-length" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="sec-array-length"><span class="header-section-number">6.5</span> <span class="python">Array</span> length</h2>
-<p>The are various useful things we can do with this array container. One is to ask how many elements there are in the array container. We can use the <span class="python"><code>len</code></span> function to calculate the number of elements in an array:</p>
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-array-length">6.5 Array length</h2>
+<p>The are various useful things we can do with this array container. One is to ask how many elements there are in the array container. We can use the <code>len</code> function to calculate the number of elements in an array:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the number of elements in "z"</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -629,7 +647,7 @@ div.csl-indent {
 </div>
 </section>
 <section id="sec-array-indexing" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="sec-array-indexing"><span class="header-section-number">6.6</span> Indexing into arrays with integers</h2>
+<h2 data-number="6.6" class="anchored" data-anchor-id="sec-array-indexing">6.6 Indexing into arrays with integers</h2>
 <p>Another thing we can do with arrays is <em>set</em> the value for a particular element. To do this, we use square brackets following the array value, on the left hand side of the equals sign, like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the value of the *first* element in the array.</span></span>
@@ -640,7 +658,7 @@ div.csl-indent {
 <pre><code>array([99.,  0.,  0.,  0.,  0.])</code></pre>
 </div>
 </div>
-<p>Read the first line of code as “the element at position <span class="python">0</span> gets a value of 99”.</p>
+<p>Read the first line of code as “the element at position 0 gets a value of 99”.</p>
 <div class="python">
 <p>Notice that the position number of the first element in the array is 0, and the position number of the second element is 1. Think of the position as an <em>offset</em> from the beginning of the array. The first element is at the beginning of the array, and so it is at offset (position) 0. This can be a little difficult to get used to at first, but you will find that thinking of the positions of offsets in this way soon starts to come naturally, and later you will also find that it helps you to avoid some common mistakes when using positions for getting and setting values.</p>
 </div>
@@ -654,7 +672,7 @@ div.csl-indent {
 <pre><code>array([99.,  0., 99.,  0.,  0.])</code></pre>
 </div>
 </div>
-<p>Read the first code line above as as “set the value at position <span class="python">2</span> in the array to have the value 99”.</p>
+<p>Read the first code line above as as “set the value at position 2 in the array to have the value 99”.</p>
 <p>We can also <em>get</em> the value of the element at a given position, using the same square-bracket notation:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the value of the *first* element in the array.</span></span>
@@ -666,10 +684,10 @@ div.csl-indent {
 <pre><code>np.float64(99.0)</code></pre>
 </div>
 </div>
-<p>Read the first code line here as “v gets the value at position <span class="python">0</span> in the array”.</p>
+<p>Read the first code line here as “v gets the value at position 0 in the array”.</p>
 <p>Using square brackets to get and set element values is called <em>indexing</em> into the array.</p>
 <section id="repeating-trials" class="level3" data-number="6.6.1">
-<h3 data-number="6.6.1" class="anchored" data-anchor-id="repeating-trials"><span class="header-section-number">6.6.1</span> Repeating trials</h3>
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="repeating-trials">6.6.1 Repeating trials</h3>
 <p>As a preview, let us now imagine that we want to do 50 simulated trials of Robert Swain’s jury in Hypothetical County. We will want to store the count for each trial, to give 50 counts.</p>
 <p>In order to do this, we make an array to hold the 50 counts. Call this array <code>z</code>.</p>
 <div class="cell" data-layout-align="center">
@@ -726,7 +744,7 @@ div.csl-indent {
 <p>This would get terribly long and boring to type for 50 trials. Luckily computer code is very good at repeating the same procedure many times. For example, Python can do this using a <code>for</code> loop. You have already seen a preview of the <code>for</code> loop in <a href="resampling_method.html" class="quarto-xref"><span>Chapter 2</span></a>. Here we dive into <code>for</code> loops in more depth.</p>
 </section>
 <section id="sec-for-loops" class="level3" data-number="6.6.2">
-<h3 data-number="6.6.2" class="anchored" data-anchor-id="sec-for-loops"><span class="header-section-number">6.6.2</span> For-loops in Python</h3>
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="sec-for-loops">6.6.2 For-loops in Python</h3>
 <p>A for-loop is a way of asking Python to:</p>
 <ul>
 <li>Take a sequence of things, one by one, and</li>
@@ -817,7 +835,7 @@ Author birth year is 1980</code></pre>
 <p>The initial line of the <code>for</code> loop above tells Python that it should take <em>each item</em> in <code>author_birth_years</code>, one by one — first 1932, then 1964, then 1980. For each of these numbers it will:</p>
 <ul>
 <li>Put the number into the variable <code>birth_year</code>, then</li>
-<li>Run the <span class="python">indented</span> code .</li>
+<li>Run the indented code .</li>
 </ul>
 <p>Just as the person at the supermarket checkout takes each item in turn, for each iteration (repeat) of the <code>for</code> loop, <code>birth_year</code> gets a new value from the sequence in <code>author_birth_years</code>. <code>birth_year</code> is called the <em>loop variable</em>, because it is the variable that gets a new value each time we begin a new iteration of the <code>for</code> loop procedure. As for any variable in Python, we can call our loop variable anything we like. We used <code>birth_year</code> here, but we could have used <code>y</code> or <code>year</code> or some other name.</p>
 <p>Now you know what the <code>for</code> loop is doing, you can see that the <code>for</code> loop above is equivalent to the following code:</p>
@@ -839,7 +857,7 @@ Author birth year is 1980</code></pre>
 </div>
 </div>
 <p>Writing the steps in the <code>for</code> loop out like this is called <em>unrolling</em> the loop. It can be a useful exercise to do this when you come across a <code>for</code> loop, in order to work through the logic of the loop. For example, you may want to write out the unrolled equivalent of the first couple of iterations, to see what the loop variable will be, and what will happen in the body of the loop.</p>
-<p>We often use <code>for</code> loops with ranges (see <a href="resampling_with_code.html#sec-ranges" class="quarto-xref"><span>Section 5.9</span></a>). Here we use a loop to print out the numbers <span class="python">0 through 3</span>:</p>
+<p>We often use <code>for</code> loops with ranges (see <a href="resampling_with_code.html#sec-ranges" class="quarto-xref"><span>Section 5.9</span></a>). Here we use a loop to print out the numbers 0 through 3:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(<span class="dv">4</span>):</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The loop variable n is'</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -850,7 +868,7 @@ The loop variable n is 2
 The loop variable n is 3</code></pre>
 </div>
 </div>
-<p>Notice that the range ended at <span class="python">(the number before)</span> 4, and that means we repeat the loop body 4 times. We can also use the loop variable value from the range as an <em>index</em>, to get or set the first, second, etc values from an array.</p>
+<p>Notice that the range ended at (the number before) 4, and that means we repeat the loop body 4 times. We can also use the loop variable value from the range as an <em>index</em>, to get or set the first, second, etc values from an array.</p>
 <p>For example, maybe we would like to show the author position <em>and</em> the author year of birth.</p>
 <p>Remember our author birth years:</p>
 <div class="cell" data-layout-align="center">
@@ -907,7 +925,7 @@ Birth year of author position 2 is 1980</code></pre>
 </div>
 </section>
 <section id="sec-for-range" class="level3 python" data-number="6.6.3">
-<h3 data-number="6.6.3" class="anchored" data-anchor-id="sec-for-range"><span class="header-section-number">6.6.3</span> <code>range</code> in Python <code>for</code> loops</h3>
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="sec-for-range">6.6.3 <code>range</code> in Python <code>for</code> loops</h3>
 <p>So far we have used <code>np.arange</code> to give us the sequence of integers that we feed into the <code>for</code> loop. But — as you saw in <a href="resampling_with_code.html#sec-python-range" class="quarto-xref"><span>Section 5.10</span></a> — we can also get a range of numbers from Python’s <code>range</code> function. <code>range</code> is a common and useful alternative way to provide a range of numbers to a <code>for</code> loop.</p>
 <p>You have just seen how we would use <code>np.arange</code> to send the numbers 0, 1, 2, and 3 to a <code>for</code> loop, in the example above, repeated here:</p>
 <div class="cell" data-layout-align="center">
@@ -934,7 +952,7 @@ Birth year of author position 2 is 1980</code></pre>
 <p>In fact, you will see this pattern throughout the book, where we use <code>for</code> statements like <code>for value in range(10000):</code> to ask Python to put each number in the range 0 up to (not including) 10000 into the variable <code>value</code>, and then do something in the body of the loop. Just to be clear, we could always, and almost as easily, write <code>for value in np.arange(10000):</code> to do the same task. However, we generally prefer <code>range</code> in our Python <code>for</code> loops, because it is just a little less typing (without the <code>np.a</code> of <code>np.arange</code>), and because it is a more common pattern in standard Python code.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
 <section id="putting-it-all-together" class="level3" data-number="6.6.4">
-<h3 data-number="6.6.4" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">6.6.4</span> Putting it all together</h3>
+<h3 data-number="6.6.4" class="anchored" data-anchor-id="putting-it-all-together">6.6.4 Putting it all together</h3>
 <p>Here is the code we worked out above, to implement a single trial:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
@@ -1031,7 +1049,7 @@ Birth year of author position 2 is 1980</code></pre>
 </section>
 </section>
 <section id="many-many-trials" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="many-many-trials"><span class="header-section-number">6.7</span> Many many trials</h2>
+<h2 data-number="6.7" class="anchored" data-anchor-id="many-many-trials">6.7 Many many trials</h2>
 <p>Our experiment above is only 50 simulated trials. The higher the number of trials, the more confident we can be of our estimate for <code>p</code> — the proportion of trials where we get an all-white jury.</p>
 <p>It is no extra trouble for us to tell the computer to do a very large number of trials. For example, we might want to run 10,000 trials instead of 50. All we have to do is to run the loop 10,000 times instead of 50 times. The computer has to do more work, but it is more than up to the job.</p>
 <p>Here is exactly the same code we ran above, but collected into one cell, and using 10,000 trials instead of 50. We have left out the comments, to make the code more compact.</p>
@@ -1056,6 +1074,25 @@ Birth year of author position 2 is 1980</code></pre>
 <p>We now have a new, more accurate estimate of the proportion of Hypothetical County juries that are all white. The proportion is 0.03, and so 3%.</p>
 <p>This proportion means that, for any one jury from Hypothetical County, there is a less than one in 20 chance that the jury would be all white.</p>
 <p>As we will see in more detail later, we might consider using the results from this experiment in Hypothetical County, to reflect on the result we saw in the real Talladega County. We might conclude, for example, that there was likely some systematic difference between Hypothetical County and Talledega County. Maybe the difference was that there was, in fact, some bias in the jury selection in Talledega county, and that the Supreme Court was wrong to reject this. You will hear more of this line of reasoning later in the book.</p>
+<!---
+End of notebook.
+-->
+<div class="nb-end">
+
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+End of notebook: Simulating juries
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>life_and_death</code> starts at <a href="#nte-life_and_death" class="quarto-xref">Note&nbsp;<span>6.1</span></a>.</p>
+</div>
+</div>
 </section>
 <section id="conclusion" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">6.8</span> Conclusion</h2>
