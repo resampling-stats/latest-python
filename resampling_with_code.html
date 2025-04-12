@@ -901,7 +901,7 @@ End of Python section
 </section>
 <section id="sec-python-range" class="level2 python" data-number="5.10">
 <h2 data-number="5.10" class="anchored" data-anchor-id="sec-python-range">5.10 <code>range</code> in Python</h2>
-<p>So far you have seen ranges of integers using <code>np.arange</code>. The <code>np.</code> prefix refers to the fact that <code>np.arange</code> is a function from the Numpy module (library). The <code>a</code> in <code>arange</code> signals that the result <code>np.arange</code> returns is an <em>array</em>:</p>
+<p>So far you have seen ranges of integers using <code>np.arange</code>. The <code>np.</code> prefix refers to the fact that <code>np.arange</code> is a function from the Numpy package. The <code>a</code> in <code>arange</code> signals that the result <code>np.arange</code> returns is an <em>array</em>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">7</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
@@ -910,6 +910,7 @@ End of Python section
 <pre><code>array([0, 1, 2, 3, 4, 5, 6])</code></pre>
 </div>
 </div>
+<p><code>arr</code> is an array. We can ask Python what kind of value we have by using the Python <code>type</code> function. It accepts a value, and sends back something to show us the type of the value. In the case of <code>arr</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show what type of thing this is.</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -918,23 +919,23 @@ End of Python section
 </div>
 </div>
 <p>We do often use <code>np.arange</code> to get a range of integers in a convenient array format, but Python has another way of getting a range of integers — the <code>range</code> function.</p>
-<p>The <code>range</code> function is very similar to <code>np.arange</code>, but it is <em>not</em> part of Numpy — it is basic function in Python — and it does <em>not</em> return an <em>array</em> of numbers, it returns something else. Here we ask for a <code>range</code> from 0 through 6 (0 up to, but not including 7):</p>
+<p>The <code>range</code> function is very similar to <code>np.arange</code>, but it is <em>not</em> part of Numpy — it is a basic function in Python — and it does <em>not</em> return an <em>array</em> of numbers, it returns something else. Here we ask for a <code>range</code> from 0 through 6 (0 up to, but not including 7):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice no `np.` before `range`.</span></span>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice no `np.` before `range`.  This is the Python `range` function.</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="bu">range</span>(<span class="dv">7</span>)</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>range(0, 7)</code></pre>
 </div>
 </div>
-<p>Notice that the thing that came back is something that <em>represents</em> or <em>stands in for</em> the number 0 through 6. It is not an array, but a specific type of thing called — a <code>range</code>:</p>
+<p>Notice that the thing that came back is something that <em>represents</em> or <em>stands in for</em> the number 0 through 6. It is not an array, but a specific type of thing called — a <code>range</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'range'&gt;</code></pre>
 </div>
 </div>
-<p>The <code>range</code> above is a container for the numbers 0 through 6. We can get the numbers out of the container in many different ways, but one of them is to convert this container to an array, using the <code>np.array</code> function. The <code>np.array</code> function takes the thing we pass it, and makes it into an array. When we apply <code>np.array</code> to <code>r</code> above, we get the numbers that <code>r</code> contains:</p>
+<p>The <code>range</code> above is a container for the numbers 0 through 6, in the same way that the array from <code>np.arange</code> was a container for these numbers. A container is a Python value that contains other values. We can get the numbers out of the Python <code>range</code> container in many different ways, but one of them is to convert this container to an array container, using the <code>np.array</code> function. The <code>np.array</code> function takes the thing we pass it, and makes it into an array. When we apply <code>np.array</code> to <code>r</code> above, we get the numbers that <code>r</code> contains:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the numbers from the range `r`, convert to an array.</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>a_from_r <span class="op">=</span> np.array(r)</span>
@@ -1053,7 +1054,10 @@ Figure&nbsp;5.5: Example run of the <code>rnd.choice</code> function
 <pre><code>array([4, 5, 9, 8, 2, 9, 1, 5, 8, 2, 1, 8, 2, 6, 6, 5, 0])</code></pre>
 </div>
 </div>
-<p>As you can see, the function sent back (returned) 17 numbers. Because it is sending back more than one number, the thing it sends back is an array, where the array has 17 elements.</p>
+<p>As you can see, the function sent back (returned) 17 numbers.</p>
+<div class="python">
+<p>Because it is sending back more than one number, the thing it sends back has to be a <em>container</em>, and in fact, the container that <code>rnd.choice</code> uses is a Numpy array, where the array has (contains) 17 elements.</p>
+</div>
 <section id="sum-adding-all-the-values" class="level3" data-number="5.12.1">
 <h3 data-number="5.12.1" class="anchored" data-anchor-id="sum-adding-all-the-values">5.12.1 <code>sum</code> — adding all the values</h3>
 <p>Bear with us for a short diversion. You will see why we made this diversion soon.</p>
@@ -1197,7 +1201,7 @@ Figure&nbsp;5.5: Example run of the <code>rnd.choice</code> function
 <section id="repeating-the-trial" class="level2" data-number="5.16">
 <h2 data-number="5.16" class="anchored" data-anchor-id="repeating-the-trial">5.16 Repeating the trial</h2>
 <p>Now we know how to do one simulated trial, we could just keep running the cell above, and writing down the result each time. Once we had run the cell 100 times, we would have 100 counts. Then we could look at the 100 counts to see how many were equal to 17 (all 17 simulated patients cured on that trial). At least that would be much faster than rolling 17 dice 100 times, but we would also like the computer to automate the process of repeating the trial, and keeping track of the counts.</p>
-<p>Please forgive us as we race ahead again, as we did in the last chapter. As in the last chapter, we will use a <em>results</em> array called <code>z</code> to store the count for each trial. As in the last chapter, we will use a <code>for</code> loop to repeat the trial procedure many times. As in the last chapter, we will not explain the counts array of the <code>for</code> loop in any detail, because we are going to cover those in the next chapter.</p>
+<p>Please forgive us as we race ahead again, as we did in the last chapter. As in the last chapter, we will use a <em>results</em> array called <code>z</code> to store the count for each trial. As in the last chapter, we will use a <code>for</code> loop to repeat the trial procedure many times. As in the last chapter, we will not explain the counts array or the <code>for</code> loop in any detail, because we are going to cover those in the next chapter.</p>
 <p>Let us now imagine that we want to do 100 simulated trials at Saint Hypothetical General. This will give us 100 counts. We will want to store the count for each trial.</p>
 <p>To do this, we make an array called <code>z</code> to hold the 100 counts. We have called the array <code>z</code>, but we could have called it anything we liked, such as <code>counts</code> or <code>results</code> or <code>cecilia</code>.</p>
 <div class="cell" data-layout-align="center">
@@ -1208,7 +1212,7 @@ Figure&nbsp;5.5: Example run of the <code>rnd.choice</code> function
 <p>Next we use a <code>for</code> loop to <em>repeat the single trial procedure</em>.</p>
 <p>Notice that the single trial procedure, inside this <code>for</code> loop, is the same as the single trial procedure above — the only two differences are:</p>
 <ul>
-<li>The trial procedure is inside the loop, and</li>
+<li>The trial procedure is inside the loop (as indicated by the indentation).</li>
 <li>We are storing the count for each trial as we go.</li>
 </ul>
 <p>We will go into more detail on how this works in the next chapter.</p>
@@ -1267,9 +1271,9 @@ Note
 <section id="single-and-double-equals" class="level2 Python" data-number="5.17">
 <h2 data-number="5.17" class="anchored" data-anchor-id="single-and-double-equals">5.17 Single and double equals</h2>
 <p>Notice that the <em>double equals</em> <code>==</code> means something entirely different to Python than the single equals <code>=</code>. In the code above, Python reads <code>s = 17</code> to mean “Set the variable <code>s</code> to have the value 17”. In technical terms the single equals is called an <em>assignment</em> operator, because it means <em>assign</em> the value 17 to the variable <code>s</code>.</p>
-<p>The code <code>s == 17</code> has a completely different meaning.</p>
+<p>The code <code>s == 17</code> has a completely different meaning — and it is another example of a <em>comparison</em> — comparing the value in <code>s</code> to 17.</p>
 </section>
-<p>It means “give <code>True</code> if the value in <code>s</code> is equal to 17, and <code>False</code> otherwise”. The <code>==</code> is a <em>comparison</em> operator — it is for comparing two values — here the value in <code>s</code> and the value 17. This comparison, like all comparisons, returns an answer that is either <code>True</code> or <code>False</code>. In our case <code>s</code> has the value 17, so the comparison becomes <code>17 == 17</code>, meaning “is 17 equal to 17?”, to which the answer is “Yes”, and Python sends back <code>True</code>.</p>
+<p><code>==</code> means: compare the thing on the left of the <code>==</code> to the thing on the right of the <code>==</code>, and give <code>True</code> if the values are equal, and <code>False</code> otherwise. In this case, <code>s == 17</code> means “give <code>True</code> if the value in <code>s</code> is equal to 17, and <code>False</code> otherwise”. The <code>==</code> is a <em>comparison</em> operator — it is for comparing two values — here the value in <code>s</code> and the value 17. This comparison, like all comparisons, returns an answer that is either <code>True</code> or <code>False</code>. In our case <code>s</code> has the value 17, so the comparison becomes <code>17 == 17</code>, meaning “is 17 equal to 17?”, to which the answer is “Yes”, and Python sends back <code>True</code>.</p>
 </div>
 </div>
 <p>We can ask this question of <em>all 100 counts</em> by asking the question: is the array <code>z</code> equal to 17, like this:</p>
@@ -1314,7 +1318,7 @@ Note
 <pre><code>np.float64(0.15)</code></pre>
 </div>
 </div>
-<p>From this experiment, we see that there is roughly a one-in-six chance that all 17 patients are cured when using a 90% effective treatment.</p>
+<p>From this experiment, we see that there is roughly a 15% chance that all 17 patients are cured when using a 90% effective treatment.</p>
 <!---
 End of notebook.
 -->
@@ -1340,7 +1344,7 @@ End of notebook: Simulating lymphoma trials
 <p>We started with a question about the results of the NCI trial on the new drug. The question was — was the result of their trial — 17 out of 17 patients cured — surprising.</p>
 <p>Then, for reasons we did not explain in detail, we changed tack, and asked the same question about a hypothetical set of 17 patients getting the <em>standard</em> treatment in Saint Hypothetical General.</p>
 <p>That Hypothetical question turns out to be fairly easy to answer, because we can use simulation to estimate the chances that 17 out of 17 patients would be cured in such a hypothetical trial, on the assumption that each patient has a 90% chance of being cured with the standard treatment.</p>
-<p>The answer for Saint Hypothetical General was — we would be somewhat surprised, but not astonished. We only get 17 out of 17 patients cured about one time in six.</p>
+<p>The answer for Saint Hypothetical General was — we would be somewhat surprised, but not astonished. We only get 17 out of 17 patients cured about one time in six (around 15% of the time).</p>
 <p>Now let us return to the NCI trial. Should the trial authors be surprised by their results? If they assumed that their new treatment was <em>exactly as effective</em> as the standard treatment, the result of the trial is a bit unusual, just by chance. It is up to us to decide whether the result is unusual enough to make us think that the actual NCI treatment might in fact have been <em>more effective</em> than the standard treatment.</p>
 <p>You will see this move again and again as we go through the book.</p>
 <ul>
