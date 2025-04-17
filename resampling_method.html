@@ -1628,7 +1628,7 @@ Note&nbsp;2.2: Comments in code
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python will completely ignore this text.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Because Python ignores lines beginning with <code>#</code>, the text after the <code>#</code> is just for us, the humans reading the code. The person writing the code will often use comments to explain what the code is doing. :::</p>
+<p>Because Python ignores lines beginning with <code>#</code>, the text after the <code>#</code> is just for us, the humans reading the code. The person writing the code will often use comments to explain what the code is doing.</p>
 </div>
 </div>
 <p>Our next task is to use Python to simulate a single day of ambulances. We will again represent each ambulance by a random number from 0 through 9. 16 of these numbers represents a simulation of all 16 ambulances available to the contractor. We call a simulation of all ambulances for a specific day — one <em>trial</em>.</p>
@@ -1678,13 +1678,13 @@ Note&nbsp;2.2: Comments in code
 </div>
 </div>
 <div class="python">
-<div class="callout callout-style-default callout-note callout-titled">
+<div id="nte-numpy-scalar-display" class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Numpy display of single values
+Note&nbsp;2.3: Numpy display of single values
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1696,13 +1696,13 @@ Numpy display of single values
 <pre><code>np.int64(2)</code></pre>
 </div>
 </div>
-<p>It is not important for our purposes, but in fact this value (the result of the sum) came back from the Numpy library, because <code>np.sum</code> comes from Numpy. Numpy has a particular way of displaying single values that show us the value (in this case <code>1</code>) and the <em>type</em> of the value (in this case <code>np.int64</code>. The type of the value isn’t important to us at the moment, but <code>np.int64</code> means that this is a value of type <em>integer</em> (an integer is a positive or negative whole number), and taking up 64 <em>bits</em> of the computer’s memory.</p>
+<p>It is not important for our purposes, but in fact this value (the result of the sum) came back from the Numpy library, because <code>np.sum</code> is a routine from Numpy. Numpy has a particular way of displaying single values that show us the value (in this case <code>1</code>) and the <em>type</em> of the value (in this case <code>np.int64</code>). The type of the value does not matter to us at the moment, but <code>np.int64</code> means that this is a value of type <em>integer</em> (<code>int</code>) that uses <code>64</code> units (<a href="https://en.wikipedia.org/wiki/Bit">bits</a>) of computer memory. An <em>integer</em> is a positive or negative whole number - see <a href="resampling_with_code.html#nte-what-is-integer" class="quarto-xref">Note&nbsp;<span>5.2</span></a>.</p>
 <p>You will see many other Numpy values displayed in this form. For example, this is how Numpy displays a <em>floating point</em> value (a value that need not be a whole number):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide b by 2 and show the result.</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide b by 4 and show the result.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">/</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(1.0)</code></pre>
+<pre><code>np.float64(0.5)</code></pre>
 </div>
 </div>
 </div>
