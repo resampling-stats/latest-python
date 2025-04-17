@@ -415,12 +415,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#randomness-from-physical-methods" id="toc-randomness-from-physical-methods" class="nav-link" data-scroll-target="#randomness-from-physical-methods"><span class="header-section-number">2.1.1</span> Randomness from physical methods</a></li>
   </ul></li>
   <li><a href="#sec-randomness-computer" id="toc-sec-randomness-computer" class="nav-link" data-scroll-target="#sec-randomness-computer"><span class="header-section-number">2.2</span> Randomness from your computer</a></li>
-  <li><a href="#solving-the-problem-using" id="toc-solving-the-problem-using" class="nav-link" data-scroll-target="#solving-the-problem-using"><span class="header-section-number">2.3</span> Solving the problem using Python</a>
-  <ul class="collapse">
-  <li><a href="#repeating-trials" id="toc-repeating-trials" class="nav-link" data-scroll-target="#repeating-trials">2.3.1 Repeating trials</a></li>
-  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution">2.3.2 The solution</a></li>
-  </ul></li>
-  <li><a href="#sec-resamp-differs" id="toc-sec-resamp-differs" class="nav-link" data-scroll-target="#sec-resamp-differs"><span class="header-section-number">2.4</span> How resampling differs from the conventional approach</a></li>
+  <li><a href="#solving-the-problem-using" id="toc-solving-the-problem-using" class="nav-link" data-scroll-target="#solving-the-problem-using"><span class="header-section-number">2.3</span> Solving the problem using Python</a></li>
+  <li><a href="#sec-resamp-differs" id="toc-sec-resamp-differs" class="nav-link" data-scroll-target="#sec-resamp-differs">2.4 How resampling differs from the conventional approach</a></li>
   </ul>
 </nav>
     </div>
@@ -1678,17 +1674,17 @@ Note&nbsp;2.2: Comments in code
 </div>
 </div>
 <div class="python">
-<div id="nte-numpy-scalar-display" class="callout callout-style-default callout-note callout-titled">
+<div id="nte-numpy-int-display" class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;2.3: Numpy display of single values
+Note&nbsp;2.3: Numpy shows the value and type of single numbers
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>As you see above, Python showed us the value of the sum like this:</p>
+<p>Notice the output from this cell:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1696,21 +1692,12 @@ Note&nbsp;2.3: Numpy display of single values
 <pre><code>np.int64(2)</code></pre>
 </div>
 </div>
-<p>It is not important for our purposes, but in fact this value (the result of the sum) came back from the Numpy library, because <code>np.sum</code> is a routine from Numpy. Numpy has a particular way of displaying single values that show us the value (in this case <code>1</code>) and the <em>type</em> of the value (in this case <code>np.int64</code>). The type of the value does not matter to us at the moment, but <code>np.int64</code> means that this is a value of type <em>integer</em> (<code>int</code>) that uses <code>64</code> units (<a href="https://en.wikipedia.org/wiki/Bit">bits</a>) of computer memory. An <em>integer</em> is a positive or negative whole number - see <a href="resampling_with_code.html#nte-what-is-integer" class="quarto-xref">Note&nbsp;<span>5.2</span></a>.</p>
-<p>You will see many other Numpy values displayed in this form. For example, this is how Numpy displays a <em>floating point</em> value (a value that need not be a whole number):</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide b by 4 and show the result.</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">/</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>np.float64(0.5)</code></pre>
-</div>
-</div>
-</div>
+<p>It is not important for our purposes, but this value (the result of the sum) arose from a calculation from a Numpy library routine: <code>np.sum</code>. Numpy has a particular way of displaying single values that show us the value (in this case <code>1</code>) and the <em>type</em> of the value (in this case <code>np.int64</code>). The type of the value does not matter to us at the moment, but <code>np.int64</code> means that this is a value of type <em>integer</em> (<code>int</code>) that uses <code>64</code> units (<a href="https://en.wikipedia.org/wiki/Bit">bits</a>) of computer memory. An <em>integer</em> is a positive or negative whole number - see <a href="resampling_with_code.html#nte-what-is-integer" class="quarto-xref">Note&nbsp;<span>5.2</span></a>.</p>
 </div>
 </div>
 <p>You see that we have code like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">sum</span>(a <span class="op">==</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">sum</span>(a <span class="op">==</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(2)</code></pre>
 </div>
@@ -1725,11 +1712,11 @@ Note&nbsp;2.3: Numpy display of single values
 <p>Of course Python is very good at repeating things, but the instructions to tell Python to repeat things will take a little while to get used to. Soon, we will spend some time going over it in more detail. For now though, we show you how what it looks like, and ask you to take our word for it.</p>
 <p>The standard way to repeat steps in Python is a <code>for</code> loop. For example, let us say we wanted to display (<code>print</code>) “Hello” five times. Here is how we would do that with a <code>for</code> loop:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the next line as "repeat the following steps five times".</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">5</span>):</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The indented stuff is the code we repeat five times.</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print "Hello" to the screen.</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the next line as "repeat the following steps five times".</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">5</span>):</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The indented stuff is the code we repeat five times.</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print "Hello" to the screen.</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello
 Hello
@@ -1742,10 +1729,10 @@ Hello</code></pre>
 <p>Our next job is to <em>store</em> the results of each trial. If we are going to run 1000 trials, we need to store 1000 results.</p>
 <p>To do this, we start with a sequence of 1000 zeros, that we will fill in later, like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ask Numpy to make a sequence of 1000 zeros that we will use</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to store the results of our 1000 trials.</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call this sequence "z"</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ask Numpy to make a sequence of 1000 zeros that we will use</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to store the results of our 1000 trials.</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call this sequence "z"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For now, <code>z</code> contains 1000 zeros, but we will soon use a <code>for</code> loop to execute 1000 trials. For each trial we will calculate our result (the number of broken-down ambulances), and we will store the result in the <code>z</code> store. We end up with 1000 trial results stored in <code>z</code>.</p>
 <p>With these parts, we are now ready to solve the ambulance problem, using Python.</p>
@@ -1756,46 +1743,46 @@ Hello</code></pre>
 <p>To solve resampling problems, we typically proceed as we have done above. We figure out the structure of a single trial and then place that trial in a <code>for</code> loop that executes it multiple times (once for each day, in our case).</p>
 <p>Now, let us apply this procedure to our ambulance problem. We simulate 1000 days. You will see that we have just taken the parts above, and put them together. The only new part here, is the step at the end, where we store the result of the trial. Bear with us for that; we will come to it soon.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ask Numpy to make a sequence of 1000 zeros that we will use</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to store the results of our 1000 trials.</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call this sequence "z"</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">1000</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># These are the numbers we will ask Numpy to select from.</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the next line as "repeat the following steps 1000 times".</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">1000</span>):</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The indented stuff is the code we repeat 1000 times.</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get 16 (size=16) values from the *numbers* list.</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the 16 numbers with the name "a"</span></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> rnd.choice(numbers, size<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the number of nines in the random numbers.</span></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The "a == 9" part identifies all the numbers equal to 9.</span></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The "sum" part counts how many numbers "a == 9" found.</span></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">==</span> <span class="dv">9</span>)</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the result from this trial in the sequence "z"</span></span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    z[i] <span class="op">=</span> b</span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Now go back and repeat the trial, until done.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ask Numpy to make a sequence of 1000 zeros that we will use</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to store the results of our 1000 trials.</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call this sequence "z"</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">1000</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># These are the numbers we will ask Numpy to select from.</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the next line as "repeat the following steps 1000 times".</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">1000</span>):</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The indented stuff is the code we repeat 1000 times.</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get 16 (size=16) values from the *numbers* list.</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the 16 numbers with the name "a"</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> rnd.choice(numbers, size<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the number of nines in the random numbers.</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The "a == 9" part identifies all the numbers equal to 9.</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The "sum" part counts how many numbers "a == 9" found.</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">==</span> <span class="dv">9</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the result from this trial in the sequence "z"</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    z[i] <span class="op">=</span> b</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Now go back and repeat the trial, until done.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>z[i] = b</code> statement that follows the <code>sum</code> <em>counting</em> operation simply keeps track of the results of each trial, placing the number of defective ambulances for each trial inside the sequence called <code>z</code>. The sequence has 1000 positions: one for each trial.</p>
 <p>When we have run the code above, we have stored 1000 trial results in the sequence <code>z</code>. These are 1000 counts of out-of-order ambulances, one for each of our simulated days. Our last task is to calculate the proportion of these days for which we had more than three broken-down ambulances.</p>
 <p>Since our aim is to count the number of days in which three or more defective ambulances occur, we use another <em>counting</em> <code>sum</code> command at the end of the 1000 trials. This command <em>counts</em> how many times three or more defects occurred in the 1000 days recorded in our <code>z</code> sequence, and we place the result in another location, <code>k</code>. The value of <code>k</code> gives us the total number of days where 3 or more defective ambulances are seen to occur. Then we divide the number in <code>k</code> by 1000, the number of trials. Thus we obtain an estimate of the chance, expressed as a probability between 0 and 1, that 3 or more ambulances will be defective on a given day. And we store that result in a location that we call <code>kk</code>, which Python subsequently prints to the screen.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How many trials resulted in 3 or more ambulances being out of order?</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (The test counts the number of days where the out-of-order count was greater</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># than or equal to 3, written as "&gt;= 3").</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> np.<span class="bu">sum</span>(z <span class="op">&gt;=</span> <span class="dv">3</span>)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to a proportion.</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>kk <span class="op">=</span> k <span class="op">/</span> <span class="dv">1000</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result.</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How many trials resulted in 3 or more ambulances being out of order?</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (The test counts the number of days where the out-of-order count was greater</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># than or equal to 3, written as "&gt;= 3").</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> np.<span class="bu">sum</span>(z <span class="op">&gt;=</span> <span class="dv">3</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to a proportion.</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>kk <span class="op">=</span> k <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result.</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.215</code></pre>
 </div>
@@ -1803,39 +1790,25 @@ Hello</code></pre>
 <p>This is the estimate we wanted; the proportion of days where three or more ambulances were out of action.</p>
 <p>We have crept up on the solution, so it might not be clear to you how few steps you needed to do this task. Here is the whole solution to the problem, without the comments:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">1000</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">1000</span>):</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> rnd.choice(numbers, size<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">==</span> <span class="dv">9</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    z[i] <span class="op">=</span> b</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> np.<span class="bu">sum</span>(z <span class="op">&gt;=</span> <span class="dv">3</span>)</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>kk <span class="op">=</span> k <span class="op">/</span> <span class="dv">1000</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">1000</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">1000</span>):</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> rnd.choice(numbers, size<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.<span class="bu">sum</span>(a <span class="op">==</span> <span class="dv">9</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    z[i] <span class="op">=</span> b</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> np.<span class="bu">sum</span>(z <span class="op">&gt;=</span> <span class="dv">3</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>kk <span class="op">=</span> k <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.215</code></pre>
 </div>
 </div>
-<div class="nb-end">
-
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-End of notebook: Ambulances
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>ambulances</code> starts at <a href="#nte-ambulances" class="quarto-xref">Note&nbsp;<span>2.1</span></a>.</p>
-</div>
+</section>
 </div>
 <!---
 End of ambulances notebook.
@@ -1858,9 +1831,8 @@ Randomness in estimates
 <p>Don’t worry about the detail of how each of these commands works — we will cover those details gradually, over the next few chapters. But, we hope that you can see, in principle, how each of the operations that the computer carries out are analogous to the operations that you yourself executed when you solved this problem using the ten-sided dice. This is exactly the procedure that we will use to solve every problem in probability and statistics that we must deal with.</p>
 <p>While writing programs like these take a bit of getting used to, it is vastly simpler than the older, more conventional approaches to such problems routinely taught to students.</p>
 </section>
-</section>
 <section id="sec-resamp-differs" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="sec-resamp-differs"><span class="header-section-number">2.4</span> How resampling differs from the conventional approach</h2>
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-resamp-differs">2.4 How resampling differs from the conventional approach</h2>
 <p>In the standard approach the student learns to choose and solve a formula. Doing the algebra and arithmetic is quick and easy. The difficulty is in choosing the correct formula. Unless you are a professional statistician, it may take you quite a while to arrive at the correct formula — considerable hard thinking, and perhaps some digging in textbooks. More important than the labor, however, is that you may come up with the wrong formula, and hence obtain the wrong answer. And how would you know if you were wrong?</p>
 <p>Most students who have had a standard course in probability and statistics are quick to tell you that it is not easy to find the correct formula, even immediately after finishing a course (or several courses) on the subject. After leaving school or university, it is harder still to choose the right formula. Even many people who have taught statistics at the university level (including this writer) must look at a book to get the correct formula for a problem as simple as the ambulances, and then we are often still not sure we have the right answer. This is the grave disadvantage of the standard approach.</p>
 <p>In the past few decades, resampling and other Monte Carlo simulation methods have come to be used extensively in scientific research. But in contrast to the material in this book, simulation has mostly been used in situations so complex that mathematical methods have not yet been developed to handle them. Here are examples of such situations:</p>
@@ -1887,6 +1859,22 @@ This might be "Percentage baseball" (1966) or "Percentage baseball and the compu
 <p>We hope you will find, as you read through the chapters, that the resampling way of thinking is a good way to think about the more traditional statistical methods that some of you may already know. Our approach will be to use resampling to understand the ideas, and then apply this understanding to reason about traditional methods. You may also find that the resampling methods are not only easier to understand — they are often more useful, because they are so general in their application.</p>
 
 
+<div class="nb-end">
+
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+End of notebook: Ambulances
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>ambulances</code> starts at <a href="#nte-ambulances" class="quarto-xref">Note&nbsp;<span>2.1</span></a>.</p>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

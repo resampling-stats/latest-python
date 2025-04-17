@@ -521,6 +521,21 @@ Note&nbsp;7.1: Notebook: Sampling tools
 <pre><code>np.False_</code></pre>
 </div>
 </div>
+<div class="python">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Numpy display of single Boolean values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You saw in <a href="resampling_method.html#nte-numpy-int-display" class="quarto-xref">Note&nbsp;<span>2.3</span></a> and <a href="resampling_with_code.html#nte-numpy-float-display" class="quarto-xref">Note&nbsp;<span>5.3</span></a> that Numpy has a particular way of displaying single values. <a href="resampling_method.html#nte-numpy-int-display" class="quarto-xref">Note&nbsp;<span>2.3</span></a> was about display of <em>integer</em> (<code>int</code>) values, and <a href="resampling_with_code.html#nte-numpy-float-display" class="quarto-xref">Note&nbsp;<span>5.3</span></a> was about display of <em>floating point</em> (<code>float</code>) values. The display above is Numpy’s version of the Boolean value <code>False</code>. As you’d expect, Numpy shows the single value <code>True</code> as <code>np.True_</code>.</p>
+</div>
+</div>
+</div>
 <p>This all works as we want it to, but it’s just a little bit difficult to remember the coding (less than 26 means “black”, greater than 25 means “white”). We had to use that coding because we committed ourselves to using random numbers to simulate the outcomes.</p>
 <p>However, Python can also store bits of text, called <em>strings</em>. Values that are bits of text can be very useful because the text values can be memorable labels for the entities we are sampling from, in our simulations.</p>
 <p>Before we get to strings, let us consider the different types of value we have seen so far.</p>
@@ -791,6 +806,22 @@ Take care with Numpy string arrays
 <pre><code>np.str_('Lincoln')</code></pre>
 </div>
 </div>
+<div class="python">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Numpy display of single string-type values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>np.str_</code> in the output shows us that the result was a Numpy single value of <em>string</em> (<code>str_</code>) type.</p>
+</div>
+</div>
+</div>
+<p>Notice the output from this cell:</p>
 <p>As for numbers, we can compare strings with, for example, the <code>==</code> operator, that asks whether the two strings are equal:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>middle_name <span class="op">==</span> <span class="st">'Lincoln'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

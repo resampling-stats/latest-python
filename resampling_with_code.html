@@ -680,16 +680,16 @@ Note&nbsp;5.2: What is an integer?
 <li><strong>Arguments</strong>: the value or values we send to a function. These are the components in the production line analogy.</li>
 <li><strong>Return value</strong>: the values the function sends back. This is the finished result in the production line analogy.</li>
 </ul>
-<p>See <a href="#fig-round_function_pl" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> for an illustration of <code>np.round</code> as a production line.</p>
+<p>See <a href="#fig-round_function_pl_np" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> for an illustration of <code>np.round</code> as a production line.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-round_function_pl" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-round_function_pl_np" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-round_function_pl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="diagrams/round_function_pl.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+<div aria-describedby="fig-round_function_pl_np-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="diagrams/round_function_pl_np.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-round_function_pl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.2: The <code>round</code> function as a production line
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-round_function_pl_np-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: The <code>np.round</code> function as a production line
 </figcaption>
 </figure>
 </div>
@@ -703,6 +703,21 @@ Figure&nbsp;5.2: The <code>round</code> function as a production line
 <pre><code>np.float64(3.0)</code></pre>
 </div>
 </div>
+<div class="python">
+<div id="nte-numpy-float-display" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;5.3: Numpy display of floating point values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Way back in <a href="resampling_method.html#nte-numpy-int-display" class="quarto-xref">Note&nbsp;<span>2.3</span></a>, you saw that Numpy has a particular way of displaying single values that shows both the <em>value</em> (here 3.0) and the type of value (here <code>np.float64</code>). You previously saw examples of Numpy integer values of type <code>np.int64</code>. The value that comes back from <code>np.round(3.2)</code> is a <em>floating point</em> (<code>float</code>) type, taking up <code>64</code> units (<a href="https://en.wikipedia.org/wiki/Bit">bits</a>) of computer memory. A floating point value is a type of value that may have digits following the decimal point, such as 0.001, 5.93, or 6.0. Notice that 6.0 (and 3.0) can be written as floating point values, with 0 after the decimal point, as here, or as integers, with no decimal point, as in 6 (and 3). It just so happens that <code>np.round</code> returns the value as the floating point version of the number.</p>
+</div>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Put in -2.7, round sends back -3.</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(<span class="op">-</span><span class="fl">2.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -710,7 +725,7 @@ Figure&nbsp;5.2: The <code>round</code> function as a production line
 <pre><code>np.float64(-3.0)</code></pre>
 </div>
 </div>
-<p>Like many functions, <code>np.round</code> can take more than one argument (component). You can send <code>round</code> the number of digits you want to round to, after the number of you want it to work on, like this (see <a href="#fig-round_ndigits_pl" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>):</p>
+<p>Like many functions, <code>np.round</code> can take more than one argument (component). You can send <code>round</code> the number of digits you want to round to, after the number of you want it to work on, like this (see <a href="#fig-round_ndigits_pl_np" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Put in 3.1415, and the number of digits to round to (2).</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># round sends back 3.14</span></span>
@@ -721,12 +736,12 @@ Figure&nbsp;5.2: The <code>round</code> function as a production line
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-round_ndigits_pl" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-round_ndigits_pl_np" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-round_ndigits_pl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="diagrams/round_function_ndigits_pl.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+<div aria-describedby="fig-round_ndigits_pl_np-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="diagrams/round_function_ndigits_pl_np.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-round_ndigits_pl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-round_ndigits_pl_np-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5.3: <code>round</code> with optional arguments specifying number of digits
 </figcaption>
 </figure>
@@ -762,7 +777,7 @@ Figure&nbsp;5.3: <code>round</code> with optional arguments specifying number of
 <div id="fig-np_round_function_named" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-np_round_function_named-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="diagrams/np_round_function_named.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+<img src="diagrams/round_function_named_np.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-np_round_function_named-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5.4: The <code>np.round</code> function with argument names
@@ -997,7 +1012,7 @@ More on <code>rnd.choice</code>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;5.3: Functions and methods
+Note&nbsp;5.4: Functions and methods
 </div>
 </div>
 <div class="callout-body-container callout-body">
