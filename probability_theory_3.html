@@ -1578,7 +1578,9 @@ Figure&nbsp;12.2: Whiskey prices by state category
 <p>The probability that the postulated universe would produce a difference between groups as large or larger than observed in 1961 is estimated by how frequently the mean of the group of randomly-chosen sixteen prices from the simulated state-ownership universe is less than (or equal to) the mean of the actual sixteen state-ownership prices. The following notebook performs the operations described above.</p>
 <section id="sec-concatenate" class="level3" data-number="12.15.1">
 <h3 data-number="12.15.1" class="anchored" data-anchor-id="sec-concatenate"><span class="header-section-number">12.15.1</span> Concatenating arrays</h3>
-<p>Before we start the simulation, we need a little extra NumPy machinery.</p>
+<div class="python">
+<p>Before we start the simulation, we need a little extra Numpy machinery.</p>
+</div>
 <p>In what follows, we are going to make an array for the 26 <em>private</em> prices, and another array for the 16 <em>government</em> prices, and then concatenate these two arrays to make a new array with 26 + 16 = 42 elements, where the first 26 elements are the private prices and the last 16 elements are the government prices.</p>
 <p>You will see that in action below, but this is what that <em>concatenation</em> looks like in NumPy for some example arrays.</p>
 <div class="python">

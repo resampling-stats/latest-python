@@ -443,8 +443,7 @@ window.Quarto = {
   <li><a href="#sec-intro-to-strings" id="toc-sec-intro-to-strings" class="nav-link" data-scroll-target="#sec-intro-to-strings">7.4 String values</a></li>
   <li><a href="#strings-in-s" id="toc-strings-in-s" class="nav-link" data-scroll-target="#strings-in-s">7.5 Strings in arrays</a></li>
   <li><a href="#sec-repeating" id="toc-sec-repeating" class="nav-link" data-scroll-target="#sec-repeating">7.6 Repeating elements</a></li>
-  <li><a href="#resampling-with-and-without-replacement" id="toc-resampling-with-and-without-replacement" class="nav-link" data-scroll-target="#resampling-with-and-without-replacement">7.7 Resampling with and without replacement</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">7.8</span> Conclusion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">7.8 Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -836,22 +835,66 @@ Numpy display of single string-type values
 <p>We started with the strategy of using numbers 0 through 25 to mean “black” jurors, and 26 through 99 to mean “white” jurors. We selected values at random from 0 through 99, and then worked out whether the number meant a “black” juror (was less than 26) or a “white” juror (was greater than 25).</p>
 <p>It would be good to use strings instead of numbers to identify the potential jurors. Then we would not have to remember our coding of 0 through 25 and 26 through 99.</p>
 <p>If only there was a way to make an array of 100 strings, where 26 of the strings were “black” and 74 were “white”. Then we could select randomly from that array, and it would be immediately obvious that we had a “black” or “white” juror.</p>
-<p>Luckily, of course, we can do that, by using the <code>np.repeat</code> function to construct the array.</p>
-<p>Here is how that works:</p>
+<p>Luckily we can do that, by using the <code>np.repeat</code> function to construct the array.</p>
+<div class="python">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>np.repeat</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>np.repeat</code> is a useful Numpy function that makes a new output array by repeating elements from the input arrays.</p>
+<p>More specifically, <code>np.repeat</code> accepts two arguments (inputs), and sends back an array as output. The first input is an array or list or some other sequence for which you want to repeat elements. The second input tells <code>np.repeat</code> how many repeats to do, for each element.</p>
+<p>This is most easy to see by examples.</p>
+<p>Here we repeat all three elements in the first sequence (in this case a list) by a count (number) given in the second argument.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The values that we will repeat to fill up the larger array.</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a list to store the sequence of values.</span></span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>juror_types <span class="op">=</span> [<span class="st">'black'</span>, <span class="st">'white'</span>]</span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The number of times we want to repeat "black" and "white".</span></span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a list to store the sequence of values.</span></span>
-<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>repeat_nos <span class="op">=</span> [<span class="dv">26</span>, <span class="dv">74</span>]</span>
-<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat "black" 26 times and "white" 74 times.</span></span>
-<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We have passed two lists here, but we could also have passed</span></span>
-<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="co"># arrays - the Numpy repeat function converts the lists to arrays</span></span>
-<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a><span class="co"># before it builds the repeats.</span></span>
-<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>jury_pool <span class="op">=</span> np.repeat(juror_types, repeat_nos)</span>
-<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
-<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>jury_pool</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat each element in the first list (or array) 4 times.</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>to_repeat <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]  <span class="co"># First input argument.</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>n_repeats <span class="op">=</span> <span class="dv">4</span>  <span class="co"># Second input argument.</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>np.repeat(to_repeat, n_repeats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3])</code></pre>
+</div>
+</div>
+<p>Of course we could also write this without the variables:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat each element in the first list (or array) 4 times.</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>np.repeat([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3])</code></pre>
+</div>
+</div>
+<p>The second argument (number of repeats) can also be a sequence, such as an array or list, with one element for each element of the first array. In that case, it gives the number of repeats for each element. We will use string elements for this example.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat the first element 3 times, the second 2 times, and the third 4 times.</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Second input is number of repeats for each element of the first argument.</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>np.repeat([<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>], [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array(['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three',
+       'three'], dtype='&lt;U5')</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Here we use <code>np.repeat</code> to make up our simulated jury pool.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The values that we will repeat to fill up the larger array.</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a list to store the sequence of values.</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>juror_types <span class="op">=</span> [<span class="st">'black'</span>, <span class="st">'white'</span>]</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The number of times we want to repeat "black" and "white".</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a list to store the sequence of values.</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>repeat_nos <span class="op">=</span> [<span class="dv">26</span>, <span class="dv">74</span>]</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat "black" 26 times and "white" 74 times.</span></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We have passed two lists here, but we could also have passed</span></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co"># arrays - the Numpy repeat function converts the lists to arrays</span></span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a><span class="co"># before it builds the repeats.</span></span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>jury_pool <span class="op">=</span> np.repeat(juror_types, repeat_nos)</span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a>jury_pool</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array(['black', 'black', 'black', 'black', 'black', 'black', 'black',
        'black', 'black', 'black', 'black', 'black', 'black', 'black',
@@ -872,18 +915,18 @@ Numpy display of single string-type values
 </div>
 <p>We can use this array of repeats of strings, to sample from. The result is easier to grasp, because we are using the string labels, instead of numbers:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one juror at random from the black / white pool.</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>one_juror <span class="op">=</span> rnd.choice(jury_pool)</span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>one_juror</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one juror at random from the black / white pool.</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>one_juror <span class="op">=</span> rnd.choice(jury_pool)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>one_juror</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.str_('white')</code></pre>
 </div>
 </div>
 <p>We can select our full jury of 12 jurors, and see the results in a more obvious form:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select 12 jurors at random from the black / white pool.</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>one_jury <span class="op">=</span> rnd.choice(jury_pool, <span class="dv">12</span>)</span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>one_jury</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select 12 jurors at random from the black / white pool.</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>one_jury <span class="op">=</span> rnd.choice(jury_pool, <span class="dv">12</span>)</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>one_jury</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array(['white', 'white', 'white', 'white', 'black', 'white', 'black',
        'white', 'white', 'black', 'black', 'white'], dtype='&lt;U5')</code></pre>
@@ -901,10 +944,10 @@ Using the <code>size</code> argument to <code>rnd.choice</code>
 <div class="callout-body-container callout-body">
 <p>In the code above, we have specified the <em>size</em> of the sample we want (12) with the second argument to <code>rnd.choice</code>. As you saw in <a href="resampling_with_code.html#sec-named-arguments" class="quarto-xref"><span>Section 5.8</span></a>, we can also give names to the function arguments, in this case, to make it clearer what we mean by “12” in the code above. In fact, from now on, that is what we will do; we will specify the <em>size</em> of our sample by using the <em>name</em> for the function argument to <code>rnd.choice</code> — <code>size</code> — like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select 12 jurors at random from the black / white pool.</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the sample size using the "size" named argument.</span></span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>one_jury <span class="op">=</span> rnd.choice(jury_pool, size<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>one_jury</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select 12 jurors at random from the black / white pool.</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the sample size using the "size" named argument.</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>one_jury <span class="op">=</span> rnd.choice(jury_pool, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>one_jury</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array(['black', 'white', 'white', 'white', 'black', 'white', 'black',
        'white', 'white', 'white', 'white', 'white'], dtype='&lt;U5')</code></pre>
@@ -914,8 +957,8 @@ Using the <code>size</code> argument to <code>rnd.choice</code>
 </div>
 <p>We can use <code>==</code> on the array to get <code>True</code> values where the juror was “black” and <code>False</code> values otherwise:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>are_black <span class="op">=</span> one_jury <span class="op">==</span> <span class="st">'black'</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>are_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>are_black <span class="op">=</span> one_jury <span class="op">==</span> <span class="st">'black'</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>are_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([ True, False, False, False,  True, False,  True, False, False,
        False, False, False])</code></pre>
@@ -923,33 +966,32 @@ Using the <code>size</code> argument to <code>rnd.choice</code>
 </div>
 <p>Finally, we can <code>np.sum</code> to find the number of black jurors (<a href="resampling_with_code.html#sec-count-with-sum" class="quarto-xref"><span>Section 5.15</span></a>):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of black jurors in this simulated jury.</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>n_black <span class="op">=</span> np.<span class="bu">sum</span>(are_black)</span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>n_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of black jurors in this simulated jury.</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>n_black <span class="op">=</span> np.<span class="bu">sum</span>(are_black)</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>n_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(3)</code></pre>
 </div>
 </div>
 <p>Putting that all together, this is our new procedure to select one jury and count the number of black jurors:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>one_jury <span class="op">=</span> rnd.choice(jury_pool, size<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>are_black <span class="op">=</span> one_jury <span class="op">==</span> <span class="st">'black'</span></span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>n_black <span class="op">=</span> np.<span class="bu">sum</span>(are_black)</span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>n_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>one_jury <span class="op">=</span> rnd.choice(jury_pool, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>are_black <span class="op">=</span> one_jury <span class="op">==</span> <span class="st">'black'</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>n_black <span class="op">=</span> np.<span class="bu">sum</span>(are_black)</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>n_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(3)</code></pre>
 </div>
 </div>
 <p>Or we can be even more compact by putting several statements together into one line:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The same as above, but on one line.</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>n_black <span class="op">=</span> np.<span class="bu">sum</span>(rnd.choice(jury_pool, size<span class="op">=</span><span class="dv">12</span>) <span class="op">==</span> <span class="st">'black'</span>)</span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>n_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The same as above, but on one line.</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>n_black <span class="op">=</span> np.<span class="bu">sum</span>(rnd.choice(jury_pool, size<span class="op">=</span><span class="dv">12</span>) <span class="op">==</span> <span class="st">'black'</span>)</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>n_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(1)</code></pre>
 </div>
 </div>
-</section>
 <section id="resampling-with-and-without-replacement" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="resampling-with-and-without-replacement">7.7 Resampling with and without replacement</h2>
 <p>Now let us return to the details of Robert Swain’s case, that you first saw in <a href="resampling_with_code2.html" class="quarto-xref"><span>Chapter 6</span></a>.</p>
@@ -959,12 +1001,12 @@ Using the <code>size</code> argument to <code>rnd.choice</code>
 <p>Let’s think about what a single simulated jury selection would look like.</p>
 <p>First we compile a representation of the actual jury panel, using the tools we have used above.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>juror_types <span class="op">=</span> [<span class="st">'black'</span>, <span class="st">'white'</span>]</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in fact there were 8 black jurors and 92 white jurors.</span></span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>panel_nos <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">92</span>]</span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>jury_panel <span class="op">=</span> np.repeat(juror_types, panel_nos)</span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>jury_panel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>juror_types <span class="op">=</span> [<span class="st">'black'</span>, <span class="st">'white'</span>]</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in fact there were 8 black jurors and 92 white jurors.</span></span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>panel_nos <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">92</span>]</span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>jury_panel <span class="op">=</span> np.repeat(juror_types, panel_nos)</span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a>jury_panel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array(['black', 'black', 'black', 'black', 'black', 'black', 'black',
        'black', 'white', 'white', 'white', 'white', 'white', 'white',
@@ -989,10 +1031,10 @@ Using the <code>size</code> argument to <code>rnd.choice</code>
 <p>As you can see, the chances change if you are sampling with or without replacement, and the kind of sampling you do, will dictate how you model your chances in your simulations.</p>
 <p>Because this distinction is so common, and so important, the machinery you have already seen in <code>rnd.choice</code> has simple ways for you to select your sampling type. You have already seen sampling <em>with replacement</em>, and it looks like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a sample of 12 jurors from the panel *with replacement*</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co"># With replacement is the default for `rnd.choice`.</span></span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>strange_jury <span class="op">=</span> rnd.choice(jury_panel, size<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>strange_jury</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a sample of 12 jurors from the panel *with replacement*</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="co"># With replacement is the default for `rnd.choice`.</span></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>strange_jury <span class="op">=</span> rnd.choice(jury_panel, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>strange_jury</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array(['white', 'white', 'white', 'black', 'white', 'white', 'white',
        'white', 'white', 'white', 'white', 'white'], dtype='&lt;U5')</code></pre>
@@ -1000,9 +1042,9 @@ Using the <code>size</code> argument to <code>rnd.choice</code>
 </div>
 <p>This is a strange jury, because it can select any member of the jury pool more than once. Perhaps that juror would have to fill two (or more!) seats, or run quickly between them. But of course, that is not how juries are selected. They are selected <em>without replacement</em>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a sample of 12 jurors from the panel *without replacement*</span></span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>ok_jury <span class="op">=</span> rnd.choice(jury_panel, <span class="dv">12</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>ok_jury</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a sample of 12 jurors from the panel *without replacement*</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>ok_jury <span class="op">=</span> rnd.choice(jury_panel, <span class="dv">12</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>ok_jury</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array(['white', 'white', 'white', 'white', 'black', 'white', 'white',
        'white', 'white', 'white', 'white', 'white'], dtype='&lt;U5')</code></pre>
@@ -1020,11 +1062,11 @@ Note&nbsp;7.2: Comments at the end of lines
 <div class="callout-body-container callout-body">
 <p>You have already seen comment lines. These are lines beginning with <code>#</code>, to signal to Python that the rest of the line is text for humans to read, but Python to ignore.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment.  Python ignores this line.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment.  Python ignores this line.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also put comments at the <em>end of code lines</em>, by finishing the code part of the line, and then putting a <code>#</code>, followed by more text. Again, Python will ignore everything after the <code>#</code> as a text for humans, but not for Python.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello'</span>)  <span class="co"># This is a comment at the end of the line.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello'</span>)  <span class="co"># This is a comment at the end of the line.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello</code></pre>
 </div>
@@ -1033,27 +1075,27 @@ Note&nbsp;7.2: Comments at the end of lines
 </div>
 <p>To finish the procedure for simulating a single jury selection, we count the number of black jurors:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>n_black <span class="op">=</span> np.<span class="bu">sum</span>(ok_jury <span class="op">==</span> <span class="st">'black'</span>)  <span class="co"># How many black jurors?</span></span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>n_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>n_black <span class="op">=</span> np.<span class="bu">sum</span>(ok_jury <span class="op">==</span> <span class="st">'black'</span>)  <span class="co"># How many black jurors?</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>n_black</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(1)</code></pre>
 </div>
 </div>
 <p>Now we have the procedure for one simulated trial, here is the procedure for 10000 simulated trials.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> np.zeros(<span class="dv">10000</span>)</span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">10000</span>):</span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Single trial procedure</span></span>
-<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>    jury <span class="op">=</span> rnd.choice(jury_panel, size<span class="op">=</span><span class="dv">12</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>    n_black <span class="op">=</span> np.<span class="bu">sum</span>(jury <span class="op">==</span> <span class="st">'black'</span>)  <span class="co"># How many black jurors?</span></span>
-<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the result</span></span>
-<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>    counts[i] <span class="op">=</span> n_black</span>
-<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-9"><a href="#cb87-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of juries with 0 black jurors.</span></span>
-<span id="cb87-10"><a href="#cb87-10" aria-hidden="true" tabindex="-1"></a>zero_black <span class="op">=</span> np.<span class="bu">sum</span>(counts <span class="op">==</span> <span class="dv">0</span>)</span>
-<span id="cb87-11"><a href="#cb87-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion</span></span>
-<span id="cb87-12"><a href="#cb87-12" aria-hidden="true" tabindex="-1"></a>p_zero_black <span class="op">=</span> zero_black <span class="op">/</span> <span class="dv">10000</span></span>
-<span id="cb87-13"><a href="#cb87-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_zero_black)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> np.zeros(<span class="dv">10000</span>)</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">10000</span>):</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Single trial procedure</span></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>    jury <span class="op">=</span> rnd.choice(jury_panel, size<span class="op">=</span><span class="dv">12</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>    n_black <span class="op">=</span> np.<span class="bu">sum</span>(jury <span class="op">==</span> <span class="st">'black'</span>)  <span class="co"># How many black jurors?</span></span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the result</span></span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a>    counts[i] <span class="op">=</span> n_black</span>
+<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-9"><a href="#cb93-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of juries with 0 black jurors.</span></span>
+<span id="cb93-10"><a href="#cb93-10" aria-hidden="true" tabindex="-1"></a>zero_black <span class="op">=</span> np.<span class="bu">sum</span>(counts <span class="op">==</span> <span class="dv">0</span>)</span>
+<span id="cb93-11"><a href="#cb93-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion</span></span>
+<span id="cb93-12"><a href="#cb93-12" aria-hidden="true" tabindex="-1"></a>p_zero_black <span class="op">=</span> zero_black <span class="op">/</span> <span class="dv">10000</span></span>
+<span id="cb93-13"><a href="#cb93-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_zero_black)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.3421</code></pre>
 </div>
@@ -1063,21 +1105,7 @@ Note&nbsp;7.2: Comments at the end of lines
 <!---
 End of notebook
 -->
-<div class="nb-end">
-
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-End of notebook: Sampling tools
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>sampling_tools</code> starts at <a href="#nte-sampling_tools" class="quarto-xref">Note&nbsp;<span>7.1</span></a>.</p>
-</div>
+</section>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1095,11 +1123,27 @@ With or without replacement for the original jury selection
 </div>
 </section>
 <section id="conclusion" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">7.8</span> Conclusion</h2>
-<p>This chapter introduced you to the idea of strings — values in Python that store bits of text. Strings are very useful as labels for the entities we are sampling from, when we do our simulations. Strings are particularly useful when we use them with arrays, and one way we often do that is to build up arrays of strings to sample from, using the <span class="python"><code>np.repeat</code></span> function.</p>
+<h2 data-number="7.8" class="anchored" data-anchor-id="conclusion">7.8 Conclusion</h2>
+<p>This chapter introduced you to the idea of strings — values in Python that store bits of text. Strings are very useful as labels for the entities we are sampling from, when we do our simulations. Strings are particularly useful when we use them with arrays, and one way we often do that is to build up arrays of strings to sample from, using the <code>np.repeat</code> function.</p>
 <p>There is a fundamental distinction between two different types of sampling — sampling <em>with replacement</em>, where we draw an element from a larger pool, then put that element back before drawing again, and sampling <em>without replacement</em>, where we remove the element from the remaining pool when we draw it into the sample. As we will see later, it is often a judgment call which of these two types of sampling is a more reasonable model of the world you are trying to simulate.</p>
 
 
+<div class="nb-end">
+
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+End of notebook: Sampling tools
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>sampling_tools</code> starts at <a href="#nte-sampling_tools" class="quarto-xref">Note&nbsp;<span>7.1</span></a>.</p>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
