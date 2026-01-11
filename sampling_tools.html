@@ -443,7 +443,8 @@ window.Quarto = {
   <li><a href="#sec-intro-to-strings" id="toc-sec-intro-to-strings" class="nav-link" data-scroll-target="#sec-intro-to-strings">7.4 String values</a></li>
   <li><a href="#strings-in-s" id="toc-strings-in-s" class="nav-link" data-scroll-target="#strings-in-s">7.5 Strings in arrays</a></li>
   <li><a href="#sec-repeating" id="toc-sec-repeating" class="nav-link" data-scroll-target="#sec-repeating">7.6 Repeating elements</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">7.8 Conclusion</a></li>
+  <li><a href="#resampling-with-and-without-replacement" id="toc-resampling-with-and-without-replacement" class="nav-link" data-scroll-target="#resampling-with-and-without-replacement">7.7 Resampling with and without replacement</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">7.8</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -880,6 +881,7 @@ Numpy display of single string-type values
 </div>
 </div>
 </div>
+</div>
 <p>Here we use <code>np.repeat</code> to make up our simulated jury pool.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The values that we will repeat to fill up the larger array.</span></span>
@@ -992,6 +994,7 @@ Using the <code>size</code> argument to <code>rnd.choice</code>
 <pre><code>np.int64(1)</code></pre>
 </div>
 </div>
+</section>
 <section id="resampling-with-and-without-replacement" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="resampling-with-and-without-replacement">7.7 Resampling with and without replacement</h2>
 <p>Now let us return to the details of Robert Swain’s case, that you first saw in <a href="resampling_with_code2.html" class="quarto-xref"><span>Chapter 6</span></a>.</p>
@@ -1105,7 +1108,21 @@ Note&nbsp;7.2: Comments at the end of lines
 <!---
 End of notebook
 -->
-</section>
+<div class="nb-end">
+
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+End of notebook: Sampling tools
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>sampling_tools</code> starts at <a href="#nte-sampling_tools" class="quarto-xref">Note&nbsp;<span>7.1</span></a>.</p>
+</div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1123,27 +1140,11 @@ With or without replacement for the original jury selection
 </div>
 </section>
 <section id="conclusion" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="conclusion">7.8 Conclusion</h2>
-<p>This chapter introduced you to the idea of strings — values in Python that store bits of text. Strings are very useful as labels for the entities we are sampling from, when we do our simulations. Strings are particularly useful when we use them with arrays, and one way we often do that is to build up arrays of strings to sample from, using the <code>np.repeat</code> function.</p>
+<h2 data-number="7.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">7.8</span> Conclusion</h2>
+<p>This chapter introduced you to the idea of strings — values in Python that store bits of text. Strings are very useful as labels for the entities we are sampling from, when we do our simulations. Strings are particularly useful when we use them with arrays, and one way we often do that is to build up arrays of strings to sample from, using the <span class="python"><code>np.repeat</code></span> function.</p>
 <p>There is a fundamental distinction between two different types of sampling — sampling <em>with replacement</em>, where we draw an element from a larger pool, then put that element back before drawing again, and sampling <em>without replacement</em>, where we remove the element from the remaining pool when we draw it into the sample. As we will see later, it is often a judgment call which of these two types of sampling is a more reasonable model of the world you are trying to simulate.</p>
 
 
-<div class="nb-end">
-
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-End of notebook: Sampling tools
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>sampling_tools</code> starts at <a href="#nte-sampling_tools" class="quarto-xref">Note&nbsp;<span>7.1</span></a>.</p>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
